@@ -37,6 +37,7 @@ async function getMastodonConfig(serverBaseUrl: string, callbackBaseUrl: string)
             profile: (data: any) => {
                 return {
                     id: data.id,
+                    name: data.username,
                 }
             }
         }],
@@ -47,7 +48,6 @@ async function getMastodonConfig(serverBaseUrl: string, callbackBaseUrl: string)
                 return token
             }
         },
-        // todo: read this from env
         secret: process.env.NEXTAUTH_SECRET,
     };
 

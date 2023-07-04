@@ -15,8 +15,6 @@ export default async function middleware(req: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  console.log(process.env.NEXTAUTH_SECRET);
-
   if (!session && path == "/protected") {
     return NextResponse.redirect(new URL("/login", req.url));
   } else if (session && (path === "/login" || path === "/register")) {

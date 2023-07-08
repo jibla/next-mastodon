@@ -1,13 +1,12 @@
-'use client'
+"use client";
 
-import { getProviders, signIn } from "next-auth/react"
+import { getProviders, signIn } from "next-auth/react";
 
 export default async function AuthPage() {
+  let providers = await getProviders();
 
-    let providers = await getProviders()
-
-    return (
-        <>
+  return (
+    <>
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
           <button onClick={() => signIn(provider.id)}>
@@ -16,5 +15,5 @@ export default async function AuthPage() {
         </div>
       ))}
     </>
-    )
+  );
 }

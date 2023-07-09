@@ -1,7 +1,4 @@
-import {
-  InMemoryStorage,
-  InMemoryStorageAdapter,
-} from "./adapters/InMemoryStorageAdapter";
+import { InMemoryStorageAdapter } from "./adapters/InMemoryStorageAdapter";
 import { LocalStorageAdapter } from "./adapters/LocalStorageAdapter";
 import { StoragePortInterface } from "./ports/StoragePortInterface";
 
@@ -15,8 +12,8 @@ export default class OAuthCredentialsStorageService {
 
     const env = process.env.NODE_ENV || "development";
     switch (env) {
-      //todo: add real storage
       case "production":
+        //todo: add real storage adapter
         this.storageInstance = new LocalStorageAdapter();
         break;
       case "development":

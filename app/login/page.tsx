@@ -6,19 +6,19 @@ import MastodonButton from "./mastodonButton";
 export default function LoginPage() {
   const [showNextAuth, setShowNextAuth] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [serverAddress, setServerAddress] = useState("");
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    let serverAddress = event.target["server-address"].value || "";
-    serverAddress = btoa(serverAddress);
-
     setLoading(true);
 
-    const res = await fetch("/api/validate-server/" + serverAddress);
+    const encryptedServerAddress = btoa(serverAddress);
+
+    const res = await fetch("/api/validate-server/" + encryptedServerAddress);
     if (res.status === 200) {
       //todo: set proper lifetime
-      document.cookie = "activeServer=" + serverAddress + "; path=/";
+      document.cookie = "activeServer=" + encryptedServerAddress + "; path=/";
       setShowNextAuth(true);
     }
 
@@ -47,6 +47,8 @@ export default function LoginPage() {
                 id="server-address"
                 type="text"
                 placeholder="Server Address"
+                value={serverAddress}
+                onChange={(e) => setServerAddress(e.target.value)}
               />
             </div>
             <div className="flex items-center justify-center">

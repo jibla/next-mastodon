@@ -1,5 +1,7 @@
+import { VercelKV } from "@vercel/kv";
 import { InMemoryStorageAdapter } from "./adapters/InMemoryStorageAdapter";
 import { LocalStorageAdapter } from "./adapters/LocalStorageAdapter";
+import { VercelKVAdapter } from "./adapters/VercelKVAdapter";
 import { StoragePortInterface } from "./ports/StoragePortInterface";
 
 export default class OAuthCredentialsStorageService {
@@ -14,13 +16,14 @@ export default class OAuthCredentialsStorageService {
 
     switch (env) {
       case "production":
-        //todo: add real storage adapter
-        this.storageInstance = new LocalStorageAdapter();
+        this.storageInstance = new VercelKVAdapter();
         break;
       case "development":
-        this.storageInstance = new LocalStorageAdapter();
+        this.storageInstance = new VercelKVAdapter();
+        break;
       case "test":
         this.storageInstance = new InMemoryStorageAdapter();
+        break;
       default:
         this.storageInstance = new InMemoryStorageAdapter();
     }

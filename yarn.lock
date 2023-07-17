@@ -2430,6 +2430,13 @@
     "@typescript-eslint/types" "5.62.0"
     eslint-visitor-keys "^3.3.0"
 
+"@upstash/redis@1.21.0":
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/@upstash/redis/-/redis-1.21.0.tgz#a1096f096800032d65b5d819aa2c60af3011b9e8"
+  integrity sha512-c6M+cl0LOgGK/7Gp6ooMkIZ1IDAJs8zFR+REPkoSkAq38o7CWFX5FYwYEqGZ6wJpUGBuEOr/7hTmippXGgL25A==
+  dependencies:
+    isomorphic-fetch "^3.0.0"
+
 "@vanilla-extract/babel-plugin-debug-ids@^1.0.2":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/babel-plugin-debug-ids/-/babel-plugin-debug-ids-1.0.3.tgz#ce07190343b51ed658b385bdce1e79952a4e8526"
@@ -2518,6 +2525,13 @@
   version "0.0.64"
   resolved "https://registry.yarnpkg.com/@vercel/hydrogen/-/hydrogen-0.0.64.tgz#94bf921e393dad723bb824e9e5301d1c37c74f35"
   integrity sha512-1rzFB664G6Yzp7j4ezW9hvVjqnaU2BhyUdhchbsxtRuxkMpGgPBZKhjzRQHFvlmkz37XLC658T5Nb1P91b4sBw==
+
+"@vercel/kv@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@vercel/kv/-/kv-0.2.2.tgz#4b01c2bfd0aad674598b4d89a38a9454fa945a15"
+  integrity sha512-mqnQOB6bkp4h5eObxfLNIlhlVqOGSH8cWOlC5pDVWTjX3zL8dETO1ZBl6M74HBmeBjbD5+J7wDJklRigY6UNKw==
+  dependencies:
+    "@upstash/redis" "1.21.0"
 
 "@vercel/next@3.8.8":
   version "3.8.8"
@@ -5759,6 +5773,14 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
+isomorphic-fetch@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz#0267b005049046d2421207215d45d6a262b8b8b4"
+  integrity sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==
+  dependencies:
+    node-fetch "^2.6.1"
+    whatwg-fetch "^3.4.1"
+
 istanbul-lib-coverage@^3.0.0, istanbul-lib-coverage@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.0.tgz#189e7909d0a39fa5a3dfad5b03f71947770191d3"
@@ -7226,7 +7248,7 @@ node-fetch@2.6.9:
   dependencies:
     whatwg-url "^5.0.0"
 
-node-fetch@^2.6.12, node-fetch@^2.6.7, node-fetch@^2.6.9:
+node-fetch@^2.6.1, node-fetch@^2.6.12, node-fetch@^2.6.7, node-fetch@^2.6.9:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.12.tgz#02eb8e22074018e3d5a83016649d04df0e348fba"
   integrity sha512-C/fGU2E8ToujUivIO0H+tpQ6HWo4eEmchoPIoXtxCrVghxdKq+QOHqEZW7tuP3KlV3bC8FRMO5nMCC7Zm1VP6g==
@@ -9553,6 +9575,11 @@ whatwg-encoding@^2.0.0:
   integrity sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==
   dependencies:
     iconv-lite "0.6.3"
+
+whatwg-fetch@^3.4.1:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.6.2.tgz#dced24f37f2624ed0281725d51d0e2e3fe677f8c"
+  integrity sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==
 
 whatwg-mimetype@^3.0.0:
   version "3.0.0"

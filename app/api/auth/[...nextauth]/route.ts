@@ -3,6 +3,7 @@ import getMastodonConfig from "./mastodon-config";
 import { NextRequest, NextResponse } from "next/server";
 import url from "url";
 import { NextApiRequest, NextApiResponse } from "next";
+import { env } from "process";
 
 const getActiveServerOrRefererHost = (req: NextApiRequest) => {
   const activeServer = req.cookies.get("activeServer").value;
@@ -28,8 +29,7 @@ const handlerWrapper = async function (
 
   const authOptions: NextAuthOptions = await getMastodonConfig(
     mastodonServer ?? "",
-    //todo: make this dynamic
-    "http://localhost:3000",
+    env.NEXTAUTH_URL || "",
   );
 
   return NextAuth(req, res, authOptions);

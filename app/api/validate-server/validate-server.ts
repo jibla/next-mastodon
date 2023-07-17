@@ -1,4 +1,5 @@
 import OAuthCredentialsStorageService from "@/lib/auth";
+import { env } from "process";
 
 export default async function validateMastodonServer(
   serverBaseUrl: string,
@@ -18,8 +19,7 @@ export default async function validateMastodonServer(
       },
       body: JSON.stringify({
         client_name: "next-mastodon",
-        //todo: read this from environments
-        redirect_uris: "http://localhost:3000/api/auth/callback/mastodon",
+        redirect_uris: env.NEXTAUTH_URL + "/api/auth/callback/mastodon",
       }),
     });
     const data = await serverCredentials.json();

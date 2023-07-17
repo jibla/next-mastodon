@@ -4,7 +4,7 @@ import { AbstractOAuthStorage } from "./AbstractOAuthStorage";
 export class InMemoryStorageAdapter extends AbstractOAuthStorage {
   private store: Record<string, OAuthCredentials> = {};
 
-  async getCredentials(provider: string): Promise<OAuthCredentials> {
+  async getCredentials(provider: string): Promise<OAuthCredentials | null> {
     return this.store[provider];
   }
 

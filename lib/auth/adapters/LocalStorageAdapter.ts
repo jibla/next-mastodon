@@ -17,7 +17,7 @@ export class LocalStorageAdapter extends AbstractOAuthStorage {
     }
   }
 
-  async getCredentials(provider: string): Promise<OAuthCredentials> {
+  async getCredentials(provider: string): Promise<OAuthCredentials | null> {
     const allCredentials = await this.readAllCredentials();
     return allCredentials[provider];
   }

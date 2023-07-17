@@ -3,7 +3,7 @@ import { AbstractOAuthStorage } from "./AbstractOAuthStorage";
 import { kv } from "@vercel/kv";
 
 export class VercelKVAdapter extends AbstractOAuthStorage {
-  async getCredentials(provider: string): Promise<OAuthCredentials> {
+  async getCredentials(provider: string): Promise<OAuthCredentials | null> {
     try {
       const credentialFromStore = await kv.hgetall(provider);
 
@@ -16,13 +16,12 @@ export class VercelKVAdapter extends AbstractOAuthStorage {
           clientId: credentialFromStore["clientId"] as string,
           clientSecret: credentialFromStore["clientSecret"] as string,
         };
-      } else {
-        throw new Error("Unable to fetch credentials");
       }
     } catch (err) {
-      console.error(`Error reading credentials from KV store`, err);
-      throw err;
+      //
     }
+
+    return null;
   }
 
   async saveCredentials(

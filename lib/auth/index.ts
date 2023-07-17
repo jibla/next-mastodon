@@ -11,6 +11,7 @@ export default class OAuthCredentialsStorageService {
     }
 
     const env = process.env.NODE_ENV || "development";
+
     switch (env) {
       case "production":
         //todo: add real storage adapter
@@ -21,7 +22,7 @@ export default class OAuthCredentialsStorageService {
       case "test":
         this.storageInstance = new InMemoryStorageAdapter();
       default:
-        this.storageInstance = new LocalStorageAdapter();
+        this.storageInstance = new InMemoryStorageAdapter();
     }
 
     return this.storageInstance;

@@ -6,7 +6,6 @@ export class VercelKVAdapter extends AbstractOAuthStorage {
   async getCredentials(provider: string): Promise<OAuthCredentials | null> {
     try {
       const credentialFromStore = await kv.hgetall(provider);
-
       if (
         credentialFromStore &&
         credentialFromStore["clientId"] &&
@@ -20,7 +19,6 @@ export class VercelKVAdapter extends AbstractOAuthStorage {
     } catch (err) {
       //
     }
-
     return null;
   }
 

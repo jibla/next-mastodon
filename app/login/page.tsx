@@ -1,7 +1,7 @@
 "use client";
 
+import SignInButton from "@/components/auth/SignInButton";
 import { FormEvent, useState } from "react";
-import MastodonButton from "./mastodonButton";
 
 export default function LoginPage() {
   const [showNextAuth, setShowNextAuth] = useState(false);
@@ -95,7 +95,7 @@ export default function LoginPage() {
               )}
               {showNextAuth && (
                 <div>
-                  <MastodonButton />
+                  <SignInButton />
                 </div>
               )}
             </div>

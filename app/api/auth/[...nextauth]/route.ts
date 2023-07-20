@@ -1,12 +1,11 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import getMastodonConfig from "./mastodon-config";
-import { NextRequest, NextResponse } from "next/server";
 import url from "url";
 import { NextApiRequest, NextApiResponse } from "next";
 import { env } from "process";
 
 const getActiveServerOrRefererHost = (req: NextApiRequest) => {
-  const activeServer = req.cookies.get("activeServer").value;
+  const activeServer = req.cookies.get("activeServer")?.value;
 
   if (activeServer) {
     return atob(activeServer);

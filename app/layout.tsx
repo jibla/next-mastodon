@@ -1,10 +1,7 @@
-// These styles apply to every route in the application
+import Header from "@/components/layout/header";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Toaster } from "react-hot-toast";
-import { Suspense } from "react";
-import AuthenticatedBlock from "@/components/authenticated-block";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,11 +32,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <Toaster />
-        <Suspense fallback="Loading...">
-          {/* @ts-expect-error Async Server Component */}
-          <AuthenticatedBlock />
-        </Suspense>
+        <Header />
+
         {children}
       </body>
     </html>

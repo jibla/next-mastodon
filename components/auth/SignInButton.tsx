@@ -1,6 +1,6 @@
 import { signIn } from "next-auth/react";
 
-export default function MastodonButton() {
+export default function SignInButton() {
   return (
     <>
       <button

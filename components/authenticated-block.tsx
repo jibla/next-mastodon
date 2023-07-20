@@ -1,6 +1,6 @@
-import { getServerSession  } from "next-auth/next";
+import { getServerSession } from "next-auth/next";
 
-export default async function AuthStatus() {
+export default async function AuthenticatedBlock() {
   const session = await getServerSession();
 
   return (

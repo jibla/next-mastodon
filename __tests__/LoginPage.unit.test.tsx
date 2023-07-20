@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import LoginPage from "@/app/login/LoginPage";
+import LoginPage from "@/app/login/page";
 import "@testing-library/jest-dom";
 import fetchMock from "jest-fetch-mock";
 

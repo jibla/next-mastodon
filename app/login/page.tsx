@@ -18,7 +18,7 @@ export default function LoginPage() {
 
     const res = await fetch("/api/validate-server/" + encryptedServerAddress);
     if (res.status === 200) {
-      //todo: set proper lifetime
+      //TODO: set proper lifetime
       document.cookie = "activeServer=" + encryptedServerAddress + "; path=/";
       setShowNextAuth(true);
       setErrorMessage("");

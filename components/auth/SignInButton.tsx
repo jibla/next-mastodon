@@ -1,14 +1,12 @@
 import { signIn } from "next-auth/react";
+import { Button } from "../ui/button";
 
 export default function SignInButton() {
   return (
     <>
-      <button
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
-        onClick={() => signIn("mastodon")}
-      >
+      <Button className="mt-1 mb-1" onClick={() => signIn("mastodon")}>
         Sign in
-      </button>
+      </Button>
     </>
   );
 }

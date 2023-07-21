@@ -2,6 +2,7 @@
 
 import SignInButton from "@/components/auth/SignInButton";
 import { FormEvent, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
   const [showNextAuth, setShowNextAuth] = useState(false);
@@ -83,13 +84,9 @@ export default function LoginPage() {
               />
             </div>
             <div className="flex flex-col items-center justify-center">
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
-                disabled={loading}
-              >
+              <Button className="mt-1 mb-1" disabled={loading}>
                 Continue
-              </button>
+              </Button>
               {loading && (
                 <div className="mt-4 mb-4 w-6 h-6 border-t-2 border-b-2 border-blue-500 rounded-full animate-spin"></div>
               )}

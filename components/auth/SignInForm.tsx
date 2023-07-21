@@ -1,9 +1,12 @@
 import { FormEvent, useState } from "react";
-import { Button } from "../ui/button";
 import SignInButton from "./SignInButton";
 import { cn } from "@/lib/utils";
 import { Label } from "@radix-ui/react-label";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Terminal } from "lucide-react";
+import { Icons } from "../icons";
 
 export default function SignInForm() {
   const [showNextAuth, setShowNextAuth] = useState(false);
@@ -51,23 +54,24 @@ export default function SignInForm() {
   };
   return (
     <>
+      {/* TODO: Move this to a separate component */}
+      <div className="relative">
+        {errorMessage && (
+          <Alert className="absolute top-0 left-0 mt-5 ml-5">
+            <Terminal className="h-4 w-4 text-white" />
+            <AlertTitle>Oops</AlertTitle>
+            <AlertDescription>{errorMessage}</AlertDescription>
+          </Alert>
+        )}
+      </div>
       <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <div className="flex flex-col space-y-2 text-center">
-          {errorMessage && (
-            <div
-              className="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-              role="alert"
-            >
-              <span className="block sm:inline">{errorMessage}</span>
-            </div>
-          )}
           <h1 className="text-2xl font-semibold tracking-tight">
             Sign In with your Mastodon server
           </h1>
           <p className="text-sm text-muted-foreground">
             Enter the mastodon server address
           </p>
-
           <div className={cn("grid gap-6")}>
             <form onSubmit={handleSubmit}>
               <div className="grid gap-2">
@@ -86,10 +90,14 @@ export default function SignInForm() {
                   />
                 </div>
                 <div>
-                  <Button disabled={loading}>Continue</Button>
-                  {loading && (
-                    <div className="mt-4 mb-4 w-6 h-6 border-t-2 border-b-2 border-blue-500 rounded-full animate-spin"></div>
-                  )}
+                  <Button disabled={loading && !showNextAuth}>
+                    Continue
+                    {loading && !showNextAuth && (
+                      // TODO: move this to separate component
+                      <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+                    )}
+                  </Button>
+
                   {showNextAuth && (
                     <div>
                       <SignInButton />

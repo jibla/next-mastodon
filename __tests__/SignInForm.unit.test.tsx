@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import LoginPage from "@/app/login/page";
 import "@testing-library/jest-dom";
 import fetchMock from "jest-fetch-mock";
+import SignInForm from "@/components/auth/SignInForm";
 
 afterEach(() => {
   fetchMock.resetMocks();
@@ -25,9 +25,9 @@ async function fillAddressAndClickContinue(address: string) {
   expect(fetch).toHaveBeenCalledWith(`/api/validate-server/${btoa(address)}`);
 }
 
-describe("Login Page unit tests", () => {
+describe("Sign in form unit tests", () => {
   test("initial render - input and continue are shown, errors are absent.", () => {
-    render(<LoginPage />);
+    render(<SignInForm />);
 
     const input = screen.getByRole("textbox", {
       name: "Mastodon Server Address",
@@ -47,7 +47,7 @@ describe("Login Page unit tests", () => {
   });
 
   test("correct mastodon address is entered - sign in is shown, errors are absent.", async () => {
-    render(<LoginPage />);
+    render(<SignInForm />);
 
     mockFetchResponse({}, 200);
 
@@ -61,7 +61,7 @@ describe("Login Page unit tests", () => {
   });
 
   it("invalid mastodon address is entered - error is shown, sign in is absent", async () => {
-    render(<LoginPage />);
+    render(<SignInForm />);
 
     mockFetchResponse(
       {
@@ -86,7 +86,7 @@ describe("Login Page unit tests", () => {
   });
 
   it("invalid URL is entered - error is shown, sign in is absent.", async () => {
-    render(<LoginPage />);
+    render(<SignInForm />);
 
     mockFetchResponse(
       {
@@ -110,7 +110,7 @@ describe("Login Page unit tests", () => {
   });
 
   it("first, error is triggered, then correct address is entered, error should go.", async () => {
-    render(<LoginPage />);
+    render(<SignInForm />);
 
     mockFetchResponse(
       {

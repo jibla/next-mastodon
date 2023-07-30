@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Terminal } from "lucide-react";
-import { Icons } from "../icons";
+import { Icons } from "../ui/icons";
 
 export default function SignInForm() {
   const [showNextAuth, setShowNextAuth] = useState(false);

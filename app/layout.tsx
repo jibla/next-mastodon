@@ -1,4 +1,3 @@
-import Header from "@/components/layout/header";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 
@@ -17,11 +16,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Header />
-
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

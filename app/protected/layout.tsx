@@ -27,9 +27,7 @@ export default async function RootLayout({
               <div className="grid lg:grid-cols-5">
                 <Sidebar className="hidden lg:block" />
                 <div className="col-span-3 lg:col-span-4">
-                  <ScrollArea className="bg-blue-600 px-4">
-                    {children}
-                  </ScrollArea>
+                  <ScrollArea className="px-4">{children}</ScrollArea>
                 </div>
               </div>
             </div>

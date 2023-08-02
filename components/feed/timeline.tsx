@@ -3,7 +3,7 @@ import Status from "./status";
 
 export default function Timeline() {
   return (
-    <ScrollArea>
+    <div>
       <Status
         name="Giorgi Jibladze"
         avatar="https://github.com/shadcn.png"
@@ -51,6 +51,6 @@ export default function Timeline() {
         createdAt="Jul 31, 2023, 21:26"
         text="The BBC's experiment with Mastodon is pathbreaking in English-language news"
       />
-    </ScrollArea>
+    </div>
   );
 }

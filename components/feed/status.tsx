@@ -17,14 +17,9 @@ import {
   DotsHorizontalIcon,
 } from "@radix-ui/react-icons";
 import { Separator } from "../ui/separator";
-
-interface StatusProps {
-  name: string;
-  avatar: string;
-  authorUrl: string;
-  text: string;
-  createdAt: string;
-}
+import Tilt from "react-parallax-tilt";
+import DOMPurify from "dompurify";
+import { StatusProps } from "@/lib/types/StatusProps";
 
 export default function Status({
   name,
@@ -33,8 +28,10 @@ export default function Status({
   text,
   createdAt,
 }: StatusProps) {
+  const sanitizedHTMLText = DOMPurify.sanitize(text);
+
   return (
-    <>
+    <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
       <Card className="w-[520px] my-2">
         <CardHeader className="flex flex-row items-center">
           <Avatar className="mr-3">
@@ -46,7 +43,9 @@ export default function Status({
             <CardDescription>{authorUrl}</CardDescription>
           </div>
         </CardHeader>
-        <CardContent>{text}</CardContent>
+        <CardContent>
+          <div dangerouslySetInnerHTML={{ __html: sanitizedHTMLText }} />
+        </CardContent>
         <CardFooter className="flex flex-col">
           <div role="date" className="w-full my-3">
             {createdAt}
@@ -63,6 +62,6 @@ export default function Status({
           </div>
         </CardFooter>
       </Card>
-    </>
+    </Tilt>
   );
 }

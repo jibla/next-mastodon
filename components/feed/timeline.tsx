@@ -1,56 +1,24 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Status from "./status";
+import { StatusProps } from "@/lib/types/StatusProps";
 
-export default function Timeline() {
+interface TimelineProps {
+  statuses: StatusProps[];
+}
+
+export default function Timeline({ statuses }: TimelineProps) {
   return (
     <div>
-      <Status
-        name="Giorgi Jibladze"
-        avatar="https://github.com/shadcn.png"
-        authorUrl="jibla@mastodon.omedia.cloud"
-        createdAt="Jul 31, 2023, 21:26"
-        text="The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news"
-      />
-
-      <Status
-        name="Dan Gillmor"
-        avatar="https://files.mastodon.social/accounts/avatars/109/208/442/152/198/181/original/a98930cc33876975.png"
-        authorUrl="@dangillmor@mastodon.social"
-        createdAt="Jul 31, 2023, 21:26"
-        text="The BBC's experiment with Mastodon is pathbreaking in English-language news"
-      />
-
-      <Status
-        name="Giorgi Jibladze"
-        avatar="https://github.com/shadcn.png"
-        authorUrl="jibla@mastodon.omedia.cloud"
-        createdAt="Jul 31, 2023, 21:26"
-        text="The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news"
-      />
-
-      <Status
-        name="Dan Gillmor"
-        avatar="https://files.mastodon.social/accounts/avatars/109/208/442/152/198/181/original/a98930cc33876975.png"
-        authorUrl="@dangillmor@mastodon.social"
-        createdAt="Jul 31, 2023, 21:26"
-        text="The BBC's experiment with Mastodon is pathbreaking in English-language news"
-      />
-
-      <Status
-        name="Giorgi Jibladze"
-        avatar="https://github.com/shadcn.png"
-        authorUrl="jibla@mastodon.omedia.cloud"
-        createdAt="Jul 31, 2023, 21:26"
-        text="The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news The BBC's experiment with Mastodon is pathbreaking in English-language news"
-      />
-
-      <Status
-        name="Dan Gillmor"
-        avatar="https://files.mastodon.social/accounts/avatars/109/208/442/152/198/181/original/a98930cc33876975.png"
-        authorUrl="@dangillmor@mastodon.social"
-        createdAt="Jul 31, 2023, 21:26"
-        text="The BBC's experiment with Mastodon is pathbreaking in English-language news"
-      />
+      {statuses.map((status, index) => (
+        <Status
+          key={index}
+          name={status.name}
+          avatar={status.avatar}
+          authorUrl={status.authorUrl}
+          createdAt={status.createdAt}
+          text={status.text}
+        />
+      ))}
     </div>
   );
 }

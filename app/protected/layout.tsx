@@ -19,8 +19,8 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <div className="md:block">
+      <body className="bg-black p-3">
+        <div className="overflow-hidden rounded-lg border bg-background shadow">
           <Menu />
           <div className="border-t">
             <div className="bg-background">

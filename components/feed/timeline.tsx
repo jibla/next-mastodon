@@ -1,10 +1,6 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Status from "./status";
-import { StatusProps } from "@/lib/types/StatusProps";
-
-interface TimelineProps {
-  statuses: StatusProps[];
-}
+import { TimelineProps } from "@/lib/types/TImelineProps";
 
 export default function Timeline({ statuses }: TimelineProps) {
   return (

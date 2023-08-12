@@ -36,7 +36,7 @@ export default function Status({
         <CardHeader className="flex flex-row items-center">
           <Avatar className="mr-3">
             <AvatarImage src={avatar} alt={name} />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarFallback>NM</AvatarFallback>
           </Avatar>
           <div>
             <CardTitle>{name}</CardTitle>

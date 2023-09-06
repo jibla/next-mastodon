@@ -2,28 +2,13 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import fetchMock from "jest-fetch-mock";
 import SignInForm from "@/components/auth/SignInForm";
+import { fillAddressAndClickContinue, mockFetchResponse } from "./utils";
 
 afterEach(() => {
   fetchMock.resetMocks();
 });
 
 const serverAddress = "https://mastodon.social";
-
-function mockFetchResponse(response: { code?: string }, statusCode: number) {
-  fetchMock.mockResponseOnce(JSON.stringify(response), { status: statusCode });
-}
-
-async function fillAddressAndClickContinue(address: string) {
-  fireEvent.change(screen.getByLabelText("Mastodon Server Address"), {
-    target: { value: address },
-  });
-
-  fireEvent.click(screen.getByText("Continue"));
-
-  await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
-
-  expect(fetch).toHaveBeenCalledWith(`/api/validate-server/${btoa(address)}`);
-}
 
 describe("Sign in form unit tests", () => {
   test("initial render - input and continue are shown, errors are absent.", () => {

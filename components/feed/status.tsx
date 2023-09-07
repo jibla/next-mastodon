@@ -32,7 +32,7 @@ export default function Status({
 
   return (
     <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
-      <Card className="w-[520px] my-2">
+      <Card role="status" className="w-[520px] my-2">
         <CardHeader className="flex flex-row items-center">
           <Avatar className="mr-3">
             <AvatarImage src={avatar} alt={name} />

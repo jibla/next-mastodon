@@ -36,4 +36,3 @@ yarn-error.log*
 .vercel
 oauth-providers.json
 todo.tasks
-.env.test

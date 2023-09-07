@@ -1,5 +1,5 @@
-import { Status } from "../models/Status";
-import IStatusPort from "../ports/IStatusPort";
+import { Status } from "../../models/Status";
+import IStatusPort from "../../ports/IStatusPort";
 
 export default class StatusPortInMemoryAdapter implements IStatusPort {
   getStatus(id: string): Promise<Status> {

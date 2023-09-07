@@ -1,20 +1,26 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
+import useFeed from "@/lib/core/hooks/useFeed";
 import Status from "./status";
-import { TimelineProps } from "@/lib/types/TImelineProps";
+import { TimelineProps } from "@/lib/types/TimelineProps";
 
-export default function Timeline({ statuses }: TimelineProps) {
+export default function Timeline({ type }: TimelineProps) {
+  const { feed, loading } = useFeed(type);
+
   return (
     <div>
-      {statuses.map((status, index) => (
-        <Status
-          key={index}
-          name={status.name}
-          avatar={status.avatar}
-          authorUrl={status.authorUrl}
-          createdAt={status.createdAt}
-          text={status.text}
-        />
-      ))}
+      {!loading && (
+        <div role="feed">
+          {feed.statuses.map((status, index) => (
+            <Status
+              key={index}
+              name={status.name}
+              avatar={status.avatar}
+              authorUrl={status.authorUrl}
+              createdAt={status.createdAt}
+              text={status.text}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

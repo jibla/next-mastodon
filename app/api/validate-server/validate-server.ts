@@ -22,17 +22,27 @@ export default async function validateMastodonServer(
         redirect_uris: env.NEXTAUTH_URL + "/api/auth/callback/mastodon",
       }),
     });
-    const data = await serverCredentials.json();
 
-    if (data.client_id && data.client_secret) {
-      await tokensStorage.saveCredentials(serverBaseUrl, {
-        clientId: data.client_id,
-        clientSecret: data.client_secret,
-      });
+    if (serverCredentials.ok) {
+      const data = await serverCredentials.json();
 
-      return true;
+      if (data.client_id && data.client_secret) {
+        await tokensStorage.saveCredentials(serverBaseUrl, {
+          clientId: data.client_id,
+          clientSecret: data.client_secret,
+        });
+
+        return true;
+      }
+    } else {
+      console.log(
+        "Error:",
+        serverCredentials.status,
+        serverCredentials.statusText,
+      );
+      return false;
     }
-  } catch {
+  } catch (error) {
     return false;
   }
 

@@ -1,26 +1,34 @@
-import SignInForm from "@/components/auth/SignInForm";
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { fillAddressAndClickContinue, mockFetchResponse } from "./utils";
+import validateMastodonServer from "@/app/api/validate-server/validate-server";
+import OAuthCredentialsStorageService from "@/lib/auth";
 
-const serverAddress = "https://mastodon.social";
+fetchMock.disableMocks();
 
+// we only test our code not auth.js behaviour
 describe("Integration tests for authentication flow", () => {
-  test("sign in button is clicked and session cookie is set finally", async () => {
-    render(<SignInForm />);
+  test("fetch oauth credentials from valid mastodon server", async () => {
+    const validAddress = "https://mastodon.social";
 
-    mockFetchResponse({}, 200);
+    const isValid = await validateMastodonServer(validAddress);
+    expect(isValid).toBe(true);
 
-    await fillAddressAndClickContinue(serverAddress);
-    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
+    const storage = OAuthCredentialsStorageService.createStorage();
+    const creds = await storage.getCredentials(validAddress);
+    expect(creds?.clientId).not.toBeNull();
+    expect(creds?.clientSecret).not.toBeNull();
+  });
 
-    expect(screen.queryByText("Sign in")).toBeInTheDocument();
+  test("fetch oauth credentials from invalid mastodon server", async () => {
+    const validAddress = "https://invalid.mastodon.server";
 
-    // click sign in button
-    const signinButton = screen.getByRole("button", {
-      name: "Sign in",
-    });
+    const isValid = await validateMastodonServer(validAddress);
+    expect(isValid).toBe(false);
 
-    await fireEvent.click(signinButton);
+    const storage = OAuthCredentialsStorageService.createStorage();
+    const creds = await storage.getCredentials(validAddress);
+    expect(creds?.clientId).not.toBeNull();
+    expect(creds?.clientSecret).not.toBeNull();
   });
 });
+
+fetchMock.disableMocks();

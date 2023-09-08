@@ -7,6 +7,7 @@ export default class OAuthCredentialsStorageService {
   private static storageInstance: StoragePortInterface;
 
   public static createStorage(): StoragePortInterface {
+    //TODO: standardize how we get the environment
     const env = process.env.NODE_ENV || "development";
 
     if (this.storageInstance) {

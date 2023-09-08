@@ -1,7 +1,7 @@
-import { Feed } from "../models/Feed";
-import { Status } from "../models/Status";
-import IFeedPort from "../ports/IFeedPort";
-import BaseMastojsAdapter from "./BaseMastojsAdapter";
+import { Feed } from "../../../models/Feed";
+import { Status } from "../../../models/Status";
+import IFeedPort from "../../../ports/IFeedPort";
+import BaseMastojsAdapter from "../../BaseMastojsAdapter";
 
 export default class FeedsPortMastojsAdapter
   extends BaseMastojsAdapter
@@ -42,6 +42,8 @@ export default class FeedsPortMastojsAdapter
       const feed: Feed = {
         statuses: feedStatuses,
       };
+
+      console.log("feed", feed);
 
       return feed;
     } else {

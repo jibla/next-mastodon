@@ -1,6 +1,6 @@
-import { Status } from "../models/Status";
-import IStatusPort from "../ports/IStatusPort";
-import BaseMastojsAdapter from "./BaseMastojsAdapter";
+import { Status } from "../../models/Status";
+import IStatusPort from "../../ports/IStatusPort";
+import BaseMastojsAdapter from "../BaseMastojsAdapter";
 
 export default class StatusPortMastojsAdapter
   extends BaseMastojsAdapter

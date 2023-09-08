@@ -51,7 +51,7 @@ function generateMockStatus() {
 }
 
 export function generateFeedMockData(): any[] {
-  const feed = Array(10)
+  const feed = Array(20)
     .fill(0)
     .map((_) => generateMockStatus());
 

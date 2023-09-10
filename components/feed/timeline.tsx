@@ -1,4 +1,4 @@
-import useFeed from "@/lib/core/hooks/useFeed";
+import useFeed from "@/lib/data/hooks/useFeed";
 import Status from "./status";
 import { TimelineProps } from "@/lib/types/TimelineProps";
 

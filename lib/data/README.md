@@ -1,4 +1,4 @@
-# lib/core
+# lib/data
 
 This is the core module of the application, which defines the services for UI that provide the content from mastodon server API.
 

@@ -10,7 +10,7 @@ interface fetchStatusOutput {
   status: Status;
 }
 
-export class FetchStatus implements UseCase {
+export class FetchStatusUseCase implements UseCase {
   constructor(private readonly statusPort: StatusPort) {}
 
   async execute(input: fetchStatusInput): Promise<fetchStatusOutput> {

@@ -5,12 +5,14 @@ import FeedsPortMastojsAdapter from "../data/adapters/feed/mastojs/FeedsPortMast
 import FeedPort from "../data/core/ports/FeedPort";
 import { FetchFeedsUseCase } from "../data/core/use-cases/fetch-feeds/FetchFeedsUseCase";
 import { UseCase } from "./use-cases/UseCaseInterface";
+import { FetchStatusUseCase } from "../data/core/use-cases/fetch-status/FetchStatusUseCase";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
 
 // use cases
 container.bind<UseCase>("fetch-feed").to(FetchFeedsUseCase);
+container.bind<UseCase>("fetch-status").to(FetchStatusUseCase);
 
 // adapters
 if (env === "test") {

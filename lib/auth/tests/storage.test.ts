@@ -1,5 +1,4 @@
 import OAuthCredentialsStorageService from "..";
-import { OAuthCredentials } from "../models/OAuthCredentials";
 
 test("storage mechanics work", async () => {
   //TODO: need to find out solution for TextDecoder error related to redis.

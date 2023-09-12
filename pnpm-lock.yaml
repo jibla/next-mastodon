@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@prisma/client':
-    specifier: ^4.14.0
-    version: 4.14.0
   '@radix-ui/react-avatar':
     specifier: ^1.0.3
     version: 1.0.3(@types/react@18.2.6)(react-dom@18.2.0)(react@18.2.0)
@@ -44,6 +41,9 @@ dependencies:
   bcrypt:
     specifier: ^5.1.0
     version: 5.1.0
+  bufferutil:
+    specifier: ^4.0.7
+    version: 4.0.7
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -53,6 +53,9 @@ dependencies:
   dompurify:
     specifier: ^3.0.5
     version: 3.0.5
+  inversify:
+    specifier: ^6.0.1
+    version: 6.0.1
   js-cookie:
     specifier: ^3.0.5
     version: 3.0.5
@@ -61,7 +64,7 @@ dependencies:
     version: 0.262.0(react@18.2.0)
   masto:
     specifier: ^6.0.4
-    version: 6.0.4
+    version: 6.0.4(bufferutil@4.0.7)(utf-8-validate@6.0.3)
   next:
     specifier: ^13.4.10
     version: 13.4.10(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
@@ -83,6 +86,9 @@ dependencies:
   react-parallax-tilt:
     specifier: ^1.7.156
     version: 1.7.156(react-dom@18.2.0)(react@18.2.0)
+  reflect-metadata:
+    specifier: ^0.1.13
+    version: 0.1.13
   tailwind-merge:
     specifier: ^1.14.0
     version: 1.14.0
@@ -95,6 +101,9 @@ dependencies:
   url:
     specifier: ^0.11.1
     version: 0.11.1
+  utf-8-validate:
+    specifier: ^6.0.3
+    version: 6.0.3
 
 devDependencies:
   '@testing-library/jest-dom':
@@ -132,7 +141,7 @@ devDependencies:
     version: 29.6.1(@types/node@18.16.12)
   jest-environment-jsdom:
     specifier: ^29.6.1
-    version: 29.6.1
+    version: 29.6.1(bufferutil@4.0.7)(utf-8-validate@6.0.3)
   jest-fetch-mock:
     specifier: ^3.0.3
     version: 3.0.3
@@ -150,7 +159,7 @@ devDependencies:
     version: 4.9.5
   vercel:
     specifier: ^31.0.4
-    version: 31.0.4(@types/node@18.16.12)
+    version: 31.0.4(@types/node@18.16.12)(bufferutil@4.0.7)(utf-8-validate@6.0.3)
 
 packages:
 
@@ -2341,23 +2350,6 @@ packages:
       tslib: 2.5.0
     dev: true
 
-  /@prisma/client@4.14.0:
-    resolution: {integrity: sha512-MK/XaA2sFdfaOa7I9MjNKz6dxeIEdeZlnpNRoF2w3JuRLlFJLkpp6cD3yaqw2nUUhbrn3Iqe3ZpVV+VuGGil7Q==}
-    engines: {node: '>=14.17'}
-    requiresBuild: true
-    peerDependencies:
-      prisma: '*'
-    peerDependenciesMeta:
-      prisma:
-        optional: true
-    dependencies:
-      '@prisma/engines-version': 4.14.0-67.d9a4c5988f480fa576d43970d5a23641aa77bc9c
-    dev: false
-
-  /@prisma/engines-version@4.14.0-67.d9a4c5988f480fa576d43970d5a23641aa77bc9c:
-    resolution: {integrity: sha512-3jum8/YSudeSN0zGW5qkpz+wAN2V/NYCQ+BPjvHYDfWatLWlQkqy99toX0GysDeaUoBIJg1vaz2yKqiA3CFcQw==}
-    dev: false
-
   /@radix-ui/number@1.0.1:
     resolution: {integrity: sha512-T5gIdVO2mmPW3NNhjNgEP3cqMXjXL9UbO0BzWcXfvdBs+BohbQxvd/K5hSVKmn9/lbTdsQVKbUcP5WLCwvUbBg==}
     dependencies:
@@ -3645,10 +3637,10 @@ packages:
       - supports-color
     dev: true
 
-  /@vercel/remix-builder@1.8.18(@types/node@18.16.12):
+  /@vercel/remix-builder@1.8.18(@types/node@18.16.12)(bufferutil@4.0.7)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-GYIFBe+z3/AuPHhXcpKtMLDj+1LrgcfE3HKka9RuUbfLOcJbfwdFODWHV7c7D5zgEu/KTIGEO6dOJp8GQmPzng==}
     dependencies:
-      '@remix-run/dev': /@vercel/remix-run-dev@1.18.1(@types/node@18.16.12)
+      '@remix-run/dev': /@vercel/remix-run-dev@1.18.1(@types/node@18.16.12)(bufferutil@4.0.7)(utf-8-validate@6.0.3)
       '@vercel/build-utils': 6.8.2
       '@vercel/nft': 0.22.5
       '@vercel/static-config': 2.0.17
@@ -3672,7 +3664,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@vercel/remix-run-dev@1.18.1(@types/node@18.16.12):
+  /@vercel/remix-run-dev@1.18.1(@types/node@18.16.12)(bufferutil@4.0.7)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-V9RCT+3VDB0wLbwq8Dp0XO6Cc1LxY4tCyxJ5loyX0L8sPBCgQ3/vMre3VKr8jLhjnfUGSrbXADxFM8/bq4ZeDQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -3734,7 +3726,7 @@ packages:
       sort-package-json: 1.57.0
       tar-fs: 2.1.1
       tsconfig-paths: 4.2.0
-      ws: 7.5.9
+      ws: 7.5.9(bufferutil@4.0.7)(utf-8-validate@6.0.3)
       xdm: 2.1.0
     transitivePeerDependencies:
       - '@types/node'
@@ -4330,6 +4322,13 @@ packages:
       base64-js: 1.5.1
       ieee754: 1.2.1
     dev: true
+
+  /bufferutil@4.0.7:
+    resolution: {integrity: sha512-kukuqc39WOHtdxtw4UScxF/WVnMFVSQVKhtx3AjZJzhd0RGZZldcrfSEbVsWWe6KNH253574cq5F+wpv0G9pJw==}
+    engines: {node: '>=6.14.2'}
+    requiresBuild: true
+    dependencies:
+      node-gyp-build: 4.6.0
 
   /bundle-name@3.0.0:
     resolution: {integrity: sha512-PKA4BeSvBpQKQ8iPOGCSiell+N8P+Tf1DlwqmYhpe2gAhKPHn8EYOxVT+ShuGmhg8lN8XiSlS80yiExKXrURlw==}
@@ -6802,6 +6801,10 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
+  /inversify@6.0.1:
+    resolution: {integrity: sha512-B3ex30927698TJENHR++8FfEaJGqoWOgI6ZY5Ht/nLUsFCwHn6akbwtnUAPCgUepAnTpe2qHxhDNjoKLyz6rgQ==}
+    dev: false
+
   /ip@1.1.8:
     resolution: {integrity: sha512-PuExPYUiu6qMBQb4l06ecm6T6ujzhmh+MeJcW9wa89PoAz5pvd4zPgN5WJV104mb6S2T1AwNIAaB70JNrLQWhg==}
     dev: true
@@ -7106,7 +7109,7 @@ packages:
     peerDependencies:
       ws: '*'
     dependencies:
-      ws: 8.13.0
+      ws: 8.13.0(bufferutil@4.0.7)(utf-8-validate@6.0.3)
     dev: false
 
   /istanbul-lib-coverage@3.2.0:
@@ -7290,7 +7293,7 @@ packages:
       pretty-format: 29.6.1
     dev: true
 
-  /jest-environment-jsdom@29.6.1:
+  /jest-environment-jsdom@29.6.1(bufferutil@4.0.7)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-PoY+yLaHzVRhVEjcVKSfJ7wXmJW4UqPYNhR05h7u/TK0ouf6DmRNZFBL/Z00zgQMyWGMBXn69/FmOvhEJu8cIw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
@@ -7306,7 +7309,7 @@ packages:
       '@types/node': 18.16.12
       jest-mock: 29.6.1
       jest-util: 29.6.1
-      jsdom: 20.0.3
+      jsdom: 20.0.3(bufferutil@4.0.7)(utf-8-validate@6.0.3)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -7629,7 +7632,7 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsdom@20.0.3:
+  /jsdom@20.0.3(bufferutil@4.0.7)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-SYhBvTh89tTfCD/CRdSOm13mOBa42iTaTyfyEWBdKcGdPxPtLFBXuHR8XHb33YNYaP+lLbmSvBTsnoesCNJEsQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -7662,7 +7665,7 @@ packages:
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
       whatwg-url: 11.0.0
-      ws: 8.13.0
+      ws: 8.13.0(bufferutil@4.0.7)(utf-8-validate@6.0.3)
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -7928,14 +7931,14 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /masto@6.0.4:
+  /masto@6.0.4(bufferutil@4.0.7)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-lM4W8rh4099KennTDWckYouB5OjbxqmpBa1eoJhzkfbsyj2kNXUi7rvR3RtoCS8/2W9VmJIr0HMt5xwF0P+dcA==}
     dependencies:
       change-case: 4.1.2
       events-to-async: 2.0.0
       isomorphic-ws: 5.0.0(ws@8.13.0)
       ts-custom-error: 3.3.1
-      ws: 8.13.0
+      ws: 8.13.0(bufferutil@4.0.7)(utf-8-validate@6.0.3)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -8671,7 +8674,6 @@ packages:
   /node-gyp-build@4.6.0:
     resolution: {integrity: sha512-NTZVKn9IylLwUzaKjkas1e4u2DLNcV4rdYagA4PWdPwW87Bi7z+BznyKSRwS/761tV/lzCGXplWsiaMjLqP2zQ==}
     hasBin: true
-    dev: true
 
   /node-int64@0.4.0:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
@@ -9700,6 +9702,10 @@ packages:
       indent-string: 4.0.0
       strip-indent: 3.0.0
     dev: true
+
+  /reflect-metadata@0.1.13:
+    resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
+    dev: false
 
   /regenerate-unicode-properties@10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
@@ -10930,6 +10936,13 @@ packages:
       tslib: 2.5.0
     dev: false
 
+  /utf-8-validate@6.0.3:
+    resolution: {integrity: sha512-uIuGf9TWQ/y+0Lp+KGZCMuJWc3N9BHA+l/UmHd/oUHwJJDeysyTRxNQVkbzsIWfGFbRe3OcgML/i0mvVRPOyDA==}
+    engines: {node: '>=6.14.2'}
+    requiresBuild: true
+    dependencies:
+      node-gyp-build: 4.6.0
+
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
@@ -10976,7 +10989,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vercel@31.0.4(@types/node@18.16.12):
+  /vercel@31.0.4(@types/node@18.16.12)(bufferutil@4.0.7)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-KO2r6he/KtCWg7mgdiGVJefe6Y369yfne794/K3mzFjJZo8A1lEt6vB5yy2a79G4SX8VY7JfT2DvfsAlhIb7vQ==}
     engines: {node: '>= 14'}
     hasBin: true
@@ -10988,7 +11001,7 @@ packages:
       '@vercel/node': 2.15.6
       '@vercel/python': 3.1.60
       '@vercel/redwood': 1.1.15
-      '@vercel/remix-builder': 1.8.18(@types/node@18.16.12)
+      '@vercel/remix-builder': 1.8.18(@types/node@18.16.12)(bufferutil@4.0.7)(utf-8-validate@6.0.3)
       '@vercel/ruby': 1.3.76
       '@vercel/static-build': 1.3.41
     transitivePeerDependencies:
@@ -11239,7 +11252,7 @@ packages:
       signal-exit: 3.0.7
     dev: true
 
-  /ws@7.5.9:
+  /ws@7.5.9(bufferutil@4.0.7)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==}
     engines: {node: '>=8.3.0'}
     peerDependencies:
@@ -11250,9 +11263,12 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dependencies:
+      bufferutil: 4.0.7
+      utf-8-validate: 6.0.3
     dev: true
 
-  /ws@8.13.0:
+  /ws@8.13.0(bufferutil@4.0.7)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -11263,6 +11279,9 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dependencies:
+      bufferutil: 4.0.7
+      utf-8-validate: 6.0.3
 
   /xdm@2.1.0:
     resolution: {integrity: sha512-3LxxbxKcRogYY7cQSMy1tUuU1zKNK9YPqMT7/S0r7Cz2QpyF8O9yFySGD7caOZt+LWUOQioOIX+6ZzCoBCpcAA==}

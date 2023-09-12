@@ -1,6 +1,5 @@
 import OAuthCredentialsStorageService from "@/lib/auth";
 import { NextAuthOptions } from "next-auth";
-import { Provider } from "next-auth/providers";
 
 export default async function getMastodonConfig(
   serverBaseUrl: string,

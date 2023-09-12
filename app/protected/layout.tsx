@@ -1,8 +1,8 @@
 import { Menu } from "@/components/layout/menu";
-import "@/styles/globals.css";
-import { Metadata } from "next";
 import { Sidebar } from "@/components/layout/sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import "@/styles/globals.css";
+import { Metadata } from "next";
 
 const title = "Next Mastodon";
 const description = "Mastodon client built with Next.js";

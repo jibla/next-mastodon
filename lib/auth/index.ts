@@ -1,12 +1,12 @@
 import { InMemoryStorageAdapter } from "./adapters/InMemoryStorageAdapter";
 import { LocalStorageAdapter } from "./adapters/LocalStorageAdapter";
 import { VercelKVAdapter } from "./adapters/VercelKVAdapter";
-import { StoragePortInterface } from "./ports/StoragePortInterface";
+import { StoragePort } from "./core/ports/StoragePort";
 
 export default class OAuthCredentialsStorageService {
-  private static storageInstance: StoragePortInterface;
+  private static storageInstance: StoragePort;
 
-  public static createStorage(): StoragePortInterface {
+  public static createStorage(): StoragePort {
     //TODO: standardize how we get the environment
     const env = process.env.NODE_ENV || "development";
 

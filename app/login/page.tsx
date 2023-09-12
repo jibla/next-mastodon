@@ -1,8 +1,8 @@
 "use client";
 
 import SignInForm from "@/components/auth/SignInForm";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function LoginPage() {
   return (

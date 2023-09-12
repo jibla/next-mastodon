@@ -1,7 +1,7 @@
-import { OAuthCredentials } from "../models/OAuthCredentials";
-import { StoragePortInterface } from "../ports/StoragePortInterface";
+import { OAuthCredentials } from "../core/entities/OAuthCredentials";
+import { StoragePort } from "../core/ports/StoragePort";
 
-export abstract class AbstractOAuthStorage implements StoragePortInterface {
+export abstract class AbstractOAuthStorage implements StoragePort {
   abstract getCredentials(provider: string): Promise<OAuthCredentials | null>;
   abstract saveCredentials(
     provider: string,

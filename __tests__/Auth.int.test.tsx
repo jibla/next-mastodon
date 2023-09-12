@@ -1,7 +1,7 @@
-import "@testing-library/jest-dom";
+import getMastodonConfig from "@/app/api/auth/[...nextauth]/mastodon-config";
 import validateMastodonServer from "@/app/api/validate-server/validate-server";
 import OAuthCredentialsStorageService from "@/lib/auth";
-import getMastodonConfig from "@/app/api/auth/[...nextauth]/mastodon-config";
+import "@testing-library/jest-dom";
 
 fetchMock.disableMocks();
 

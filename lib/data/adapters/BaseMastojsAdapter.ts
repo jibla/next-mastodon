@@ -1,6 +1,8 @@
-import { createRestAPIClient, mastodon } from "masto";
+import { injectable } from "inversify";
 import Cookies from "js-cookie";
+import { createRestAPIClient, mastodon } from "masto";
 
+@injectable()
 export default class BaseMastojsAdapter {
   protected client: mastodon.rest.Client | undefined;
 

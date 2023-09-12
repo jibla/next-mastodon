@@ -1,7 +1,7 @@
 import Status from "@/components/feed/status";
 import { StatusProps } from "@/lib/types/StatusProps";
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 
 //TODO: write tests for working avatar / fallback.
 //TODO: write tests for actions with different states

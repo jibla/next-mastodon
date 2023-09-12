@@ -1,11 +1,13 @@
-import { Feed } from "../../../models/Feed";
-import { Status } from "../../../models/Status";
-import IFeedPort from "../../../ports/IFeedPort";
+import { Feed } from "@/lib/data/core/entities/Feed";
+import { Status } from "@/lib/data/core/entities/Status";
+import FeedPort from "@/lib/data/core/ports/FeedPort";
+import { injectable } from "inversify";
 import BaseMastojsAdapter from "../../BaseMastojsAdapter";
 
+@injectable()
 export default class FeedsPortMastojsAdapter
   extends BaseMastojsAdapter
-  implements IFeedPort
+  implements FeedPort
 {
   async getFeed(type: string = "home"): Promise<Feed> {
     if (this.client) {

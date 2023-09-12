@@ -1,4 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { StatusProps } from "@/lib/types/StatusProps";
+import {
+  BookmarkIcon,
+  DotsHorizontalIcon,
+  Pencil2Icon,
+  StarIcon,
+} from "@radix-ui/react-icons";
+import DOMPurify from "dompurify";
+import Tilt from "react-parallax-tilt";
 import {
   Card,
   CardContent,
@@ -7,19 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { cn } from "@/lib/utils";
-import {
-  BookmarkFilledIcon,
-  BookmarkIcon,
-  StarIcon,
-  StarFilledIcon,
-  Pencil2Icon,
-  DotsHorizontalIcon,
-} from "@radix-ui/react-icons";
 import { Separator } from "../ui/separator";
-import Tilt from "react-parallax-tilt";
-import DOMPurify from "dompurify";
-import { StatusProps } from "@/lib/types/StatusProps";
 
 export default function Status({
   name,

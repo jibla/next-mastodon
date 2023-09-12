@@ -1,7 +1,7 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import fetchMock from "jest-fetch-mock";
 import SignInForm from "@/components/auth/SignInForm";
+import "@testing-library/jest-dom";
+import { render, screen, waitFor } from "@testing-library/react";
+import fetchMock from "jest-fetch-mock";
 import { fillAddressAndClickContinue, mockFetchResponse } from "./utils";
 
 afterEach(() => {

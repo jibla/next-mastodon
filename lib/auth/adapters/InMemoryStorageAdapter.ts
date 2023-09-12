@@ -1,4 +1,4 @@
-import { OAuthCredentials } from "../models/OAuthCredentials";
+import { OAuthCredentials } from "../core/entities/OAuthCredentials";
 import { AbstractOAuthStorage } from "./AbstractOAuthStorage";
 
 export class InMemoryStorageAdapter extends AbstractOAuthStorage {

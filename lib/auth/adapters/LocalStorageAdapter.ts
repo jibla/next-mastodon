@@ -1,6 +1,6 @@
-import { OAuthCredentials } from "../models/OAuthCredentials";
-import { AbstractOAuthStorage } from "./AbstractOAuthStorage";
 import * as fs from "fs/promises";
+import { AbstractOAuthStorage } from "./AbstractOAuthStorage";
+import { OAuthCredentials } from "../core/entities/OAuthCredentials";
 
 export class LocalStorageAdapter extends AbstractOAuthStorage {
   private filePath: string = process.env.OAUTH_LOCAL_STORAGE_FILE || "";

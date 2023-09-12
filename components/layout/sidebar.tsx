@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button";
 import {
+  ActivityLogIcon,
+  BookmarkFilledIcon,
+  EnvelopeOpenIcon,
   FrameIcon,
   Link2Icon,
   ListBulletIcon,
   PersonIcon,
   StarFilledIcon,
-  BookmarkFilledIcon,
-  EnvelopeOpenIcon,
-  AvatarIcon,
-  ActivityLogIcon,
 } from "@radix-ui/react-icons";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}

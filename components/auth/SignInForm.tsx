@@ -1,12 +1,12 @@
-import { FormEvent, useState } from "react";
-import SignInButton from "./SignInButton";
-import { cn } from "@/lib/utils";
-import { Label } from "@radix-ui/react-label";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { cn } from "@/lib/utils";
+import { Label } from "@radix-ui/react-label";
 import { Terminal } from "lucide-react";
+import { FormEvent, useState } from "react";
 import { Icons } from "../ui/icons";
+import SignInButton from "./SignInButton";
 
 export default function SignInForm() {
   const [showNextAuth, setShowNextAuth] = useState(false);

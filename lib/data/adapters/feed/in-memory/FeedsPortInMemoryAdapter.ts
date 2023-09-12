@@ -1,9 +1,11 @@
-import { Status } from "@/lib/core/models/Status";
-import { Feed } from "../../../models/Feed";
-import IFeedPort from "../../../ports/IFeedPort";
+import { Feed } from "@/lib/data/core/entities/Feed";
+import { Status } from "@/lib/data/core/entities/Status";
+import FeedPort from "@/lib/data/core/ports/FeedPort";
+import { injectable } from "inversify";
 import { generateFeedMockData } from "./data-generator";
 
-export class FeedsPortInMemoryAdapter implements IFeedPort {
+@injectable()
+export class FeedsPortInMemoryAdapter implements FeedPort {
   getFeed(type: string = "public"): Promise<Feed> {
     const mockData = generateFeedMockData();
 

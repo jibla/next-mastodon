@@ -1,6 +1,6 @@
 import Timeline from "@/components/feed/timeline";
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 
 describe("Timeline integration tests", () => {
   test("Simple timeline is rendered", async () => {

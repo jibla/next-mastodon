@@ -1,6 +1,6 @@
-import { OAuthCredentials } from "../models/OAuthCredentials";
-import { AbstractOAuthStorage } from "./AbstractOAuthStorage";
 import { kv } from "@vercel/kv";
+import { AbstractOAuthStorage } from "./AbstractOAuthStorage";
+import { OAuthCredentials } from "../core/entities/OAuthCredentials";
 
 export class VercelKVAdapter extends AbstractOAuthStorage {
   async getCredentials(provider: string): Promise<OAuthCredentials | null> {

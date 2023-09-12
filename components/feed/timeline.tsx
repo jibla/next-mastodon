@@ -1,6 +1,6 @@
-import useFeed from "@/lib/data/hooks/useFeed";
-import Status from "./status";
+import useFeed from "@/lib/hooks/useFeed";
 import { TimelineProps } from "@/lib/types/TimelineProps";
+import Status from "./status";
 
 export default function Timeline({ type }: TimelineProps) {
   const { feed, loading } = useFeed(type);

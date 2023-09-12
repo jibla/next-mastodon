@@ -1,5 +1,6 @@
 "use client";
 
+import { Input } from "@/components/ui/input";
 import {
   Menubar,
   MenubarContent,
@@ -8,19 +9,18 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import { SessionProvider } from "next-auth/react";
-import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
 import {
-  ListBulletIcon,
-  HomeIcon,
-  FrameIcon,
-  PersonIcon,
-  Link2Icon,
-  GlobeIcon,
   CircleIcon,
+  FrameIcon,
+  GlobeIcon,
+  HomeIcon,
+  Link2Icon,
+  ListBulletIcon,
+  PersonIcon,
 } from "@radix-ui/react-icons";
+import { SessionProvider } from "next-auth/react";
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
+import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
 
 export function Menu() {
   return (

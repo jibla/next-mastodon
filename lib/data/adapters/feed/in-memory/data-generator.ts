@@ -1,3 +1,5 @@
+import { Status } from "@/lib/data/core/entities/Status";
+
 function getRandomName() {
   const names = ["Giorgi", "Mariam", "Nino", "Davit", "Luka"];
   return names[Math.floor(Math.random() * names.length)];
@@ -42,6 +44,7 @@ function getRandomText() {
 
 function generateMockStatus() {
   return {
+    id: "110463308476950678",
     name: getRandomName(),
     avatar: getRandomAvatar(),
     authorUrl: getRandomAuthorUrl(),
@@ -56,4 +59,15 @@ export function generateFeedMockData(): any[] {
     .map((_) => generateMockStatus());
 
   return feed;
+}
+
+export function generateSingleStatus(): Status {
+  return {
+    id: "110463308476950678",
+    name: "Giorgi Jibladze",
+    avatar: "mock-avatar-url",
+    authorUrl: "mock-author-url",
+    text: "Welcome to Next Mastodon - an open-source adventure where we're redefining the future of decentralized social media.",
+    createdAt: "2023-09-05 15:13",
+  };
 }

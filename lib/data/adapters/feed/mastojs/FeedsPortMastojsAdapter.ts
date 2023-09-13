@@ -31,6 +31,7 @@ export default class FeedsPortMastojsAdapter
 
       const feedStatuses: Status[] = result.map((status) => {
         const singleStatus: Status = {
+          id: status.id,
           name: status.account.displayName,
           avatar: status.account.avatar,
           authorUrl: status.account.url,

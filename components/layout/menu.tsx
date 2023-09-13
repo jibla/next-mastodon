@@ -26,12 +26,14 @@ export function Menu() {
   return (
     <Menubar className="flex justify-between rounded-none border-b border-none px-2 lg:px-4 my-2">
       <div className="flex">
-        <MenubarMenu>
-          <MenubarTrigger>
-            <HomeIcon className="mr-1" />
-            Home
-          </MenubarTrigger>
-        </MenubarMenu>
+        <Link href="/in">
+          <MenubarMenu>
+            <MenubarTrigger>
+              <HomeIcon className="mr-1" />
+              Home
+            </MenubarTrigger>
+          </MenubarMenu>
+        </Link>
         <MenubarMenu>
           <MenubarTrigger>
             <FrameIcon className="mr-1" />
@@ -117,7 +119,7 @@ export function Menu() {
 
       <div className="flex">
         <MenubarMenu>
-          <MenubarTrigger className="font-bold">v0.0.1</MenubarTrigger>
+          <MenubarTrigger className="font-bold">v0.0.4</MenubarTrigger>
           <MenubarContent forceMount>
             <MenubarItem inset>About</MenubarItem>
             <MenubarSeparator />

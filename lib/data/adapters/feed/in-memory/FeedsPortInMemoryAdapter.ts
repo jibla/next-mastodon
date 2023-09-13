@@ -11,6 +11,7 @@ export class FeedsPortInMemoryAdapter implements FeedPort {
 
     const statuses: Status[] = mockData.map((status) => {
       return {
+        id: status.id,
         name: status.name,
         avatar: status.avatar,
         authorUrl: status.authorUrl,

@@ -1,9 +1,13 @@
+import { injectable } from "inversify";
 import { Status } from "../../core/entities/Status";
 import StatusPort from "../../core/ports/StatusPort";
+import { generateSingleStatus } from "../feed/in-memory/data-generator";
 
+@injectable()
 export default class StatusPortInMemoryAdapter implements StatusPort {
-  getStatus(id: number): Promise<Status> {
-    throw new Error("Method not implemented.");
+  getStatus(id: string): Promise<Status> {
+    const status = generateSingleStatus();
+    return Promise.resolve(status);
   }
   postStatus(status: Status): Promise<Status> {
     throw new Error("Method not implemented.");

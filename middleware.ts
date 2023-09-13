@@ -9,10 +9,10 @@ export default async function middleware(req: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  if (!session && (path === "/" || path === "/protected")) {
+  if (!session && (path === "/" || path.startsWith("/in"))) {
     return NextResponse.redirect(new URL("/login", req.url));
   } else if (session && path === "/login") {
-    return NextResponse.redirect(new URL("/protected", req.url));
+    return NextResponse.redirect(new URL("/in", req.url));
   }
   return NextResponse.next();
 }

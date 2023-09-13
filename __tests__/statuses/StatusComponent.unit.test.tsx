@@ -20,6 +20,7 @@ import { render, screen } from "@testing-library/react";
 
 describe("Status component", () => {
   const mockData: StatusProps = {
+    id: "mock-id",
     name: "Giorgi Jibladze",
     avatar: "mock-avatar-url",
     authorUrl: "mock-author-url",

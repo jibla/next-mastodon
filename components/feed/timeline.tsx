@@ -1,6 +1,7 @@
 import useFeed from "@/lib/hooks/useFeed";
 import { TimelineProps } from "@/lib/types/TimelineProps";
 import Status from "./status";
+import Link from "next/link";
 
 export default function Timeline({ type }: TimelineProps) {
   const { feed, loading } = useFeed(type);
@@ -12,6 +13,7 @@ export default function Timeline({ type }: TimelineProps) {
           {feed.statuses.map((status, index) => (
             <Status
               key={index}
+              id={status.id}
               name={status.name}
               avatar={status.avatar}
               authorUrl={status.authorUrl}

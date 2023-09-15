@@ -7,7 +7,7 @@ export default function StatusPage({ params }: { params: { id: string } }) {
   const { status, loading } = useStatus(params.id);
 
   return (
-    <div className="flex h-screen justify-center">
+    <div className="flex justify-center">
       {!loading && status != undefined && (
         <SingleStatus
           id={status.id}

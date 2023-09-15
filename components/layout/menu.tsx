@@ -119,7 +119,7 @@ export function Menu() {
 
       <div className="flex">
         <MenubarMenu>
-          <MenubarTrigger className="font-bold">v0.0.4</MenubarTrigger>
+          <MenubarTrigger className="font-bold">v0.0.41</MenubarTrigger>
           <MenubarContent forceMount>
             <MenubarItem inset>About</MenubarItem>
             <MenubarSeparator />

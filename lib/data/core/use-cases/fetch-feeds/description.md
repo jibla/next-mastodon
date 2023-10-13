@@ -2,11 +2,11 @@
 
 ## Overview
 
-This use case is responsible for fetching different feeds.
+This use case is responsible for fetching different feeds. After initially getting the feed, user is also able to request the next page of the feed. The feed is collection of the status items and is always returned as the portion of the whole feed.
 
 ## Actors
 
-- End user: Wants to browse the feeds of different type.
+- End user: Wants to browse the feeds of different types.
 
 ## Preconditions
 
@@ -19,13 +19,16 @@ This use case is responsible for fetching different feeds.
 
 ## Input
 
-| Parameter     | Type   | Description      | Required |
-| --------------| ------ | -----------------| -------- |
-| type          | string | Type of feed.    | Yes      |
+| Parameter     | Type   | Description                                    | Required |
+| --------------| ------ | -----------------------------------------------| -------- |
+| type          | string | Type of feed.                                  | Yes      |
+| limit         | number | The number of items.                           | No       |
+| startFrom     | string | Id of the element to start with (for paging).  | No       |
+
 
 ## Output
 
-- Feed Object
+- feed: Feed Object
 
 ## Error States
 

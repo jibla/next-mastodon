@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { Feed } from "../data/core/entities/Feed";
 import { FetchFeedsUseCase } from "../data/core/use-cases/fetch-feeds/FetchFeedsUseCase";
 import { container } from "../shared/ioc";
+import { feedTypes } from "../data/core/ports/FeedPort";
 
-export default function useFeed(type: string): {
+interface useFeedReturnType {
   feed: Feed;
   loading: boolean;
-} {
+}
+
+export default function useFeed(type: feedTypes): useFeedReturnType {
   const [feed, setFeed] = useState<Feed>({ statuses: [] });
   const [loading, setLoading] = useState(true);
 
@@ -17,6 +20,7 @@ export default function useFeed(type: string): {
           .get<FetchFeedsUseCase>("fetch-feed")
           .execute({
             type,
+            limit: 40,
           });
         setFeed(timelineData.feed);
       } catch (error) {
@@ -27,7 +31,7 @@ export default function useFeed(type: string): {
     }
 
     fetchTimeline();
-  }, [type]);
+  }, [type, feed]);
 
   return { feed, loading };
 }

@@ -1,58 +1,34 @@
 import { Feed } from "@/lib/data/core/entities/Feed";
 import { Status } from "@/lib/data/core/entities/Status";
-import FeedPort from "@/lib/data/core/ports/FeedPort";
+import FeedPort, {
+  getFeedOutput,
+  getFeedParams,
+} from "@/lib/data/core/ports/FeedPort";
 import { injectable } from "inversify";
 import BaseMastojsAdapter from "../../BaseMastojsAdapter";
+import { fetchFeedPage } from "../../shared/mastojs";
 
 @injectable()
 export default class FeedsPortMastojsAdapter
   extends BaseMastojsAdapter
   implements FeedPort
 {
-  async getFeed(type: string = "home"): Promise<Feed> {
-    if (this.client) {
-      let mastojsMethod: keyof typeof this.client.v1.timelines;
+  async getFeed(input: getFeedParams): Promise<getFeedOutput> {
+    const paginator = this.getClient().v1.timelines[input.type].list({
+      limit: input.limit,
+    });
 
-      switch (type) {
-        case "home":
-          mastojsMethod = "home";
-          break;
-        case "public":
-          mastojsMethod = "public";
-          break;
-        default:
-          mastojsMethod = "home";
-          break;
-      }
-
-      const result = await this.client.v1.timelines[mastojsMethod].list({
-        limit: 30,
-      });
-
-      const feedStatuses: Status[] = result.map((status) => {
-        const singleStatus: Status = {
-          id: status.id,
-          name: status.account.displayName,
-          avatar: status.account.avatar,
-          authorUrl: status.account.url,
-          createdAt: status.createdAt,
-          text: status.content,
-        };
-
-        return singleStatus;
-      });
-
-      const feed: Feed = {
-        statuses: feedStatuses,
+    const feed = await fetchFeedPage(paginator);
+    const nextFunc = async (): Promise<getFeedOutput> => {
+      return {
+        feed: await fetchFeedPage(paginator),
+        next: nextFunc,
       };
+    };
 
-      console.log("feed", feed);
-
-      return feed;
-    } else {
-      throw new Error(
-        "Mastojs client couldn't be created. Probably the active server is not set.",
-      );
-    }
+    return {
+      feed: feed,
+      next: nextFunc,
+    };
   }
 }

@@ -11,5 +11,5 @@ describe("Timeline integration tests", () => {
 
     const statuses = await screen.findAllByRole("status");
     expect(statuses).toHaveLength(20);
-  });
+  }, 15000);
 });

@@ -1,12 +1,15 @@
 import { Feed } from "@/lib/data/core/entities/Feed";
 import { Status } from "@/lib/data/core/entities/Status";
-import FeedPort from "@/lib/data/core/ports/FeedPort";
+import FeedPort, {
+  getFeedOutput,
+  getFeedParams,
+} from "@/lib/data/core/ports/FeedPort";
 import { injectable } from "inversify";
 import { generateFeedMockData } from "./data-generator";
 
 @injectable()
 export class FeedsPortInMemoryAdapter implements FeedPort {
-  getFeed(type: string = "public"): Promise<Feed> {
+  getFeed(params: getFeedParams): Promise<getFeedOutput> {
     const mockData = generateFeedMockData();
 
     const statuses: Status[] = mockData.map((status) => {
@@ -20,14 +23,21 @@ export class FeedsPortInMemoryAdapter implements FeedPort {
       };
     });
 
-    const feed = new Promise<Feed>((resolve, reject) => {
+    const feed = {
+      statuses,
+    };
+
+    const output = new Promise<getFeedOutput>((resolve, reject) => {
       setTimeout(() => {
         resolve({
-          statuses: statuses,
+          feed,
+          next: () => {
+            return this.getFeed(params);
+          },
         });
       }, 1000);
     });
 
-    return feed;
+    return output;
   }
 }

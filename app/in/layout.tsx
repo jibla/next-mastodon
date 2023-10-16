@@ -27,7 +27,12 @@ export default async function RootLayout({
               <div className="grid lg:grid-cols-5">
                 <Sidebar className="hidden lg:block" />
                 <div className="col-span-3 lg:col-span-4">
-                  <ScrollArea className="h-screen px-4">{children}</ScrollArea>
+                  <ScrollArea
+                    className="h-screen"
+                    style={{ maxHeight: "calc(100vh - 5.5rem)" }}
+                  >
+                    {children}
+                  </ScrollArea>
                 </div>
               </div>
             </div>

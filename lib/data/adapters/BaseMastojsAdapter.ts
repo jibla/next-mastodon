@@ -19,4 +19,13 @@ export default class BaseMastojsAdapter {
       });
     }
   }
+
+  protected getClient(): mastodon.rest.Client {
+    if (this.client === undefined) {
+      throw new Error(
+        "Mastojs client couldn't be created. Probably the active server is not set.",
+      );
+    }
+    return this.client;
+  }
 }

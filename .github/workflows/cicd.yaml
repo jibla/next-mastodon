@@ -27,7 +27,7 @@ jobs:
       - name: Lint
         run: pnpm lint
       - name: Test
-        run: pnpm test
+        run: pnpm tests
 
   Deploy-Preview:
     runs-on: ubuntu-latest

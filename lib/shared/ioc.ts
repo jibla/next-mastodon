@@ -19,10 +19,10 @@ container.bind<UseCase>("fetch-status").to(FetchStatusUseCase);
 
 // adapters
 if (env === "test") {
-  container.bind<FeedPort>("feeds-port").to(FeedsPortInMemoryAdapter);
+  container.bind<FeedPort>("feed-port").to(FeedsPortInMemoryAdapter);
   container.bind<StatusPort>("status-port").to(StatusPortInMemoryAdapter);
 } else {
-  container.bind<FeedPort>("feeds-port").to(FeedsPortMastojsAdapter);
+  container.bind<FeedPort>("feed-port").to(FeedsPortMastojsAdapter);
   container.bind<StatusPort>("status-port").to(StatusPortMastojsAdapter);
 }
 

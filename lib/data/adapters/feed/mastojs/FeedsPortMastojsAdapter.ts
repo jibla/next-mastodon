@@ -20,8 +20,10 @@ export default class FeedsPortMastojsAdapter
 
     const feed = await fetchFeedPage(paginator);
     const nextFunc = async (): Promise<getFeedOutput> => {
+      const nextPageFeed = await fetchFeedPage(paginator);
+
       return {
-        feed: await fetchFeedPage(paginator),
+        feed: nextPageFeed,
         next: nextFunc,
       };
     };

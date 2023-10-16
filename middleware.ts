@@ -11,7 +11,7 @@ export default async function middleware(req: NextRequest) {
 
   if (!session && (path === "/" || path.startsWith("/in"))) {
     return NextResponse.redirect(new URL("/login", req.url));
-  } else if (session && path === "/login") {
+  } else if ((session && path === "/login") || path === "/") {
     return NextResponse.redirect(new URL("/in", req.url));
   }
   return NextResponse.next();

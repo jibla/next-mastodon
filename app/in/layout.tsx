@@ -1,8 +1,9 @@
 import { Menu } from "@/components/layout/menu";
 import { Sidebar } from "@/components/layout/sidebar";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import "@/styles/globals.css";
 import { Metadata } from "next";
+import { Allotment } from "allotment";
+import "node_modules/allotment/dist/style.css";
 
 const title = "Next Mastodon";
 const description = "Mastodon client built with Next.js";
@@ -26,14 +27,7 @@ export default async function RootLayout({
             <div className="bg-background">
               <div className="grid lg:grid-cols-5">
                 <Sidebar className="hidden lg:block" />
-                <div className="col-span-3 lg:col-span-4">
-                  <ScrollArea
-                    className="h-screen"
-                    style={{ maxHeight: "calc(100vh - 5.5rem)" }}
-                  >
-                    {children}
-                  </ScrollArea>
-                </div>
+                <div className="col-span-3 lg:col-span-4">{children}</div>
               </div>
             </div>
           </div>

@@ -17,15 +17,8 @@ export default function Status({
 
   return (
     <Link href={`/in/status/${id}`}>
-      <Card
-        role="status"
-        key="1"
-        className="w-[500px] mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden md:max-w-3xl m-3"
-      >
+      <div role="status" key="1" className="m-2 border-b">
         <div className="md:flex">
-          <div className="md:flex-shrink-0">
-            <span className="object-cover md:w-48 rounded-md bg-muted w-[192px] h-[192px]" />
-          </div>
           <div className="p-8 w-full">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
@@ -109,7 +102,7 @@ export default function Status({
             </div>
           </div>
         </div>
-      </Card>
+      </div>
     </Link>
   );
 }

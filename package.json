@@ -20,6 +20,7 @@
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@vercel/kv": "^0.2.2",
+    "allotment": "^1.19.3",
     "bcrypt": "^5.1.0",
     "bufferutil": "^4.0.7",
     "class-variance-authority": "^0.7.0",

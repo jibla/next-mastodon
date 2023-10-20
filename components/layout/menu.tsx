@@ -28,14 +28,14 @@ export function Menu() {
       <div className="flex">
         <Link href="/in">
           <MenubarMenu>
-            <MenubarTrigger>
+            <MenubarTrigger className="cursor-pointer">
               <HomeIcon className="mr-1" />
               Home
             </MenubarTrigger>
           </MenubarMenu>
         </Link>
         <MenubarMenu>
-          <MenubarTrigger>
+          <MenubarTrigger className="cursor-pointer">
             <CircleIcon className="mr-1" />
             Local
           </MenubarTrigger>
@@ -60,7 +60,7 @@ export function Menu() {
         </MenubarMenu>
 
         <MenubarMenu>
-          <MenubarTrigger>
+          <MenubarTrigger className="cursor-pointer">
             <GlobeIcon className="mr-1" /> Federated
           </MenubarTrigger>
           <MenubarContent forceMount>

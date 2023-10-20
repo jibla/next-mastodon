@@ -36,31 +36,6 @@ export function Menu() {
         </Link>
         <MenubarMenu>
           <MenubarTrigger>
-            <FrameIcon className="mr-1" />
-            Explore
-          </MenubarTrigger>
-          <MenubarContent forceMount>
-            <MenubarItem inset>
-              <ListBulletIcon className="mr-1" />
-              Posts
-            </MenubarItem>
-            <MenubarItem inset>
-              <FrameIcon className="mr-1" />
-              Hashtags
-            </MenubarItem>
-            <MenubarItem inset>
-              <PersonIcon className="mr-1" />
-              People
-            </MenubarItem>
-            <MenubarItem inset>
-              <Link2Icon className="mr-1" />
-              News
-            </MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
-
-        <MenubarMenu>
-          <MenubarTrigger>
             <CircleIcon className="mr-1" />
             Local
           </MenubarTrigger>

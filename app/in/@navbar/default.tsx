@@ -1,21 +1,15 @@
 import { Button } from "@/components/ui/button";
 import {
-  ActivityLogIcon,
   BookmarkFilledIcon,
   EnvelopeOpenIcon,
-  FrameIcon,
-  Link2Icon,
   ListBulletIcon,
-  PersonIcon,
   StarFilledIcon,
 } from "@radix-ui/react-icons";
 
-interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function Sidebar({ className }: SidebarProps) {
+export default function Navbar() {
   return (
     <>
-      <div className="hidden lg:block space-y-4 py-4 ">
+      <div className="lg:block space-y-4 py-4">
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
             Personal Space

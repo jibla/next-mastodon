@@ -28,39 +28,14 @@ export function Menu() {
       <div className="flex">
         <Link href="/in">
           <MenubarMenu>
-            <MenubarTrigger>
+            <MenubarTrigger className="cursor-pointer">
               <HomeIcon className="mr-1" />
               Home
             </MenubarTrigger>
           </MenubarMenu>
         </Link>
         <MenubarMenu>
-          <MenubarTrigger>
-            <FrameIcon className="mr-1" />
-            Explore
-          </MenubarTrigger>
-          <MenubarContent forceMount>
-            <MenubarItem inset>
-              <ListBulletIcon className="mr-1" />
-              Posts
-            </MenubarItem>
-            <MenubarItem inset>
-              <FrameIcon className="mr-1" />
-              Hashtags
-            </MenubarItem>
-            <MenubarItem inset>
-              <PersonIcon className="mr-1" />
-              People
-            </MenubarItem>
-            <MenubarItem inset>
-              <Link2Icon className="mr-1" />
-              News
-            </MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
-
-        <MenubarMenu>
-          <MenubarTrigger>
+          <MenubarTrigger className="cursor-pointer">
             <CircleIcon className="mr-1" />
             Local
           </MenubarTrigger>
@@ -85,7 +60,7 @@ export function Menu() {
         </MenubarMenu>
 
         <MenubarMenu>
-          <MenubarTrigger>
+          <MenubarTrigger className="cursor-pointer">
             <GlobeIcon className="mr-1" /> Federated
           </MenubarTrigger>
           <MenubarContent forceMount>

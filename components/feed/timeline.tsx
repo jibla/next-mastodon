@@ -8,11 +8,11 @@ export default function Timeline({ type }: TimelineProps) {
   const { feed, loading, error, fetchNextPage } = useFeed(feedTypes.public);
 
   return (
-    <div>
+    <div className="flex justify-items-center ">
       {error && <p>{error}</p>}
 
       {(!loading || feed.statuses.length > 0) && (
-        <div role="feed">
+        <div role="feed" className="mx-auto">
           {feed.statuses.map((status, index) => (
             <Status
               key={index}

@@ -17,9 +17,13 @@ import "node_modules/allotment/dist/style.css";
 export default function Layout({
   children,
   navbar,
+  left,
+  right,
 }: {
   children: React.ReactNode;
   navbar: React.ReactNode;
+  left: React.ReactNode;
+  right: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -36,8 +40,8 @@ export default function Layout({
                   <Allotment.Pane maxSize={200} minSize={199} snap={true}>
                     {navbar}
                   </Allotment.Pane>
-                  <div>{children}</div>
-                  <div className="p-4"></div>
+                  <div>{left}</div>
+                  <div>{right}</div>
                 </Allotment>
               </div>
             </div>

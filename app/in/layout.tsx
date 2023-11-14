@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Allotment } from "allotment";
 import "node_modules/allotment/dist/style.css";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 // const title = "Next Mastodon";
 // const description = "Mastodon client built with Next.js";
@@ -40,8 +41,22 @@ export default function Layout({
                   <Allotment.Pane maxSize={200} minSize={199} snap={true}>
                     {navbar}
                   </Allotment.Pane>
-                  <div>{left}</div>
-                  <div>{right}</div>
+                  <div>
+                    <ScrollArea
+                      className="h-screen"
+                      style={{ maxHeight: "calc(100vh - 5.5rem)" }}
+                    >
+                      {left}
+                    </ScrollArea>
+                  </div>
+                  <div>
+                    <ScrollArea
+                      className="h-screen"
+                      style={{ maxHeight: "calc(100vh - 5.5rem)" }}
+                    >
+                      {right}
+                    </ScrollArea>
+                  </div>
                 </Allotment>
               </div>
             </div>

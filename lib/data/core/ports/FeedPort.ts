@@ -8,6 +8,7 @@ export enum feedTypes {
 export interface getFeedParams {
   type: feedTypes;
   limit?: number;
+  startFrom?: string;
 }
 
 export interface getFeedOutput {

@@ -16,7 +16,12 @@ export default class FeedsPortMastojsAdapter
   async getFeed(input: getFeedParams): Promise<getFeedOutput> {
     const paginator = this.getClient().v1.timelines[input.type].list({
       limit: input.limit,
+      maxId: input.startFrom
+        ? (parseInt(input.startFrom) - 1).toString()
+        : undefined,
     });
+
+    console.log(input.startFrom ? input.startFrom : undefined);
 
     const feed = await fetchFeedPage(paginator);
     const nextFunc = async (): Promise<getFeedOutput> => {

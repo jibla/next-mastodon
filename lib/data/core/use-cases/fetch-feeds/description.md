@@ -23,7 +23,7 @@ This use case is responsible for fetching different feeds. After initially getti
 | --------------| ------ | -----------------------------------------------| -------- |
 | type          | string | Type of feed.                                  | Yes      |
 | limit         | number | The number of items.                           | No       |
-| startFrom     | string | Id of the element to start with (for paging).  | No       |
+| startFrom     | string | Id of the status to start with.                | No       |
 
 
 ## Output

@@ -11,7 +11,10 @@ interface useFeedReturnType {
   fetchNextPage: () => Promise<void>;
 }
 
-export default function useFeed(type: feedTypes): useFeedReturnType {
+export default function useFeed(
+  type: feedTypes,
+  startFrom?: string,
+): useFeedReturnType {
   const [entireFeed, setEntireFeed] = useState<Feed>({ statuses: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -47,6 +50,7 @@ export default function useFeed(type: feedTypes): useFeedReturnType {
         return await container.get<FetchFeedsUseCase>("fetch-feed").execute({
           type,
           limit: 2,
+          startFrom: startFrom ?? undefined,
         });
       };
 
@@ -54,7 +58,7 @@ export default function useFeed(type: feedTypes): useFeedReturnType {
     }
 
     fetchInitial();
-  }, [type, fetchFeed]);
+  }, [type, fetchFeed, startFrom]);
 
   const fetchNextPage = useCallback(async () => {
     if (nextPage) {

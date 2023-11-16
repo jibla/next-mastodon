@@ -1,7 +1,9 @@
+import { injectable } from "inversify";
 import { Status } from "../../core/entities/Status";
 import StatusPort from "../../core/ports/StatusPort";
 import { MastojsClientFactory } from "../shared/mastojs";
 
+@injectable()
 export default class StatusPortMastojsAdapter implements StatusPort {
   async getStatus(id: string): Promise<Status> {
     const client = await MastojsClientFactory.getClient();

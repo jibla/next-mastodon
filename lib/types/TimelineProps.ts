@@ -1,4 +1,6 @@
+import { feedTypes } from "../data/core/ports/FeedPort";
+
 export interface TimelineProps {
-  type: string;
+  type: feedTypes;
   startFrom?: string;
 }

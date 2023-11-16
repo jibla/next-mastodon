@@ -1,4 +1,4 @@
-import { Container } from "inversify";
+import { Container, interfaces } from "inversify";
 import "reflect-metadata";
 import { FeedsPortInMemoryAdapter } from "../data/adapters/feed/in-memory/FeedsPortInMemoryAdapter";
 import FeedsPortMastojsAdapter from "../data/adapters/feed/mastojs/FeedsPortMastojsAdapter";
@@ -9,6 +9,7 @@ import { FetchStatusUseCase } from "../data/core/use-cases/fetch-status/FetchSta
 import StatusPort from "../data/core/ports/StatusPort";
 import StatusPortMastojsAdapter from "../data/adapters/status/StatusPortMastojsAdapter";
 import StatusPortInMemoryAdapter from "../data/adapters/status/StatusPortInMemoryAdapter";
+import { getSession } from "next-auth/react";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";

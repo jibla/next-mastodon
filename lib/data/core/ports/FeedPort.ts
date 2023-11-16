@@ -3,6 +3,7 @@ import { Feed } from "../entities/Feed";
 export enum feedTypes {
   home = "home",
   public = "public",
+  local = "local",
 }
 
 export interface getFeedParams {

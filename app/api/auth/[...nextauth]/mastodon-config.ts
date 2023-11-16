@@ -36,9 +36,18 @@ export default async function getMastodonConfig(
     ],
     callbacks: {
       async jwt({ token, user, account, profile, isNewUser }) {
-        token.access_token = account?.access_token;
-        token.profile = profile;
+        if (account?.access_token) {
+          token.access_token = account.access_token;
+        }
         return token;
+      },
+
+      async session({ session, token }) {
+        console.log(token);
+        if (token.access_token) {
+          session.access_token = token.access_token;
+        }
+        return session;
       },
     },
     pages: {

@@ -1,13 +1,14 @@
+import { injectable } from "inversify";
 import { Status } from "../../core/entities/Status";
 import StatusPort from "../../core/ports/StatusPort";
-import BaseMastojsAdapter from "../BaseMastojsAdapter";
+import { MastojsClientFactory } from "../shared/mastojs";
 
-export default class StatusPortMastojsAdapter
-  extends BaseMastojsAdapter
-  implements StatusPort
-{
+@injectable()
+export default class StatusPortMastojsAdapter implements StatusPort {
   async getStatus(id: string): Promise<Status> {
-    const status = await this.client?.v1.statuses.$select(id).fetch();
+    const client = await MastojsClientFactory.getClient();
+
+    const status = await client.v1.statuses.$select(id).fetch();
 
     if (status) {
       return {

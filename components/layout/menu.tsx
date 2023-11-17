@@ -34,54 +34,24 @@ export function Menu() {
             </MenubarTrigger>
           </MenubarMenu>
         </Link>
-        <MenubarMenu>
-          <MenubarTrigger className="cursor-pointer">
-            <CircleIcon className="mr-1" />
-            Local
-          </MenubarTrigger>
-          <MenubarContent forceMount>
-            <MenubarItem inset>
-              <ListBulletIcon className="mr-1" />
-              Posts
-            </MenubarItem>
-            <MenubarItem inset>
-              <FrameIcon className="mr-1" />
-              Hashtags
-            </MenubarItem>
-            <MenubarItem inset>
-              <PersonIcon className="mr-1" />
-              People
-            </MenubarItem>
-            <MenubarItem inset>
-              <Link2Icon className="mr-1" />
-              News
-            </MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
 
-        <MenubarMenu>
-          <MenubarTrigger className="cursor-pointer">
-            <GlobeIcon className="mr-1" /> Federated
-          </MenubarTrigger>
-          <MenubarContent forceMount>
-            <MenubarItem inset>
-              <ListBulletIcon className="mr-1" />
-              Posts
-            </MenubarItem>
-            <MenubarItem inset>
-              <FrameIcon className="mr-1" />
-              Hashtags
-            </MenubarItem>
-            <MenubarItem inset>
-              <PersonIcon className="mr-1" />
-              People
-            </MenubarItem>
-            <MenubarItem inset>
-              <Link2Icon className="mr-1" />
-              News
-            </MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
+        <Link href="/in/local">
+          <MenubarMenu>
+            <MenubarTrigger className="cursor-pointer">
+              <CircleIcon className="mr-1" />
+              Local
+            </MenubarTrigger>
+          </MenubarMenu>
+        </Link>
+
+        <Link href="/in/federated">
+          <MenubarMenu>
+            <MenubarTrigger className="cursor-pointer">
+              <GlobeIcon className="mr-1" />
+              Federated
+            </MenubarTrigger>
+          </MenubarMenu>
+        </Link>
       </div>
 
       <div className="mx-4 my-2">

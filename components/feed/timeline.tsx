@@ -1,14 +1,10 @@
 import useFeed from "@/lib/hooks/useFeed";
 import { TimelineProps } from "@/lib/types/TimelineProps";
 import Status from "./newStatus";
-import { feedTypes } from "@/lib/data/core/ports/FeedPort";
 import { Button } from "../ui/button";
 
 export default function Timeline({ type, startFrom }: TimelineProps) {
-  const { feed, loading, error, fetchNextPage } = useFeed(
-    feedTypes.public,
-    startFrom,
-  );
+  const { feed, loading, error, fetchNextPage } = useFeed(type, startFrom);
 
   return (
     <div className="flex justify-items-center ">

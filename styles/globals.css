@@ -83,6 +83,7 @@
 .status-content a {
   @apply text-black hover:text-black;
   @apply underline hover:no-underline;
+  @apply block w-48 truncate overflow-hidden whitespace-nowrap;
 }
 
 .status-content a.mention {

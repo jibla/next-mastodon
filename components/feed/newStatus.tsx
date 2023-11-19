@@ -1,7 +1,6 @@
 import { StatusProps } from "@/lib/types/StatusProps";
 import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Avatar } from "../ui/avatar";
-import { Card } from "../ui/card";
 import Link from "next/link";
 import DOMPurify from "dompurify";
 
@@ -36,7 +35,7 @@ export default function Status({
                 </div>
               </div>
             </div>
-            <div className="mt-4 text-gray-500 dark:text-gray-300">
+            <div className="status-content mt-4 text-gray-500 dark:text-gray-300">
               <div dangerouslySetInnerHTML={{ __html: sanitizedHTMLText }} />
             </div>
             <div className="flex mt-6 justify-between items-center">

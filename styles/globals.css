@@ -76,3 +76,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+/* Styles for status content */
+
+.status-content a {
+  @apply text-black hover:text-black;
+  @apply underline hover:no-underline;
+}
+
+.status-content a.mention {
+  @apply text-blue-500 hover:text-blue-600;
+  @apply underline hover:no-underline;
+}
+
+.status-content a.hashtag {
+  @apply text-blue-500 hover:text-blue-600;
+  @apply underline hover:no-underline;
+}

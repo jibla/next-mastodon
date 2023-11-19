@@ -49,7 +49,7 @@ export default function useFeed(
       const initialData = async () => {
         return await container.get<FetchFeedsUseCase>("fetch-feed").execute({
           type,
-          limit: 2,
+          limit: 10,
           startFrom: startFrom ?? undefined,
         });
       };

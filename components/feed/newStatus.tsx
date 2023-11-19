@@ -1,6 +1,7 @@
 import { StatusProps } from "@/lib/types/StatusProps";
 import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Avatar } from "../ui/avatar";
+import RelativeDate from "@/components/shared/relativeDate";
 import Link from "next/link";
 import DOMPurify from "dompurify";
 
@@ -19,13 +20,13 @@ export default function Status({
       <div role="status" key="1" className="m-2 border-b">
         <div className="md:flex">
           <div className="p-8 w-full">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
+            <div className="flex justify-between w-full">
+              <div className="flex">
                 <Avatar className="mr-3">
                   <AvatarImage src={avatar} alt={name} />
                   <AvatarFallback>NM</AvatarFallback>
                 </Avatar>
-                <div className="ml-4">
+                <div>
                   <div className="uppercase tracking-wide text-sm text-black dark:text-white font-semibold">
                     {name}
                   </div>
@@ -34,8 +35,12 @@ export default function Status({
                   </div>
                 </div>
               </div>
+              <div role="date" className="text-gray-400 dark:text-gray-300">
+                <RelativeDate date={createdAt} />
+              </div>
             </div>
-            <div className="status-content mt-4 text-gray-500 dark:text-gray-300">
+
+            <div className="status-content mt-4 text-black dark:text-gray-300">
               <div dangerouslySetInnerHTML={{ __html: sanitizedHTMLText }} />
             </div>
             <div className="flex mt-6 justify-between items-center">
@@ -94,9 +99,6 @@ export default function Status({
                   </svg>
                   <span className="ml-1 text-black">487</span>
                 </div>
-              </div>
-              <div role="date" className="text-gray-400 dark:text-gray-300">
-                {createdAt}
               </div>
             </div>
           </div>

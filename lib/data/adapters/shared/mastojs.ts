@@ -14,6 +14,9 @@ export const transformMastojsStatus = (
     authorUrl: mastoStatus.account.url,
     createdAt: mastoStatus.createdAt,
     text: mastoStatus.content,
+    sharesCount: mastoStatus.reblogsCount,
+    commentsCount: mastoStatus.repliesCount,
+    likesCount: mastoStatus.favouritesCount,
   };
 };
 

@@ -22,6 +22,9 @@ export default function Timeline({ type, startFrom }: TimelineProps) {
                 authorUrl={status.authorUrl}
                 createdAt={status.createdAt}
                 text={status.text}
+                sharesCount={status.sharesCount}
+                commentsCount={status.commentsCount}
+                likesCount={status.likesCount}
               />
             </Link>
           ))}

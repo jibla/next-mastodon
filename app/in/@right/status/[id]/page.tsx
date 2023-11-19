@@ -16,6 +16,9 @@ export default function StatusPage({ params }: { params: { id: string } }) {
           authorUrl={status.authorUrl}
           createdAt={status.createdAt}
           text={status.text}
+          sharesCount={status.sharesCount}
+          commentsCount={status.commentsCount}
+          likesCount={status.likesCount}
         />
       )}
     </div>

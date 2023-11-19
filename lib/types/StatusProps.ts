@@ -5,4 +5,7 @@ export interface StatusProps {
   authorUrl: string;
   text: string;
   createdAt: string;
+  sharesCount: number;
+  commentsCount: number;
+  likesCount: number;
 }

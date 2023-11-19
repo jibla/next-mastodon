@@ -15,7 +15,7 @@ export default function Status({
   const sanitizedHTMLText = DOMPurify.sanitize(text);
 
   return (
-    <div role="status" key="1" className="m-2 border-b">
+    <div role="status" key="1" className="m-2 border-b status-container">
       <div className="md:flex">
         <div className="p-8 w-full">
           <div className="flex justify-between w-full">
@@ -29,7 +29,7 @@ export default function Status({
                   {name}
                 </div>
                 <div className="text-gray-400 dark:text-gray-300">
-                  {authorUrl}
+                  <a href={authorUrl}>{authorUrl}</a>
                 </div>
               </div>
             </div>

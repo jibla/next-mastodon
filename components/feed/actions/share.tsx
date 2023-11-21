@@ -1,13 +1,22 @@
-interface LikeActionProps {
+import { useState } from "react";
+import { ActionProps } from "./action-props";
+
+interface ShareActionProps extends ActionProps {
   count: number;
 }
 
-export default function Share({ count }: LikeActionProps) {
+export default function Share({ count, fillColor }: ShareActionProps) {
+  const [isFilled, setIsFilled] = useState(false);
+  const iconClasses = `h-6 w-6 ${isFilled ? fillColor : "text-black"}`;
   return (
     <>
-      <div className="flex items-center">
+      <div
+        onMouseEnter={() => setIsFilled(true)}
+        onMouseLeave={() => setIsFilled(false)}
+        className="flex items-center"
+      >
         <svg
-          className=" h-6 w-6 text-black"
+          className={iconClasses}
           fill="none"
           height="24"
           stroke="currentColor"

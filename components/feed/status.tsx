@@ -6,6 +6,8 @@ import DOMPurify from "dompurify";
 import Like from "./actions/like";
 import Comment from "./actions/comment";
 import Share from "./actions/share";
+import Bookmark from "./actions/bookmark";
+import CopyLink from "./actions/copylink";
 
 export default function Status({
   id,
@@ -48,10 +50,15 @@ export default function Status({
             <div dangerouslySetInnerHTML={{ __html: sanitizedHTMLText }} />
           </div>
           <div className="flex mt-6 justify-between items-center">
-            <div className="flex space-x-4 text-gray-400 dark:text-gray-300">
-              <Like count={likesCount} />
-              <Comment count={commentsCount} />
-              <Share count={sharesCount} />
+            <div className="flex space-x-4 text-gray-400 dark:text-gray-300 justify-center w-full">
+              <Like count={likesCount} fillColor="fill-red-500 text-red-500" />
+              <Comment count={commentsCount} fillColor="text-red-500" />
+              <Share count={sharesCount} fillColor="text-red-500" />
+              <Bookmark
+                active={false}
+                fillColor="text-blue-500 fill-blue-500"
+              />
+              <CopyLink fillColor="text-red-500" />
             </div>
           </div>
         </div>

@@ -25,6 +25,7 @@ export default function Timeline({ type, startFrom }: TimelineProps) {
                 sharesCount={status.sharesCount}
                 commentsCount={status.commentsCount}
                 likesCount={status.likesCount}
+                images={status.images || []}
               />
             </Link>
           ))}

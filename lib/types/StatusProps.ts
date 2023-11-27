@@ -8,4 +8,10 @@ export interface StatusProps {
   sharesCount: number;
   commentsCount: number;
   likesCount: number;
+  images: [
+    {
+      previewUrl: string | undefined | null;
+      fullUrl: string | undefined | null;
+    },
+  ];
 }

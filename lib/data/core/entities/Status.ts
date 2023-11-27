@@ -1,3 +1,10 @@
+export interface StatusImage {
+  previewUrl: string | undefined | null;
+  fullUrl: string | undefined | null;
+  fullWidth: number | undefined | null;
+  fullHeight: number | undefined | null;
+}
+
 export interface Status {
   id: string;
   name: string;
@@ -8,4 +15,5 @@ export interface Status {
   sharesCount: number;
   commentsCount: number;
   likesCount: number;
+  images?: StatusImage[];
 }

@@ -97,3 +97,17 @@
   @apply text-blue-500 hover:text-blue-600;
   @apply underline hover:no-underline;
 }
+
+.pswp-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.pswp-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+

@@ -1,4 +1,3 @@
-import { StatusProps } from "@/lib/types/StatusProps";
 import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Avatar } from "../ui/avatar";
 import RelativeDate from "@/components/shared/relativeDate";
@@ -8,6 +7,12 @@ import Comment from "./actions/comment";
 import Share from "./actions/share";
 import Bookmark from "./actions/bookmark";
 import CopyLink from "./actions/copylink";
+import { Status } from "@/lib/data/core/entities/Status";
+import { useEffect } from "react";
+import Link from "next/link";
+
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import "photoswipe/style.css";
 
 export default function Status({
   id,
@@ -19,8 +24,28 @@ export default function Status({
   sharesCount,
   commentsCount,
   likesCount,
-}: StatusProps) {
+  images,
+}: Status) {
   const sanitizedHTMLText = DOMPurify.sanitize(text);
+  const photoswipeSelector = "photoswipeSelector" + id;
+
+  useEffect(() => {
+    let lightbox: PhotoSwipeLightbox | null = new PhotoSwipeLightbox({
+      gallery: "#" + photoswipeSelector,
+      children: "a",
+      pswpModule: () => import("photoswipe"),
+    });
+    lightbox.init();
+
+    return () => {
+      lightbox?.destroy();
+      lightbox = null;
+    };
+  }, [photoswipeSelector]);
+
+  const masonryOptions = {
+    transitionDuration: 0,
+  };
 
   return (
     <div role="status" key="1" className="m-2 border-b status-container">
@@ -48,6 +73,25 @@ export default function Status({
 
           <div className="status-content mt-4 text-black dark:text-gray-300">
             <div dangerouslySetInnerHTML={{ __html: sanitizedHTMLText }} />
+
+            <div className="pswp-gallery" id={photoswipeSelector}>
+              {images?.map((image, index) => (
+                <Link
+                  href={image.fullUrl || ""}
+                  key={index}
+                  data-pswp-width={image.fullWidth}
+                  data-pswp-height={image.fullHeight}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    key={index}
+                    src={image.previewUrl || ""}
+                    alt={`Image ${index + 1}`}
+                  />
+                </Link>
+              ))}
+            </div>
           </div>
           <div className="flex mt-6 justify-between items-center">
             <div className="flex space-x-4 text-gray-400 dark:text-gray-300 justify-center w-full">

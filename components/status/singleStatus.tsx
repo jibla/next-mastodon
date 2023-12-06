@@ -1,14 +1,10 @@
-import { StatusProps } from "@/lib/types/StatusProps";
+import { Status } from "@/lib/data/core/entities/Status";
+import StatusComponent from "../feed/status";
 
-export default function SingleStatus({
-  id,
-  name,
-  avatar,
-  authorUrl,
-  text,
-  createdAt,
-}: StatusProps) {
-  const sanitizedHTMLText = DOMPurify.sanitize(text);
-
-  return "TODO: implement me";
+export default function SingleStatus(status: Status) {
+  return (
+    <>
+      <StatusComponent status={status} />
+    </>
+  );
 }

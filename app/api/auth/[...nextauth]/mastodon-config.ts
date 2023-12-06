@@ -43,7 +43,6 @@ export default async function getMastodonConfig(
       },
 
       async session({ session, token }) {
-        console.log(token);
         if (token.access_token) {
           session.access_token = token.access_token;
         }

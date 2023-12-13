@@ -1,5 +1,5 @@
 // TODO: write unit tests for this
-function formatRelativeDate(dateStr: string): string {
+export function formatRelativeDate(dateStr: string): string {
   const now = new Date();
   const date = new Date(dateStr);
   const diff = now.getTime() - date.getTime();
@@ -35,7 +35,7 @@ function formatRelativeDate(dateStr: string): string {
   return `${day} ${month}, ${year}`;
 }
 
-function formatDateToFullFormat(dateStr: string): string {
+export function formatDateToFullFormat(dateStr: string): string {
   const date = new Date(dateStr);
 
   const day = date.getDate();

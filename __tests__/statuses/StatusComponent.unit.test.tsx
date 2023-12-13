@@ -1,5 +1,6 @@
-import Status from "@/components/feed/status";
-import { StatusProps } from "@/lib/types/StatusProps";
+import StatusComponent from "@/components/feed/status";
+import { formatRelativeDate } from "@/components/shared/relativeDate";
+import { Status } from "@/lib/data/core/entities/Status";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
@@ -19,38 +20,37 @@ import { render, screen } from "@testing-library/react";
 //TODO: write tests to check block domain action
 
 describe("Status component", () => {
-  const mockData: StatusProps = {
+  const mockData: Status = {
     id: "mock-id",
     name: "Giorgi Jibladze",
     avatar: "mock-avatar-url",
     authorUrl: "mock-author-url",
     text: "Welcome to Next Mastodon - an open-source adventure where we're redefining the future of decentralized social media.",
     createdAt: "2023-09-05 15:13",
+    sharesCount: 0,
+    commentsCount: 0,
+    likesCount: 0,
+    images: [],
   };
 
   it("should render the name", () => {
-    render(<Status {...mockData} />);
+    render(<StatusComponent status={mockData} />);
     expect(screen.getByText(mockData.name)).toBeInTheDocument();
   });
 
   it("should render the authorUrl", () => {
-    render(<Status {...mockData} />);
+    render(<StatusComponent status={mockData} />);
     expect(screen.getByText(mockData.authorUrl)).toBeInTheDocument();
   });
 
   it("should render the text", () => {
-    render(<Status {...mockData} />);
+    render(<StatusComponent status={mockData} />);
     expect(screen.getByText(mockData.text)).toBeInTheDocument();
   });
 
   it("should render the createdAt", () => {
-    render(<Status {...mockData} />);
-    expect(screen.getByRole("date")).toHaveTextContent(mockData.createdAt);
-  });
-
-  it("should render the avatar", () => {
-    render(<Status {...mockData} />);
-    // image does not exist
-    expect(screen.getByText("NM")).toBeInTheDocument();
+    render(<StatusComponent status={mockData} />);
+    const formattedDate = formatRelativeDate(mockData.createdAt);
+    expect(screen.getByRole("date")).toHaveTextContent(formattedDate);
   });
 });

@@ -1,4 +1,4 @@
-import { Status } from "../../core/entities/Status";
+import { Status, StatusImage } from "../../core/entities/Status";
 import { Feed } from "../../core/entities/Feed";
 import Cookies from "js-cookie";
 import { createRestAPIClient, mastodon } from "masto";
@@ -7,14 +7,32 @@ import { getSession } from "next-auth/react";
 export const transformMastojsStatus = (
   mastoStatus: mastodon.v1.Status,
 ): Status => {
-  return {
+  let images: StatusImage[] = [];
+  if (mastoStatus.mediaAttachments.length > 0) {
+    images = mastoStatus.mediaAttachments.map((media) => {
+      return {
+        previewUrl: media.previewUrl,
+        fullUrl: media.url,
+        fullWidth: media.meta?.original?.width,
+        fullHeight: media.meta?.original?.height,
+      };
+    });
+  }
+
+  const output = {
     id: mastoStatus.id,
     name: mastoStatus.account.displayName,
     avatar: mastoStatus.account.avatar,
     authorUrl: mastoStatus.account.url,
     createdAt: mastoStatus.createdAt,
     text: mastoStatus.content,
+    sharesCount: mastoStatus.reblogsCount,
+    commentsCount: mastoStatus.repliesCount,
+    likesCount: mastoStatus.favouritesCount,
+    images: images,
   };
+
+  return output;
 };
 
 export const fetchFeedPage = async (

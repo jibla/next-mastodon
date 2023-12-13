@@ -1,6 +1,6 @@
 "use client";
 
-import SingleStatus from "@/components/status/singleStatus";
+import StatusComponent from "@/components/feed/status";
 import useStatus from "@/lib/hooks/useStatus";
 
 export default function StatusPage({ params }: { params: { id: string } }) {
@@ -8,16 +8,7 @@ export default function StatusPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="flex justify-center">
-      {!loading && status != undefined && (
-        <SingleStatus
-          id={status.id}
-          name={status.name}
-          avatar={status.avatar}
-          authorUrl={status.authorUrl}
-          createdAt={status.createdAt}
-          text={status.text}
-        />
-      )}
+      {!loading && status != undefined && <StatusComponent status={status} />}
     </div>
   );
 }

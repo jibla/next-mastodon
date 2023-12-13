@@ -1,10 +1,13 @@
 import useFeed from "@/lib/hooks/useFeed";
 import { TimelineProps } from "@/lib/types/TimelineProps";
-import Status from "./newStatus";
 import { Button } from "../ui/button";
+import Link from "next/link";
+import StatusComponent from "./status";
+import { useRouter } from "next/navigation";
 
 export default function Timeline({ type, startFrom }: TimelineProps) {
   const { feed, loading, error, fetchNextPage } = useFeed(type, startFrom);
+  const router = useRouter();
 
   return (
     <div className="flex justify-items-center ">
@@ -13,15 +16,13 @@ export default function Timeline({ type, startFrom }: TimelineProps) {
       {(!loading || feed.statuses.length > 0) && (
         <div role="feed" className="mx-auto">
           {feed.statuses.map((status, index) => (
-            <Status
+            <div
               key={index}
-              id={status.id}
-              name={status.name}
-              avatar={status.avatar}
-              authorUrl={status.authorUrl}
-              createdAt={status.createdAt}
-              text={status.text}
-            />
+              className="cursor-pointer"
+              onClick={() => router.push(`/in/status/${status.id}`)}
+            >
+              <StatusComponent status={status} />
+            </div>
           ))}
 
           <div className="flex justify-center">

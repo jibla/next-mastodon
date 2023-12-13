@@ -1,7 +1,10 @@
 import { injectable } from "inversify";
 import { Status } from "../../core/entities/Status";
 import StatusPort from "../../core/ports/StatusPort";
-import { MastojsClientFactory } from "../shared/mastojs";
+import {
+  MastojsClientFactory,
+  transformMastojsStatus,
+} from "../shared/mastojs";
 
 @injectable()
 export default class StatusPortMastojsAdapter implements StatusPort {
@@ -11,14 +14,7 @@ export default class StatusPortMastojsAdapter implements StatusPort {
     const status = await client.v1.statuses.$select(id).fetch();
 
     if (status) {
-      return {
-        id: id,
-        name: status?.account?.displayName,
-        avatar: status?.account?.avatar,
-        text: status?.content,
-        authorUrl: status?.account?.url,
-        createdAt: status?.createdAt,
-      };
+      return transformMastojsStatus(status);
     }
 
     throw new Error("Status not found");

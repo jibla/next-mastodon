@@ -1,10 +1,11 @@
 import Timeline from "@/components/feed/timeline";
+import { feedTypes } from "@/lib/data/core/ports/FeedPort";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
 describe("Timeline integration tests", () => {
   test("Simple timeline is rendered", async () => {
-    render(<Timeline type="public" />);
+    render(<Timeline type={feedTypes.public} />);
 
     const feed = await screen.findByRole("feed", {}, { timeout: 10000 });
     expect(feed).toBeInTheDocument();

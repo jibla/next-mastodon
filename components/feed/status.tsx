@@ -49,16 +49,26 @@ export default function StatusComponent({ status }: { status: Status }) {
           <div className="flex mt-6 justify-between items-center">
             <div className="flex space-x-4 text-gray-400 dark:text-gray-300 justify-center w-full">
               <Like
+                objectId={status.id}
                 count={status.likesCount}
                 fillColor="fill-red-500 text-red-500"
               />
-              <Comment count={status.commentsCount} fillColor="text-red-500" />
-              <Share count={status.sharesCount} fillColor="text-red-500" />
+              <Comment
+                objectId={status.id}
+                count={status.commentsCount}
+                fillColor="text-red-500"
+              />
+              <Share
+                objectId={status.id}
+                count={status.sharesCount}
+                fillColor="text-red-500"
+              />
               <Bookmark
+                objectId={status.id}
                 active={false}
                 fillColor="text-blue-500 fill-blue-500"
               />
-              <CopyLink fillColor="text-red-500" />
+              <CopyLink objectId={status.id} fillColor="text-red-500" />
             </div>
           </div>
         </div>

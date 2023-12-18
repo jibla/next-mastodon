@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { ActionProps } from "./action-props";
+import useAction from "@/lib/hooks/useAction";
+import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 
 interface LikeActionProps extends ActionProps {
   count: number;
 }
 
-export default function Like({ count, fillColor }: LikeActionProps) {
+export default function Like({ objectId, count, fillColor }: LikeActionProps) {
   const [isFilled, setIsFilled] = useState(false);
   const iconClasses = `h-6 w-6 ${isFilled ? fillColor : "text-black"}`;
+
+  const { performAction, loading, result } = useAction();
 
   return (
     <>
@@ -15,6 +19,7 @@ export default function Like({ count, fillColor }: LikeActionProps) {
         onMouseEnter={() => setIsFilled(true)}
         onMouseLeave={() => setIsFilled(false)}
         className="action-icon flex items-center"
+        onClick={() => performAction(actionTypesEnum.REACT, objectId)}
       >
         <svg
           className={iconClasses}

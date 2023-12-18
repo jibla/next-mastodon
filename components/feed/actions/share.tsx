@@ -1,19 +1,29 @@
 import { useState } from "react";
 import { ActionProps } from "./action-props";
+import useAction from "@/lib/hooks/useAction";
+import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 
 interface ShareActionProps extends ActionProps {
   count: number;
 }
 
-export default function Share({ count, fillColor }: ShareActionProps) {
+export default function Share({
+  objectId,
+  count,
+  fillColor,
+}: ShareActionProps) {
   const [isFilled, setIsFilled] = useState(false);
   const iconClasses = `h-6 w-6 ${isFilled ? fillColor : "text-black"}`;
+
+  const { performAction, loading, result } = useAction();
+
   return (
     <>
       <div
         onMouseEnter={() => setIsFilled(true)}
         onMouseLeave={() => setIsFilled(false)}
         className="flex items-center"
+        onClick={() => performAction(actionTypesEnum.REPOST, objectId)}
       >
         <svg
           className={iconClasses}

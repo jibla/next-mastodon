@@ -3,12 +3,8 @@ import {
   UseCaseInput,
   UseCaseOutput,
 } from "@/lib/shared/use-cases/UseCaseInterface";
-
-enum actionTypesEnum {
-  REACT = "react",
-  REPOST = "repost",
-  BOOKMARK = "bookmark",
-}
+import { injectable } from "inversify";
+import { actionTypesEnum } from "../../entities/Actions";
 
 interface ActionsUseCaseInput extends UseCaseInput {
   actionType: actionTypesEnum;
@@ -21,6 +17,7 @@ interface ActionsUseCaseOutput extends UseCaseOutput {
   objectId: string;
 }
 
+@injectable()
 export class ActionsUseCase implements UseCase {
   execute(input: ActionsUseCaseInput): ActionsUseCaseOutput {
     throw new Error("Method not implemented.");

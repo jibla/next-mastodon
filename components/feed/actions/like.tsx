@@ -1,3 +1,4 @@
+import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 import { ActionProps } from "./action-props";
 import ActionWrapper from "./action-wrapper";
 
@@ -17,6 +18,7 @@ export default function Like({
       objectId={objectId}
       alreadyActed={alreadyActed}
       fillColor={fillColor}
+      actionType={actionTypesEnum.REACT}
     >
       <svg
         className={iconClasses}

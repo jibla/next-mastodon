@@ -1,11 +1,14 @@
 import { useState, useCallback } from "react";
 import { container } from "../shared/ioc";
 import { actionTypesEnum } from "../data/core/entities/Actions";
-import { ActionsUseCase } from "../data/core/use-cases/actions/ActionsUseCase";
+import {
+  ActionsUseCase,
+  ActionsUseCaseOutput,
+} from "../data/core/use-cases/actions/ActionsUseCase";
 
 const useAction = () => {
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<object | null>(null);
+  const [result, setResult] = useState<ActionsUseCaseOutput | null>(null);
 
   const performAction = useCallback(
     async (actionType: actionTypesEnum, objectId: string) => {

@@ -10,20 +10,20 @@ export default function ActionWrapper({
   alreadyActed,
   fillColor,
   children,
+  actionType,
 }: ActionProps) {
   const [isFilled, setIsFilled] = useState(false);
   const [isActed, setIsActed] = useState(alreadyActed ? true : false);
-  const [childrenWithClasses, setChildrenWithClasses] = useState(children);
   const iconClasses = `${isFilled || isActed ? fillColor : "text-black"}`;
 
   const { performAction, loading, result } = useAction();
   useEffect(() => {
     if (result) {
-      setIsActed(true);
+      setIsActed(result.acted);
     }
-  }, [children, childrenWithClasses, iconClasses, result]);
+  }, [children, iconClasses, result]);
 
-  const mappedChildren = React.Children.map(childrenWithClasses, (child) => {
+  const mappedChildren = React.Children.map(children, (child) => {
     if (
       React.isValidElement(child) &&
       child.type === "svg" &&
@@ -42,7 +42,7 @@ export default function ActionWrapper({
       onMouseLeave={() => setIsFilled(false)}
       onClick={(event) => {
         event.stopPropagation();
-        performAction(actionTypesEnum.REACT, objectId);
+        performAction(actionType, objectId);
       }}
     >
       <div className={"action-icon flex items-center"}>{mappedChildren}</div>

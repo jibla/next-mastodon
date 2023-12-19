@@ -1,3 +1,4 @@
+import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 import { ActionProps } from "./action-props";
 import ActionWrapper from "./action-wrapper";
 
@@ -18,6 +19,7 @@ export default function Share({
         objectId={objectId}
         alreadyActed={alreadyActed}
         fillColor={fillColor}
+        actionType={actionTypesEnum.REPOST}
       >
         <svg
           className={iconClasses}

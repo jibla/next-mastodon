@@ -1,3 +1,4 @@
+import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 import { ActionProps } from "./action-props";
 import ActionWrapper from "./action-wrapper";
 
@@ -7,7 +8,6 @@ interface BookmarkActionProps extends ActionProps {
 
 export default function Bookmark({
   objectId,
-  active,
   fillColor,
   alreadyActed,
   iconClasses,
@@ -17,6 +17,7 @@ export default function Bookmark({
       objectId={objectId}
       alreadyActed={alreadyActed}
       fillColor={fillColor}
+      actionType={actionTypesEnum.BOOKMARK}
     >
       <svg
         className={iconClasses}

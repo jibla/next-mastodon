@@ -23,7 +23,10 @@ export default function Share({
         onMouseEnter={() => setIsFilled(true)}
         onMouseLeave={() => setIsFilled(false)}
         className="flex items-center"
-        onClick={() => performAction(actionTypesEnum.REPOST, objectId)}
+        onClick={(event) => {
+          event.stopPropagation();
+          performAction(actionTypesEnum.REPOST, objectId);
+        }}
       >
         <svg
           className={iconClasses}

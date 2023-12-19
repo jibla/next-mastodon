@@ -48,6 +48,7 @@ export default function StatusImagesGrid({
     <div
       className="pswp-gallery grid grid-cols-1 md:grid-cols-2 gap-2 w-full"
       id={photoswipeSelector}
+      onClick={(e) => e.stopPropagation()}
     >
       {images.map((image, index) => (
         <Link

@@ -22,7 +22,10 @@ export default function Bookmark({
       onMouseEnter={() => setIsFilled(true)}
       onMouseLeave={() => setIsFilled(false)}
       className="action-icon flex items-center"
-      onClick={() => performAction(actionTypesEnum.BOOKMARK, objectId)}
+      onClick={(event) => {
+        event.stopPropagation();
+        performAction(actionTypesEnum.BOOKMARK, objectId);
+      }}
     >
       <svg
         className={iconClasses}

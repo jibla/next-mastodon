@@ -19,7 +19,10 @@ export default function Like({ objectId, count, fillColor }: LikeActionProps) {
         onMouseEnter={() => setIsFilled(true)}
         onMouseLeave={() => setIsFilled(false)}
         className="action-icon flex items-center"
-        onClick={() => performAction(actionTypesEnum.REACT, objectId)}
+        onClick={(event) => {
+          event.stopPropagation();
+          performAction(actionTypesEnum.REACT, objectId);
+        }}
       >
         <svg
           className={iconClasses}

@@ -1,14 +1,14 @@
-import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { Avatar } from "../ui/avatar";
 import RelativeDate from "@/components/shared/relativeDate";
-import DOMPurify from "dompurify";
-import Like from "./actions/like";
-import Comment from "./actions/comment";
-import Share from "./actions/share";
-import Bookmark from "./actions/bookmark";
-import CopyLink from "./actions/copylink";
 import { Status } from "@/lib/data/core/entities/Status";
+import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import DOMPurify from "dompurify";
 import StatusImagesGrid from "../shared/StatusImagesGrid";
+import { Avatar } from "../ui/avatar";
+import Bookmark from "./actions/bookmark";
+import Comment from "./actions/comment";
+import CopyLink from "./actions/copylink";
+import Like from "./actions/like";
+import Share from "./actions/share";
 
 export default function StatusComponent({ status }: { status: Status }) {
   const sanitizedHTMLText = DOMPurify.sanitize(status.text);

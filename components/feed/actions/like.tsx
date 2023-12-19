@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
 import { ActionProps } from "./action-props";
-import useAction from "@/lib/hooks/useAction";
-import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 import ActionWrapper from "./action-wrapper";
 
 interface LikeActionProps extends ActionProps {

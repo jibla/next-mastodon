@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ActionProps } from "./action-props";
 import useAction from "@/lib/hooks/useAction";
 import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
+import ActionWrapper from "./action-wrapper";
 
 interface ShareActionProps extends ActionProps {
   count: number;
@@ -11,22 +12,15 @@ export default function Share({
   objectId,
   count,
   fillColor,
+  iconClasses,
+  alreadyActed,
 }: ShareActionProps) {
-  const [isFilled, setIsFilled] = useState(false);
-  const iconClasses = `h-6 w-6 ${isFilled ? fillColor : "text-black"}`;
-
-  const { performAction, loading, result } = useAction();
-
   return (
     <>
-      <div
-        onMouseEnter={() => setIsFilled(true)}
-        onMouseLeave={() => setIsFilled(false)}
-        className="flex items-center"
-        onClick={(event) => {
-          event.stopPropagation();
-          performAction(actionTypesEnum.REPOST, objectId);
-        }}
+      <ActionWrapper
+        objectId={objectId}
+        alreadyActed={alreadyActed}
+        fillColor={fillColor}
       >
         <svg
           className={iconClasses}
@@ -46,7 +40,7 @@ export default function Share({
           <path d="M21 13v1a4 4 0 0 1-4 4H3" />
         </svg>
         <span className="ml-1 text-black">{count}</span>
-      </div>
+      </ActionWrapper>
     </>
   );
 }

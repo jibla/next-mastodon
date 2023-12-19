@@ -2,7 +2,7 @@
 
 ## Overview
 
-This use case is responsible for performing various actions for authenticated users. Actions can include reacting to a post (liking), bookmarking a post, sharing it and others.
+This use case is responsible for performing various actions for authenticated users. Actions can include reacting to a post (liking), bookmarking a post, sharing it and others. If user sends the like action, the system will check if the user has already liked the post. If yes, the system will remove the like, otherwise it will add it. The same logic applies to other actions.
 
 
 ## Actors
@@ -39,8 +39,9 @@ Table of inputs:
 
 - The result object describing the result of the action.
 {
-    success: boolean,
-    actionType: enum, *above explained
+    success: boolean, * true if there were no errors during the process, false otherwise
+    acted: boolean, * true if the action was performed, false if it was removed
+    actionType: enum,
     objectId: string,
 }
 

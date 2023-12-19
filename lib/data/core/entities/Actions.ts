@@ -1,5 +1,5 @@
 export enum actionTypesEnum {
-  REACT = "react",
-  REPOST = "repost",
+  REACT = "like",
+  REPOST = "share",
   BOOKMARK = "bookmark",
 }

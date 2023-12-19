@@ -14,7 +14,9 @@ export default function ActionWrapper({
 }: ActionProps) {
   const [isFilled, setIsFilled] = useState(false);
   const [isActed, setIsActed] = useState(alreadyActed ? true : false);
-  const iconClasses = `${isFilled || isActed ? fillColor : "text-black"}`;
+  const iconClasses = `${
+    isFilled || isActed ? "filled " + fillColor : "text-black"
+  }`;
 
   const { performAction, loading, result } = useAction();
   useEffect(() => {
@@ -42,10 +44,15 @@ export default function ActionWrapper({
       onMouseLeave={() => setIsFilled(false)}
       onClick={(event) => {
         event.stopPropagation();
-        performAction(actionType, objectId);
+        performAction(actionType ?? actionTypesEnum.REACT, objectId);
       }}
     >
-      <div className={"action-icon flex items-center"}>{mappedChildren}</div>
+      <button
+        aria-label={actionType}
+        className={"action-icon flex items-center " + iconClasses}
+      >
+        {mappedChildren}
+      </button>
     </div>
   );
 }

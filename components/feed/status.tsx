@@ -52,6 +52,7 @@ export default function StatusComponent({ status }: { status: Status }) {
                 objectId={status.id}
                 count={status.likesCount}
                 fillColor="fill-red-500 text-red-500"
+                alreadyActed={status.favourited}
               />
               <Comment
                 objectId={status.id}
@@ -62,11 +63,13 @@ export default function StatusComponent({ status }: { status: Status }) {
                 objectId={status.id}
                 count={status.sharesCount}
                 fillColor="text-red-500"
+                alreadyActed={status.shared}
               />
               <Bookmark
                 objectId={status.id}
                 active={false}
                 fillColor="text-blue-500 fill-blue-500"
+                alreadyActed={status.bookmarked}
               />
               <CopyLink objectId={status.id} fillColor="text-red-500" />
             </div>

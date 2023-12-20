@@ -16,4 +16,7 @@ export interface Status {
   commentsCount: number;
   likesCount: number;
   images?: StatusImage[];
+  favourited: boolean;
+  bookmarked: boolean;
+  shared: boolean;
 }

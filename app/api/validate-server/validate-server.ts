@@ -20,6 +20,7 @@ export default async function validateMastodonServer(
       body: JSON.stringify({
         client_name: "next-mastodon",
         redirect_uris: env.NEXTAUTH_URL + "/api/auth/callback/mastodon",
+        scopes: "read write follow",
       }),
     });
 

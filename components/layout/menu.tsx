@@ -1,5 +1,3 @@
-"use client";
-
 import { Input } from "@/components/ui/input";
 import {
   Menubar,
@@ -13,8 +11,15 @@ import { CircleIcon, GlobeIcon, HomeIcon } from "@radix-ui/react-icons";
 import { SessionProvider } from "next-auth/react";
 import Link from "next/link";
 import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
+import { useEffect, useState } from "react";
 
 export function Menu() {
+  const [appVersion, setAppVersion] = useState<string | undefined>();
+
+  useEffect(() => {
+    setAppVersion(process.env.APP_VERSION);
+  }, []);
+
   return (
     <Menubar className="flex justify-between rounded-none border-b border-none px-2 lg:px-4 my-2">
       <div className="flex">
@@ -56,7 +61,9 @@ export function Menu() {
 
       <div className="flex">
         <MenubarMenu>
-          <MenubarTrigger className="font-bold">v0.0.65</MenubarTrigger>
+          <MenubarTrigger className="font-bold">
+            {process.env.NEXT_PUBLIC_APP_VERSION}
+          </MenubarTrigger>
           <MenubarContent forceMount>
             <MenubarItem inset>About</MenubarItem>
             <MenubarSeparator />

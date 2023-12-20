@@ -72,6 +72,14 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - uses: actions/checkout@v2
+      - name: Update Version in Vercel
+        run: |
+          VERSION_TAG=${{ github.event.release.tag_name }}
+          echo "Updating version to $VERSION_TAG"
+          curl -X PATCH "https://api.vercel.com/v8/projects/${{ secrets.VERCEL_PROJECT_ID }}/env/NEXT_PUBLIC_APP_VERSION" \
+          -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d "{\"value\":\"$VERSION_TAG\"}"
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:

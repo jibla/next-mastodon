@@ -2,7 +2,7 @@ import StatusComponent from "@/components/feed/status";
 import { formatRelativeDate } from "@/components/shared/relativeDate";
 import { Status } from "@/lib/data/core/entities/Status";
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
 //TODO: write tests for working avatar / fallback.
 //TODO: write tests for actions with different states
@@ -52,5 +52,68 @@ describe("Status component", () => {
     render(<StatusComponent status={mockData} />);
     const formattedDate = formatRelativeDate(mockData.createdAt);
     expect(screen.getByRole("date")).toHaveTextContent(formattedDate);
+  });
+
+  it("like and un-like", async () => {
+    render(<StatusComponent status={mockData} />);
+    const likeButton = screen.getByRole("button", { name: "like" });
+
+    fireEvent.click(likeButton);
+    await waitFor(
+      () => {
+        expect(likeButton).toHaveClass("filled");
+      },
+      { timeout: 2000 },
+    );
+
+    fireEvent.click(likeButton);
+    await waitFor(
+      () => {
+        expect(likeButton).not.toHaveClass("filled");
+      },
+      { timeout: 2000 },
+    );
+  });
+
+  it("share and un-share", async () => {
+    render(<StatusComponent status={mockData} />);
+    const likeButton = screen.getByRole("button", { name: "share" });
+
+    fireEvent.click(likeButton);
+    await waitFor(
+      () => {
+        expect(likeButton).toHaveClass("filled");
+      },
+      { timeout: 2000 },
+    );
+
+    fireEvent.click(likeButton);
+    await waitFor(
+      () => {
+        expect(likeButton).not.toHaveClass("filled");
+      },
+      { timeout: 2000 },
+    );
+  });
+
+  it("bookmark and un-bookmark", async () => {
+    render(<StatusComponent status={mockData} />);
+    const likeButton = screen.getByRole("button", { name: "bookmark" });
+
+    fireEvent.click(likeButton);
+    await waitFor(
+      () => {
+        expect(likeButton).toHaveClass("filled");
+      },
+      { timeout: 2000 },
+    );
+
+    fireEvent.click(likeButton);
+    await waitFor(
+      () => {
+        expect(likeButton).not.toHaveClass("filled");
+      },
+      { timeout: 2000 },
+    );
   });
 });

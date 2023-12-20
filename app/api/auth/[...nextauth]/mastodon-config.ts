@@ -19,7 +19,7 @@ export default async function getMastodonConfig(
           params: {
             response_type: "code",
             redirect_uri: callbackBaseUrl + "/api/auth/callback/mastodon",
-            scope: "read",
+            scope: "read write follow",
           },
         },
         token: serverBaseUrl + "/oauth/token",

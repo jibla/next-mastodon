@@ -1,14 +1,14 @@
-import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { Avatar } from "../ui/avatar";
 import RelativeDate from "@/components/shared/relativeDate";
-import DOMPurify from "dompurify";
-import Like from "./actions/like";
-import Comment from "./actions/comment";
-import Share from "./actions/share";
-import Bookmark from "./actions/bookmark";
-import CopyLink from "./actions/copylink";
 import { Status } from "@/lib/data/core/entities/Status";
+import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import DOMPurify from "dompurify";
 import StatusImagesGrid from "../shared/StatusImagesGrid";
+import { Avatar } from "../ui/avatar";
+import Bookmark from "./actions/bookmark";
+import Comment from "./actions/comment";
+import CopyLink from "./actions/copylink";
+import Like from "./actions/like";
+import Share from "./actions/share";
 
 export default function StatusComponent({ status }: { status: Status }) {
   const sanitizedHTMLText = DOMPurify.sanitize(status.text);
@@ -49,16 +49,29 @@ export default function StatusComponent({ status }: { status: Status }) {
           <div className="flex mt-6 justify-between items-center">
             <div className="flex space-x-4 text-gray-400 dark:text-gray-300 justify-center w-full">
               <Like
+                objectId={status.id}
                 count={status.likesCount}
                 fillColor="fill-red-500 text-red-500"
+                alreadyActed={status.favourited}
               />
-              <Comment count={status.commentsCount} fillColor="text-red-500" />
-              <Share count={status.sharesCount} fillColor="text-red-500" />
+              <Comment
+                objectId={status.id}
+                count={status.commentsCount}
+                fillColor="text-red-500"
+              />
+              <Share
+                objectId={status.id}
+                count={status.sharesCount}
+                fillColor="text-red-500"
+                alreadyActed={status.shared}
+              />
               <Bookmark
+                objectId={status.id}
                 active={false}
                 fillColor="text-blue-500 fill-blue-500"
+                alreadyActed={status.bookmarked}
               />
-              <CopyLink fillColor="text-red-500" />
+              <CopyLink objectId={status.id} fillColor="text-red-500" />
             </div>
           </div>
         </div>

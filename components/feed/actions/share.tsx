@@ -1,19 +1,25 @@
-import { useState } from "react";
+import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 import { ActionProps } from "./action-props";
+import ActionWrapper from "./action-wrapper";
 
 interface ShareActionProps extends ActionProps {
   count: number;
 }
 
-export default function Share({ count, fillColor }: ShareActionProps) {
-  const [isFilled, setIsFilled] = useState(false);
-  const iconClasses = `h-6 w-6 ${isFilled ? fillColor : "text-black"}`;
+export default function Share({
+  objectId,
+  count,
+  fillColor,
+  iconClasses,
+  alreadyActed,
+}: ShareActionProps) {
   return (
     <>
-      <div
-        onMouseEnter={() => setIsFilled(true)}
-        onMouseLeave={() => setIsFilled(false)}
-        className="flex items-center"
+      <ActionWrapper
+        objectId={objectId}
+        alreadyActed={alreadyActed}
+        fillColor={fillColor}
+        actionType={actionTypesEnum.REPOST}
       >
         <svg
           className={iconClasses}
@@ -33,7 +39,7 @@ export default function Share({ count, fillColor }: ShareActionProps) {
           <path d="M21 13v1a4 4 0 0 1-4 4H3" />
         </svg>
         <span className="ml-1 text-black">{count}</span>
-      </div>
+      </ActionWrapper>
     </>
   );
 }

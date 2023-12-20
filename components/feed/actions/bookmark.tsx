@@ -1,18 +1,23 @@
-import { useState } from "react";
+import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 import { ActionProps } from "./action-props";
+import ActionWrapper from "./action-wrapper";
 
 interface BookmarkActionProps extends ActionProps {
   active: boolean;
 }
 
-export default function Bookmark({ active, fillColor }: BookmarkActionProps) {
-  const [isFilled, setIsFilled] = useState(false);
-  const iconClasses = `h-6 w-6 ${isFilled ? fillColor : "text-black"}`;
+export default function Bookmark({
+  objectId,
+  fillColor,
+  alreadyActed,
+  iconClasses,
+}: BookmarkActionProps) {
   return (
-    <div
-      onMouseEnter={() => setIsFilled(true)}
-      onMouseLeave={() => setIsFilled(false)}
-      className="action-icon flex items-center"
+    <ActionWrapper
+      objectId={objectId}
+      alreadyActed={alreadyActed}
+      fillColor={fillColor}
+      actionType={actionTypesEnum.BOOKMARK}
     >
       <svg
         className={iconClasses}
@@ -28,6 +33,6 @@ export default function Bookmark({ active, fillColor }: BookmarkActionProps) {
       >
         <path className="action-path" d="M5 3v18l7-5 7 5V3z" />
       </svg>
-    </div>
+    </ActionWrapper>
   );
 }

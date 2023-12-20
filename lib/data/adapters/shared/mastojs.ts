@@ -19,7 +19,7 @@ export const transformMastojsStatus = (
     });
   }
 
-  const output = {
+  const output: Status = {
     id: mastoStatus.id,
     name: mastoStatus.account.displayName,
     avatar: mastoStatus.account.avatar,
@@ -30,6 +30,9 @@ export const transformMastojsStatus = (
     commentsCount: mastoStatus.repliesCount,
     likesCount: mastoStatus.favouritesCount,
     images: images,
+    favourited: mastoStatus.favourited ?? false,
+    bookmarked: mastoStatus.bookmarked ?? false,
+    shared: mastoStatus.reblogged ?? false,
   };
 
   return output;

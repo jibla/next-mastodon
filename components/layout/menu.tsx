@@ -9,15 +9,7 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import {
-  CircleIcon,
-  FrameIcon,
-  GlobeIcon,
-  HomeIcon,
-  Link2Icon,
-  ListBulletIcon,
-  PersonIcon,
-} from "@radix-ui/react-icons";
+import { CircleIcon, GlobeIcon, HomeIcon } from "@radix-ui/react-icons";
 import { SessionProvider } from "next-auth/react";
 import Link from "next/link";
 import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";

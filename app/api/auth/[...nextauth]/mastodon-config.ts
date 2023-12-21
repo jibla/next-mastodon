@@ -30,6 +30,7 @@ export default async function getMastodonConfig(
           return {
             id: data.id,
             name: data.username,
+            image: data.avatar,
           };
         },
       },

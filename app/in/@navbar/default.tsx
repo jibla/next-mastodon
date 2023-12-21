@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <>
       <div className="lg:block space-y-4 py-4">
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mt-3">
           <SessionProvider>
             <PublishStatus />
           </SessionProvider>

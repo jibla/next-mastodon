@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -7,8 +8,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
+import { Pencil } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
@@ -18,9 +18,9 @@ export default function PublishStatus() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button>
-          <Mail className="mr-2 h-4 w-4" />
-          New Post
+        <Button className="w-full mx-2">
+          <Pencil className="mr-1 h-4 w-4" />
+          Post
         </Button>
       </SheetTrigger>
       <SheetContent side="left">

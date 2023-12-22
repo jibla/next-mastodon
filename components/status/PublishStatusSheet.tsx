@@ -21,7 +21,7 @@ export default function PublishStatusSheet() {
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
-          <SheetTitle>What's on your mind?</SheetTitle>
+          <SheetTitle>{"What's on your mind?"}</SheetTitle>
         </SheetHeader>
         <SheetDescription>
           <PublishStatusBlock />

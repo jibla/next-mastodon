@@ -9,7 +9,7 @@ export default class StatusPortInMemoryAdapter implements StatusPort {
     const status = generateSingleStatus();
     return Promise.resolve(status);
   }
-  postStatus(status: Status): Promise<Status> {
+  publishStatus(text: String): Promise<Status> {
     throw new Error("Method not implemented.");
   }
 }

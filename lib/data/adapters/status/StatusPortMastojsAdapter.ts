@@ -19,7 +19,7 @@ export default class StatusPortMastojsAdapter implements StatusPort {
 
     throw new Error("Status not found");
   }
-  postStatus(status: Status): Promise<Status> {
+  publishStatus(text: string): Promise<Status> {
     throw new Error("Method not implemented.");
   }
 }

@@ -1,19 +1,19 @@
-import { Container, interfaces } from "inversify";
+import { Container } from "inversify";
 import "reflect-metadata";
+import { ActionsPortInMemoryAdapter } from "../data/adapters/actions/ActionsPortInMemoryAdapter";
+import { ActionsPortMastojsAdapter } from "../data/adapters/actions/ActionsPortMastojsAdapter";
 import { FeedsPortInMemoryAdapter } from "../data/adapters/feed/in-memory/FeedsPortInMemoryAdapter";
 import FeedsPortMastojsAdapter from "../data/adapters/feed/mastojs/FeedsPortMastojsAdapter";
-import FeedPort from "../data/core/ports/FeedPort";
-import { FetchFeedsUseCase } from "../data/core/use-cases/fetch-feeds/FetchFeedsUseCase";
-import { UseCase } from "./use-cases/UseCaseInterface";
-import { FetchStatusUseCase } from "../data/core/use-cases/fetch-status/FetchStatusUseCase";
-import StatusPort from "../data/core/ports/StatusPort";
-import StatusPortMastojsAdapter from "../data/adapters/status/StatusPortMastojsAdapter";
 import StatusPortInMemoryAdapter from "../data/adapters/status/StatusPortInMemoryAdapter";
-import { getSession } from "next-auth/react";
-import { ActionsUseCase } from "../data/core/use-cases/actions/ActionsUseCase";
-import { ActionsPortInMemoryAdapter } from "../data/adapters/actions/ActionsPortInMemoryAdapter";
+import StatusPortMastojsAdapter from "../data/adapters/status/StatusPortMastojsAdapter";
 import ActionsPort from "../data/core/ports/ActionsPort";
-import { ActionsPortMastojsAdapter } from "../data/adapters/actions/ActionsPortMastojsAdapter";
+import FeedPort from "../data/core/ports/FeedPort";
+import StatusPort from "../data/core/ports/StatusPort";
+import { ActionsUseCase } from "../data/core/use-cases/actions/ActionsUseCase";
+import { FetchFeedsUseCase } from "../data/core/use-cases/fetch-feeds/FetchFeedsUseCase";
+import { FetchStatusUseCase } from "../data/core/use-cases/fetch-status/FetchStatusUseCase";
+import { PublishStatusUseCase } from "../data/core/use-cases/publish-status/PublishStatusUseCase";
+import { UseCase } from "./use-cases/UseCaseInterface";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
@@ -22,6 +22,7 @@ const env = process.env.NODE_ENV || "development";
 container.bind<UseCase>("fetch-feed").to(FetchFeedsUseCase);
 container.bind<UseCase>("fetch-status").to(FetchStatusUseCase);
 container.bind<UseCase>("actions").to(ActionsUseCase);
+container.bind<UseCase>("publish-status").to(PublishStatusUseCase);
 
 // adapters
 if (env === "test") {

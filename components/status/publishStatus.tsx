@@ -41,7 +41,7 @@ export default function PublishStatus() {
                 </div>
               )}
 
-              <Textarea placeholder="Type your post here." />
+              <Textarea role="textbox" placeholder="Type your post here." />
               <Button>Publish</Button>
             </div>
           </SheetDescription>

@@ -3,11 +3,11 @@ import type StatusPort from "../../ports/StatusPort";
 import { Status } from "../../entities/Status";
 import { inject, injectable } from "inversify";
 
-interface publisStatusInput {
+export interface PublisStatusInput {
   text: string;
 }
 
-interface publishStatusOutput {
+export interface PublishStatusOutput {
   success: boolean;
   status?: Status;
   message?: string;
@@ -20,7 +20,7 @@ export class PublishStatusUseCase implements UseCase {
     this.statusPort = statusPort;
   }
 
-  async execute(input: publisStatusInput): Promise<publishStatusOutput> {
+  async execute(input: PublisStatusInput): Promise<PublishStatusOutput> {
     const status = await this.statusPort.publishStatus(input.text);
     if (status) {
       return { success: true, status };

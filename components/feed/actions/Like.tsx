@@ -1,6 +1,6 @@
 import { actionTypesEnum } from "@/lib/data/core/entities/Actions";
 import { ActionProps } from "./action-props";
-import ActionWrapper from "./action-wrapper";
+import ActionWrapper from "./ActionWrapper";
 
 interface LikeActionProps extends ActionProps {
   count: number;

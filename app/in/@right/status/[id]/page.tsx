@@ -1,6 +1,6 @@
 "use client";
 
-import StatusComponent from "@/components/feed/status";
+import StatusComponent from "@/components/feed/StatusComponent";
 import useStatus from "@/lib/hooks/useStatus";
 
 export default function StatusPage({ params }: { params: { id: string } }) {

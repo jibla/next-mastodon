@@ -1,6 +1,6 @@
 "use client";
 
-import PublishStatus from "@/components/status/publishStatus";
+import PublishStatus from "@/components/status/PublishStatusSheet";
 import { Button } from "@/components/ui/button";
 import {
   BookmarkFilledIcon,

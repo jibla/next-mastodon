@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu } from "@/components/layout/menu";
+import { Menu } from "@/components/layout/Menu";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Allotment } from "allotment";

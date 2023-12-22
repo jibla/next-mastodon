@@ -14,9 +14,9 @@ import { Pencil } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import StatusComponent from "../feed/status";
+import StatusComponent from "../feed/StatusComponent";
 
-export default function PublishStatus() {
+export default function PublishStatusSheet() {
   const { data: session, status } = useSession();
   const { publishCallback, loading, result } = usePublishStatus();
   const [statusText, setStatusText] = useState("");
@@ -69,7 +69,7 @@ export default function PublishStatus() {
           </div>
 
           <div>
-            {loading && <p>Loading...</p>}
+            {loading && <span>Loading...</span>}
             {result?.status && <StatusComponent status={result.status} />}
           </div>
         </SheetDescription>

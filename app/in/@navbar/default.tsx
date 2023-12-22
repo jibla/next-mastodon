@@ -1,6 +1,6 @@
 "use client";
 
-import PublishStatus from "@/components/status/PublishStatusSheet";
+import PublishStatusSheet from "@/components/status/PublishStatusSheet";
 import { Button } from "@/components/ui/button";
 import {
   BookmarkFilledIcon,
@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="lg:block space-y-4 py-4">
         <div className="flex justify-center mt-3">
           <SessionProvider>
-            <PublishStatus />
+            <PublishStatusSheet />
           </SessionProvider>
         </div>
 

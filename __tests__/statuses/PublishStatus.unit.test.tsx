@@ -1,24 +1,30 @@
-import PublishStatus from "@/components/status/publishStatus";
+import PublishStatusBlock from "@/components/status/PublishStatusBlock";
 import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
-import { SessionProvider } from "next-auth/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+
+jest.mock("next-auth/react", () => ({
+  useSession: () => ({
+    update: jest.fn(),
+    data: { user: { name: "test", image: "test" } },
+    status: "authenticated",
+  }),
+}));
 
 describe("Publish new status component", () => {
   it("should render the textarea", () => {
-    render(
-      <SessionProvider>
-        <PublishStatus />
-      </SessionProvider>,
-    );
+    render(<PublishStatusBlock />);
+
     expect(screen.getByRole("textbox")).toBeInTheDocument();
   });
 
-  it("when user puts text and clicks publish, newly created post or error should appear below", () => {
-    render(
-      <SessionProvider>
-        <PublishStatus />
-      </SessionProvider>,
-    );
+  it("should render authenticated user's name", () => {
+    render(<PublishStatusBlock />);
+
+    expect(screen.getByText("@test")).toBeInTheDocument();
+  });
+
+  it("when user puts text and clicks publish, newly created post or error should appear below", async () => {
+    render(<PublishStatusBlock />);
 
     const textarea = screen.getByRole("textbox");
     const publishButton = screen.getByRole("button", { name: "Publish" });
@@ -26,6 +32,11 @@ describe("Publish new status component", () => {
     fireEvent.change(textarea, { target: { value: "Hello, world!" } });
     fireEvent.click(publishButton);
 
-    expect(screen.getByText("Hello, world!")).toBeInTheDocument();
+    await waitFor(
+      () => {
+        expect(screen.getByText("Hello, world!")).toBeInTheDocument();
+      },
+      { timeout: 2000 },
+    );
   });
 });

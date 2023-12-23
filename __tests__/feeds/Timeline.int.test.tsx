@@ -1,4 +1,4 @@
-import Timeline from "@/components/feed/timeline";
+import Timeline from "@/components/feed/Timeline";
 import { feedTypes } from "@/lib/data/core/ports/FeedPort";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";

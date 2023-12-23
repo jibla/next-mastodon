@@ -14,6 +14,7 @@ import { ActionsUseCase } from "../data/core/use-cases/actions/ActionsUseCase";
 import { ActionsPortInMemoryAdapter } from "../data/adapters/actions/ActionsPortInMemoryAdapter";
 import ActionsPort from "../data/core/ports/ActionsPort";
 import { ActionsPortMastojsAdapter } from "../data/adapters/actions/ActionsPortMastojsAdapter";
+import { PublishStatusUseCase } from "../data/core/use-cases/publish-status/PublishStatusUseCase";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
@@ -22,6 +23,7 @@ const env = process.env.NODE_ENV || "development";
 container.bind<UseCase>("fetch-feed").to(FetchFeedsUseCase);
 container.bind<UseCase>("fetch-status").to(FetchStatusUseCase);
 container.bind<UseCase>("actions").to(ActionsUseCase);
+container.bind<UseCase>("publish-status").to(PublishStatusUseCase);
 
 // adapters
 if (env === "test") {

@@ -19,7 +19,16 @@ export default class StatusPortMastojsAdapter implements StatusPort {
 
     throw new Error("Status not found");
   }
-  postStatus(status: Status): Promise<Status> {
-    throw new Error("Method not implemented.");
+
+  async publishStatus(text: string): Promise<Status | null> {
+    const client = await MastojsClientFactory.getClient();
+
+    const returnedStatus = await client.v1.statuses.create({ status: text });
+
+    if (returnedStatus) {
+      return transformMastojsStatus(returnedStatus);
+    }
+
+    return null;
   }
 }

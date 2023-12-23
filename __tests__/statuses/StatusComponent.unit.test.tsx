@@ -1,4 +1,4 @@
-import StatusComponent from "@/components/feed/status";
+import StatusComponent from "@/components/feed/StatusComponent";
 import { formatRelativeDate } from "@/components/shared/relativeDate";
 import { Status } from "@/lib/data/core/entities/Status";
 import "@testing-library/jest-dom";

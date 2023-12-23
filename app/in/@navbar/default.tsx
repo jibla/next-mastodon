@@ -1,3 +1,6 @@
+"use client";
+
+import PublishStatusSheet from "@/components/status/PublishStatusSheet";
 import { Button } from "@/components/ui/button";
 import {
   BookmarkFilledIcon,
@@ -5,13 +8,20 @@ import {
   ListBulletIcon,
   StarFilledIcon,
 } from "@radix-ui/react-icons";
+import { SessionProvider } from "next-auth/react";
 
 export default function Navbar() {
   return (
     <>
       <div className="lg:block space-y-4 py-4">
+        <div className="flex justify-center mt-3">
+          <SessionProvider>
+            <PublishStatusSheet />
+          </SessionProvider>
+        </div>
+
         <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          <h2 className="mb-2 px-4 text-xl font-semibold tracking-tight">
             Personal Space
           </h2>
           <div className="space-y-1">
@@ -32,13 +42,6 @@ export default function Navbar() {
               Direct Messages
             </Button>
           </div>
-        </div>
-
-        <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            Trending
-          </h2>
-          <div className="space-y-1"></div>
         </div>
       </div>
     </>

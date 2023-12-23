@@ -2,7 +2,7 @@ import useFeed from "@/lib/hooks/useFeed";
 import { TimelineProps } from "@/lib/types/TimelineProps";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
-import StatusComponent from "./status";
+import StatusComponent from "./StatusComponent";
 
 export default function Timeline({ type, startFrom }: TimelineProps) {
   const { feed, loading, error, fetchNextPage } = useFeed(type, startFrom);

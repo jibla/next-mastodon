@@ -4,8 +4,12 @@ import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import StatusComponent from "./StatusComponent";
 
-export default function Timeline({ type, startFrom }: TimelineProps) {
-  const { feed, loading, error, fetchNextPage } = useFeed(type, startFrom);
+export default function Timeline({ type, startFrom, userId }: TimelineProps) {
+  const { feed, loading, error, fetchNextPage } = useFeed(
+    type,
+    startFrom,
+    userId,
+  );
   const router = useRouter();
 
   return (

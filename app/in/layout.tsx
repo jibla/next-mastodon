@@ -38,7 +38,7 @@ export default function Layout({
                 style={{ maxHeight: "calc(100vh - 5.5rem)" }}
               >
                 <Allotment>
-                  <Allotment.Pane maxSize={200} minSize={199} snap={true}>
+                  <Allotment.Pane maxSize={250} minSize={249} snap={true}>
                     {navbar}
                   </Allotment.Pane>
                   <div>
@@ -46,7 +46,7 @@ export default function Layout({
                       className="h-screen"
                       style={{ maxHeight: "calc(100vh - 5.5rem)" }}
                     >
-                      {left}
+                      <div className="p-8">{left}</div>
                     </ScrollArea>
                   </div>
                   <div>

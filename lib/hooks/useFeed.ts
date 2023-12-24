@@ -14,6 +14,7 @@ interface useFeedReturnType {
 export default function useFeed(
   type: feedTypes,
   startFrom?: string,
+  userId?: string,
 ): useFeedReturnType {
   const [entireFeed, setEntireFeed] = useState<Feed>({ statuses: [] });
   const [loading, setLoading] = useState(true);
@@ -51,6 +52,7 @@ export default function useFeed(
           type,
           limit: 10,
           startFrom: startFrom ?? undefined,
+          userId: userId ?? undefined,
         });
       };
 

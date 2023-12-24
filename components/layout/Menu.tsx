@@ -8,10 +8,9 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { CircleIcon, GlobeIcon, HomeIcon } from "@radix-ui/react-icons";
-import { SessionProvider } from "next-auth/react";
 import Link from "next/link";
-import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
 import { useEffect, useState } from "react";
+import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
 
 export function Menu() {
   const [appVersion, setAppVersion] = useState<string | undefined>();
@@ -75,9 +74,7 @@ export function Menu() {
           </MenubarContent>
         </MenubarMenu>
 
-        <SessionProvider>
-          <AuthenticatedMenuItem />
-        </SessionProvider>
+        <AuthenticatedMenuItem />
       </div>
     </Menubar>
   );

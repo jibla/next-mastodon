@@ -39,6 +39,7 @@ export default async function getMastodonConfig(
       async jwt({ token, user, account, profile, isNewUser }) {
         if (account?.access_token) {
           token.access_token = account.access_token;
+          token.id = (profile as { id: string })?.id;
         }
         return token;
       },
@@ -46,6 +47,9 @@ export default async function getMastodonConfig(
       async session({ session, token }) {
         if (token.access_token) {
           session.access_token = token.access_token;
+        }
+        if (token.id) {
+          session.user.id = token.id;
         }
         return session;
       },

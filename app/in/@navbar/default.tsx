@@ -8,16 +8,13 @@ import {
   ListBulletIcon,
   StarFilledIcon,
 } from "@radix-ui/react-icons";
-import { SessionProvider } from "next-auth/react";
 
 export default function Navbar() {
   return (
     <>
       <div className="lg:block space-y-4 py-4">
         <div className="flex justify-center mt-3">
-          <SessionProvider>
-            <PublishStatusSheet />
-          </SessionProvider>
+          <PublishStatusSheet />
         </div>
 
         <div className="px-3 py-2">

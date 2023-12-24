@@ -4,12 +4,14 @@ export enum feedTypes {
   home = "home",
   public = "public",
   local = "local",
+  user = "user"
 }
 
 export interface getFeedParams {
   type: feedTypes;
   limit?: number;
   startFrom?: string;
+  userId?: string;
 }
 
 export interface getFeedOutput {

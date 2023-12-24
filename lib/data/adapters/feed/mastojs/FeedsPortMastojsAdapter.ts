@@ -20,7 +20,7 @@ export default class FeedsPortMastojsAdapter implements FeedPort {
         : undefined,
     };
 
-    const repo = this.getRepository(client, input.type);
+    const repo = this.getRepository(client, input.type, input.userId);
 
     const paginator = repo.list(config);
     const feed = await fetchFeedPage(paginator);
@@ -39,15 +39,25 @@ export default class FeedsPortMastojsAdapter implements FeedPort {
     };
   }
 
-  private getRepository(client: mastodon.rest.Client, type: feedTypes) {
+  private getRepository(
+    client: mastodon.rest.Client,
+    type: feedTypes,
+    userId?: string,
+  ) {
     switch (type) {
       case feedTypes.home:
         return client.v1.timelines.home;
       case feedTypes.public:
       case feedTypes.local:
         return client.v1.timelines.public;
+      case feedTypes.user:
+        if (userId) {
+          return client.v1.accounts.$select(userId).statuses;
+        }
       default:
-        throw new Error(`Unsupported feed type: ${type}`);
+        throw new Error(
+          `Unsupported feed type or parameters are missed for: ${type} type.`,
+        );
     }
   }
 }

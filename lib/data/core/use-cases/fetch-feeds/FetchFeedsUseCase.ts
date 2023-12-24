@@ -11,10 +11,6 @@ export class FetchFeedsUseCase implements UseCase {
   }
 
   async execute(input: getFeedParams): Promise<getFeedOutput> {
-    return await this.feedPort.getFeed({
-      type: input.type,
-      limit: input.limit,
-      startFrom: input.startFrom,
-    });
+    return await this.feedPort.getFeed(input);
   }
 }

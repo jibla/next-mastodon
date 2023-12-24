@@ -9,8 +9,14 @@ import {
 } from "@/components/ui/sheet";
 import { Pencil } from "lucide-react";
 import PublishStatusBlock from "./PublishStatusBlock";
+import Timeline from "../feed/Timeline";
+import { feedTypes } from "@/lib/data/core/ports/FeedPort";
+import { ScrollArea } from "../ui/scroll-area";
+import { useSession } from "next-auth/react";
 
 export default function PublishStatusSheet() {
+  const { data: session, status } = useSession();
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -25,6 +31,16 @@ export default function PublishStatusSheet() {
         </SheetHeader>
         <SheetDescription>
           <PublishStatusBlock />
+          <ScrollArea
+            className="h-screen mt-8"
+            style={{ maxHeight: "calc(100vh - 5.5rem)" }}
+          >
+            <div className="pr-8">
+              {session?.user?.id !== undefined && (
+                <Timeline type={feedTypes.user} userId={session?.user?.id} />
+              )}
+            </div>
+          </ScrollArea>
         </SheetDescription>
       </SheetContent>
     </Sheet>

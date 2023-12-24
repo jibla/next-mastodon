@@ -16,7 +16,7 @@ export default function StatusComponent({ status }: { status: Status }) {
   return (
     <div role="status" key="1" className="m-2 border-b status-container">
       <div className="md:flex">
-        <div className="p-8 w-full">
+        <div className="py-4 w-full">
           <div className="flex justify-between w-full">
             <div className="flex">
               <Avatar className="mr-3">

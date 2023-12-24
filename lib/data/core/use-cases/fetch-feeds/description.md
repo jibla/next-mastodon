@@ -24,12 +24,15 @@ This use case is responsible for fetching different feeds. After initially getti
 | type          | enum   | Type of feed. *check below                     | Yes      |
 | limit         | number | The number of items.                           | No       |
 | startFrom     | string | Id of the status to start with.                | No       |
+| userId        | string | Id of the user to load feed of.                | No       |
+
 
 
 * type can be one of the following values:
 - `home` - The home feed of the user (the feed of the users that the user follows).
 - `federated`- The federated feed of the user.
 - `local` - The local feed from the server.
+- `user` - The feed of the user.
 
 
 ## Output

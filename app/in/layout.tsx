@@ -80,7 +80,7 @@ export default function Layout({
                         className="h-screen"
                         style={{ maxHeight: "calc(100vh - 5.5rem)" }}
                       >
-                        <div className="p-8">{left}</div>
+                        <div className="py-4 px-2">{left}</div>
                       </ScrollArea>
                     </ResizablePanel>
                     <ResizableHandle withHandle />

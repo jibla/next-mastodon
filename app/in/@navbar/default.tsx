@@ -8,6 +8,7 @@ import {
   ListBulletIcon,
   StarFilledIcon,
 } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -34,10 +35,12 @@ export default function Navbar() {
               <ListBulletIcon className="mr-1" />
               Lists
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
-              <EnvelopeOpenIcon className="mr-1" />
-              Direct Messages
-            </Button>
+            <Link href="/in/dm">
+              <Button variant="ghost" className="w-full justify-start">
+                <EnvelopeOpenIcon className="mr-1" />
+                Direct Messages
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

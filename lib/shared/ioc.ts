@@ -17,6 +17,7 @@ import { ActionsPortMastojsAdapter } from "../data/adapters/actions/ActionsPortM
 import { PublishStatusUseCase } from "../data/core/use-cases/publish-status/PublishStatusUseCase";
 import DirectMessagesPort from "../data/core/ports/DirectMessagesPort";
 import DirectMessagesPortInMemoryAdapter from "../data/adapters/direct-messages/DirectMessagesPortInMemoryAdapter";
+import { ListDirectMessagesUseCase } from "../data/core/use-cases/list-direct-messages/ListDirectMessagesUseCase";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
@@ -26,6 +27,7 @@ container.bind<UseCase>("fetch-feed").to(FetchFeedsUseCase);
 container.bind<UseCase>("fetch-status").to(FetchStatusUseCase);
 container.bind<UseCase>("actions").to(ActionsUseCase);
 container.bind<UseCase>("publish-status").to(PublishStatusUseCase);
+container.bind<UseCase>("list-direct-messages").to(ListDirectMessagesUseCase);
 
 // adapters
 if (env === "test") {

@@ -15,6 +15,8 @@ import { ActionsPortInMemoryAdapter } from "../data/adapters/actions/ActionsPort
 import ActionsPort from "../data/core/ports/ActionsPort";
 import { ActionsPortMastojsAdapter } from "../data/adapters/actions/ActionsPortMastojsAdapter";
 import { PublishStatusUseCase } from "../data/core/use-cases/publish-status/PublishStatusUseCase";
+import DirectMessagesPort from "../data/core/ports/DirectMessagesPort";
+import DirectMessagesPortInMemoryAdapter from "../data/adapters/direct-messages/DirectMessagesPortInMemoryAdapter";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
@@ -30,10 +32,16 @@ if (env === "test") {
   container.bind<FeedPort>("feed-port").to(FeedsPortInMemoryAdapter);
   container.bind<StatusPort>("status-port").to(StatusPortInMemoryAdapter);
   container.bind<ActionsPort>("actions-port").to(ActionsPortInMemoryAdapter);
+  container
+    .bind<DirectMessagesPort>("direct-messages-port")
+    .to(DirectMessagesPortInMemoryAdapter);
 } else {
   container.bind<FeedPort>("feed-port").to(FeedsPortMastojsAdapter);
   container.bind<StatusPort>("status-port").to(StatusPortMastojsAdapter);
   container.bind<ActionsPort>("actions-port").to(ActionsPortMastojsAdapter);
+  container
+    .bind<DirectMessagesPort>("direct-messages-port")
+    .to(DirectMessagesPortInMemoryAdapter);
 }
 
 export { container };

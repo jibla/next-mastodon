@@ -1,6 +1,8 @@
+import { injectable } from "inversify";
 import { DirectMessagesListItem } from "../../core/entities/DirectMessagesListItem";
 import DirectMessagesPort from "../../core/ports/DirectMessagesPort";
 
+@injectable()
 export default class DirectMessagesPortInMemoryAdapter
   implements DirectMessagesPort
 {

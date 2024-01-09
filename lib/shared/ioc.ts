@@ -18,6 +18,7 @@ import { PublishStatusUseCase } from "../data/core/use-cases/publish-status/Publ
 import DirectMessagesPort from "../data/core/ports/DirectMessagesPort";
 import DirectMessagesPortInMemoryAdapter from "../data/adapters/direct-messages/DirectMessagesPortInMemoryAdapter";
 import { ListDirectMessagesUseCase } from "../data/core/use-cases/list-direct-messages/ListDirectMessagesUseCase";
+import { DirectMessagesPortMastojsAdapter } from "../data/adapters/direct-messages/DirectMessagesPortMastojsAdapter";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
@@ -43,7 +44,7 @@ if (env === "test") {
   container.bind<ActionsPort>("actions-port").to(ActionsPortMastojsAdapter);
   container
     .bind<DirectMessagesPort>("direct-messages-port")
-    .to(DirectMessagesPortInMemoryAdapter);
+    .to(DirectMessagesPortMastojsAdapter);
 }
 
 export { container };

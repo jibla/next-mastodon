@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import RelativeDate from "../shared/relativeDate";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import DOMPurify from "dompurify";
 
 interface DMListItemProps {
   name: string;
@@ -17,6 +18,8 @@ export default function DMListItem({
   isRead,
   avatarUrl,
 }: DMListItemProps) {
+  const sanitizedLastMessage = DOMPurify.sanitize(lastMessage);
+
   return (
     <button
       role="direct-message-list-item"
@@ -43,7 +46,7 @@ export default function DMListItem({
           </div>
         </div>
         <div className="line-clamp-2 text-xs text-muted-foreground">
-          {lastMessage}
+          <div dangerouslySetInnerHTML={{ __html: sanitizedLastMessage }} />
         </div>
       </div>
     </button>

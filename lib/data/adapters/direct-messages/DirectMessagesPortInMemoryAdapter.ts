@@ -15,6 +15,7 @@ export default class DirectMessagesPortInMemoryAdapter
 
     const conversations: DirectMessagesListItem[] = [
       {
+        id: "1",
         senderUserId: "user1",
         name: "John Doe",
         lastMessage: "Hello",
@@ -23,6 +24,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: true,
       },
       {
+        id: "2",
         senderUserId: "user2",
         name: "Jane Smith",
         lastMessage: "Hi",
@@ -31,6 +33,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: false,
       },
       {
+        id: "3",
         senderUserId: "user3",
         name: "Alice Johnson",
         lastMessage: "Hey",
@@ -39,6 +42,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: true,
       },
       {
+        id: "4",
         senderUserId: "user4",
         name: "Bob Anderson",
         lastMessage: "What's up?",
@@ -47,6 +51,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: false,
       },
       {
+        id: "5",
         senderUserId: "user5",
         name: "Emily Davis",
         lastMessage: "Good morning",
@@ -55,6 +60,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: true,
       },
       {
+        id: "6",
         senderUserId: "user6",
         name: "Michael Wilson",
         lastMessage: "How are you?",
@@ -63,6 +69,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: false,
       },
       {
+        id: "7",
         senderUserId: "user7",
         name: "Olivia Martinez",
         lastMessage: "Nice to meet you",
@@ -71,6 +78,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: true,
       },
       {
+        id: "8",
         senderUserId: "user8",
         name: "James Taylor",
         lastMessage: "See you later",
@@ -79,6 +87,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: false,
       },
       {
+        id: "9",
         senderUserId: "user9",
         name: "Sophia Clark",
         lastMessage: "Have a great day",
@@ -87,6 +96,7 @@ export default class DirectMessagesPortInMemoryAdapter
         isRead: true,
       },
       {
+        id: "10",
         senderUserId: "user10",
         name: "Daniel Lewis",
         lastMessage: "Take care",

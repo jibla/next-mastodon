@@ -1,4 +1,5 @@
 export interface DirectMessagesListItem {
+  id: string;
   senderUserId: string;
   name: string;
   lastMessage: string;

@@ -2,8 +2,10 @@ import { cn } from "@/lib/utils";
 import RelativeDate from "../shared/relativeDate";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import DOMPurify from "dompurify";
+import { useRouter } from "next/navigation";
 
 interface DMListItemProps {
+  id: string;
   name: string;
   lastMessage: string;
   lastMessageDate: string;
@@ -12,6 +14,7 @@ interface DMListItemProps {
 }
 
 export default function DMListItem({
+  id,
   name,
   lastMessage,
   lastMessageDate,
@@ -19,6 +22,7 @@ export default function DMListItem({
   avatarUrl,
 }: DMListItemProps) {
   const sanitizedLastMessage = DOMPurify.sanitize(lastMessage);
+  const router = useRouter();
 
   return (
     <button
@@ -26,6 +30,7 @@ export default function DMListItem({
       className={cn(
         "flex items-center gap-3 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent",
       )}
+      onClick={() => router.push(`/in/dm/${id}`)}
     >
       <div className="flex-none">
         <Avatar className="mr-3">

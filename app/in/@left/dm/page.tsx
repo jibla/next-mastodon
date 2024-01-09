@@ -2,6 +2,7 @@
 
 import DMListItem from "@/components/direct-messages/DmListItem";
 import useDmList from "@/lib/hooks/useDmList";
+import Link from "next/link";
 
 export default function DirectMessagesLeft() {
   const { loading, dmList } = useDmList();
@@ -15,8 +16,12 @@ export default function DirectMessagesLeft() {
 
         {!loading &&
           dmList.map(
-            ({ name, lastMessage, lastMessageDate, isRead, avatar }, index) => (
+            (
+              { id, name, lastMessage, lastMessageDate, isRead, avatar },
+              index,
+            ) => (
               <DMListItem
+                id={id}
                 name={name}
                 lastMessage={lastMessage}
                 lastMessageDate={lastMessageDate}

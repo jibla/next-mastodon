@@ -5,5 +5,9 @@ export default function ConversationPage({
 }: {
   params: { id: string };
 }) {
-  return <div className="flex justify-center">Conversation # {params.id}</div>;
+  return (
+    <>
+      <div className="flex justify-center">Conversation # {params.id}</div>
+    </>
+  );
 }

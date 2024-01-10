@@ -1,6 +1,7 @@
 import { injectable } from "inversify";
 import { DirectMessagesListItem } from "../../core/entities/DirectMessagesListItem";
 import DirectMessagesPort from "../../core/ports/DirectMessagesPort";
+import { Status } from "../../core/entities/Status";
 
 @injectable()
 export default class DirectMessagesPortInMemoryAdapter
@@ -112,5 +113,30 @@ export default class DirectMessagesPortInMemoryAdapter
     });
 
     return Promise.resolve(conversations);
+  }
+
+  getConversationMessages(id: string): Promise<Status[]> {
+    const statuses: Status[] = [];
+
+    for (let i = 0; i < 10; i++) {
+      const status: Status = {
+        id: `status${i}`,
+        name: `User ${i}`,
+        avatar: `avatar${i}.png`,
+        authorUrl: `https://example.com/user${i}`,
+        text: `This is status ${i}`,
+        createdAt: new Date().toISOString(),
+        sharesCount: 0,
+        commentsCount: 0,
+        likesCount: 0,
+        favourited: false,
+        bookmarked: false,
+        shared: false,
+      };
+
+      statuses.push(status);
+    }
+
+    return Promise.resolve(statuses);
   }
 }

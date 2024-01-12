@@ -12,7 +12,7 @@ export default function RightDefault() {
 
       <Image
         className="m-auto mt-3"
-        src="/homepage-image.png"
+        src="/logo.svg"
         alt="Next mastodon image"
         width={512}
         height={512}

@@ -9,6 +9,7 @@ interface DMListItemProps {
   name: string;
   lastMessage: string;
   lastMessageDate: string;
+  lastMessageId: string;
   isRead: boolean;
   avatarUrl?: string;
 }
@@ -17,6 +18,7 @@ export default function DMListItem({
   id,
   name,
   lastMessage,
+  lastMessageId,
   lastMessageDate,
   isRead,
   avatarUrl,
@@ -30,7 +32,7 @@ export default function DMListItem({
       className={cn(
         "flex items-center gap-3 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent",
       )}
-      onClick={() => router.push(`/in/dm/${id}`)}
+      onClick={() => router.push(`/in/dm/${lastMessageId}`)}
     >
       <div className="flex-none">
         <Avatar className="mr-3">

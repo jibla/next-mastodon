@@ -19,6 +19,7 @@ import DirectMessagesPort from "../data/core/ports/DirectMessagesPort";
 import DirectMessagesPortInMemoryAdapter from "../data/adapters/direct-messages/DirectMessagesPortInMemoryAdapter";
 import { ListDirectMessagesUseCase } from "../data/core/use-cases/list-direct-messages/ListDirectMessagesUseCase";
 import { DirectMessagesPortMastojsAdapter } from "../data/adapters/direct-messages/DirectMessagesPortMastojsAdapter";
+import { ReadConversationUseCase } from "../data/core/use-cases/read-conversation/ReadConversationUseCase";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
@@ -29,6 +30,7 @@ container.bind<UseCase>("fetch-status").to(FetchStatusUseCase);
 container.bind<UseCase>("actions").to(ActionsUseCase);
 container.bind<UseCase>("publish-status").to(PublishStatusUseCase);
 container.bind<UseCase>("list-direct-messages").to(ListDirectMessagesUseCase);
+container.bind<UseCase>("read-conversation").to(ReadConversationUseCase);
 
 // adapters
 if (env === "test") {

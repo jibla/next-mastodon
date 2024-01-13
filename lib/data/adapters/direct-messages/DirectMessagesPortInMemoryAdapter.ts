@@ -20,6 +20,7 @@ export default class DirectMessagesPortInMemoryAdapter
         senderUserId: "user1",
         name: "John Doe",
         lastMessage: "Hello",
+        lastMessageId: "status1",
         lastMessageDate: "2022-01-01",
         avatar: "avatar1.png",
         isRead: true,
@@ -29,6 +30,7 @@ export default class DirectMessagesPortInMemoryAdapter
         senderUserId: "user2",
         name: "Jane Smith",
         lastMessage: "Hi",
+        lastMessageId: "status1",
         lastMessageDate: "2022-01-02",
         avatar: "avatar2.png",
         isRead: false,
@@ -38,6 +40,7 @@ export default class DirectMessagesPortInMemoryAdapter
         senderUserId: "user3",
         name: "Alice Johnson",
         lastMessage: "Hey",
+        lastMessageId: "status1",
         lastMessageDate: "2022-01-03",
         avatar: "avatar3.png",
         isRead: true,
@@ -46,6 +49,7 @@ export default class DirectMessagesPortInMemoryAdapter
         id: "4",
         senderUserId: "user4",
         name: "Bob Anderson",
+        lastMessageId: "status1",
         lastMessage: "What's up?",
         lastMessageDate: "2022-01-04",
         avatar: "avatar4.png",
@@ -56,6 +60,7 @@ export default class DirectMessagesPortInMemoryAdapter
         senderUserId: "user5",
         name: "Emily Davis",
         lastMessage: "Good morning",
+        lastMessageId: "status1",
         lastMessageDate: "2022-01-05",
         avatar: "avatar5.png",
         isRead: true,
@@ -65,6 +70,7 @@ export default class DirectMessagesPortInMemoryAdapter
         senderUserId: "user6",
         name: "Michael Wilson",
         lastMessage: "How are you?",
+        lastMessageId: "status1",
         lastMessageDate: "2022-01-06",
         avatar: "avatar6.png",
         isRead: false,
@@ -74,6 +80,7 @@ export default class DirectMessagesPortInMemoryAdapter
         senderUserId: "user7",
         name: "Olivia Martinez",
         lastMessage: "Nice to meet you",
+        lastMessageId: "status1",
         lastMessageDate: "2022-01-07",
         avatar: "avatar7.png",
         isRead: true,
@@ -83,6 +90,7 @@ export default class DirectMessagesPortInMemoryAdapter
         senderUserId: "user8",
         name: "James Taylor",
         lastMessage: "See you later",
+        lastMessageId: "status1",
         lastMessageDate: "2022-01-08",
         avatar: "avatar8.png",
         isRead: false,
@@ -92,6 +100,7 @@ export default class DirectMessagesPortInMemoryAdapter
         senderUserId: "user9",
         name: "Sophia Clark",
         lastMessage: "Have a great day",
+        lastMessageId: "status1",
         lastMessageDate: "2022-01-09",
         avatar: "avatar9.png",
         isRead: true,
@@ -100,6 +109,7 @@ export default class DirectMessagesPortInMemoryAdapter
         id: "10",
         senderUserId: "user10",
         name: "Daniel Lewis",
+        lastMessageId: "status1",
         lastMessage: "Take care",
         lastMessageDate: "2022-01-10",
         avatar: "avatar10.png",
@@ -115,7 +125,7 @@ export default class DirectMessagesPortInMemoryAdapter
     return Promise.resolve(conversations);
   }
 
-  getConversationMessages(id: string): Promise<Status[]> {
+  getConversationMessagesByLastMessage(id: string): Promise<Status[]> {
     const statuses: Status[] = [];
 
     for (let i = 0; i < 10; i++) {

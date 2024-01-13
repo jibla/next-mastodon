@@ -16,7 +16,15 @@ export default function DirectMessagesLeft() {
         {!loading &&
           dmList.map(
             (
-              { id, name, lastMessage, lastMessageDate, isRead, avatar },
+              {
+                id,
+                name,
+                lastMessage,
+                lastMessageDate,
+                isRead,
+                avatar,
+                lastMessageId,
+              },
               index,
             ) => (
               <DMListItem
@@ -24,6 +32,7 @@ export default function DirectMessagesLeft() {
                 name={name}
                 lastMessage={lastMessage}
                 lastMessageDate={lastMessageDate}
+                lastMessageId={lastMessageId}
                 isRead={isRead}
                 avatarUrl={avatar}
                 key={index}

@@ -16,7 +16,9 @@ export class ReadConversationUseCase implements UseCase {
   }
 
   async execute(input: UseCaseInput): Promise<ConversationOutput> {
-    const conversation = await this.port.getConversationMessages(input.id);
+    const conversation = await this.port.getConversationMessagesByLastMessage(
+      input.id,
+    );
     //TODO: error handling properly
     return {
       success: true,

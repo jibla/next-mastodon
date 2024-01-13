@@ -1,7 +1,11 @@
 import { injectable } from "inversify";
 import { DirectMessagesListItem } from "../../core/entities/DirectMessagesListItem";
 import DirectMessagesPort from "../../core/ports/DirectMessagesPort";
-import { MastojsClientFactory } from "../shared/mastojs";
+import {
+  MastojsClientFactory,
+  transformMastojsStatus,
+} from "../shared/mastojs";
+import { Status } from "../../core/entities/Status";
 
 @injectable()
 export class DirectMessagesPortMastojsAdapter implements DirectMessagesPort {
@@ -22,10 +26,25 @@ export class DirectMessagesPortMastojsAdapter implements DirectMessagesPort {
           name: name,
           lastMessage: conversation.lastStatus?.content || "",
           lastMessageDate: conversation.lastStatus?.createdAt || "",
+          lastMessageId: conversation.lastStatus?.id || "",
           avatar: conversation.accounts[0].avatarStatic || "",
           isRead: conversation.unread,
         };
       });
+    }
+
+    return [];
+  }
+
+  async getConversationMessagesByLastMessage(id: string): Promise<Status[]> {
+    const client = await MastojsClientFactory.getClient();
+    const messages = await client.v1.statuses.$select(id).context.fetch();
+    if (messages.ancestors.length > 0) {
+      const statuses: Status[] = messages.ancestors.map((message) => {
+        return transformMastojsStatus(message);
+      });
+
+      return statuses;
     }
 
     return [];

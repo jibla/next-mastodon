@@ -38,13 +38,20 @@ export class DirectMessagesPortMastojsAdapter implements DirectMessagesPort {
 
   async getConversationMessagesByLastMessage(id: string): Promise<Status[]> {
     const client = await MastojsClientFactory.getClient();
-    const messages = await client.v1.statuses.$select(id).context.fetch();
-    if (messages.ancestors.length > 0) {
-      const statuses: Status[] = messages.ancestors.map((message) => {
-        return transformMastojsStatus(message);
-      });
+    const lastMessageFromMasto = await client.v1.statuses.$select(id).fetch();
+    if (lastMessageFromMasto) {
+      let lastMessage = transformMastojsStatus(lastMessageFromMasto);
 
-      return statuses;
+      const messages = await client.v1.statuses.$select(id).context.fetch();
+      if (messages.ancestors.length > 0) {
+        const statuses: Status[] = messages.ancestors.map((message) => {
+          return transformMastojsStatus(message);
+        });
+
+        statuses.push(lastMessage);
+
+        return statuses;
+      }
     }
 
     return [];

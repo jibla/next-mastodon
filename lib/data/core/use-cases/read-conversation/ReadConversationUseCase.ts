@@ -19,6 +19,7 @@ export class ReadConversationUseCase implements UseCase {
     const conversation = await this.port.getConversationMessagesByLastMessage(
       input.id,
     );
+
     //TODO: error handling properly
     return {
       success: true,

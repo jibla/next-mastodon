@@ -85,12 +85,7 @@ export default function Layout({
                     </ResizablePanel>
                     <ResizableHandle withHandle />
                     <ResizablePanel defaultSize={56} minSize={35}>
-                      <ScrollArea
-                        className="h-screen"
-                        style={{ maxHeight: "calc(100vh - 5.5rem)" }}
-                      >
-                        <div className="p-8">{right}</div>
-                      </ScrollArea>
+                      <div className="p-8">{right}</div>
                     </ResizablePanel>
                   </ResizablePanelGroup>
                 </div>

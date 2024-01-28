@@ -1,12 +1,16 @@
 "use client";
 
 import { Menu } from "@/components/layout/Menu";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
+import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
-import { Metadata } from "next";
-import { Allotment } from "allotment";
-import "node_modules/allotment/dist/style.css";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SessionProvider } from "next-auth/react";
+import { useState } from "react";
 
 // const title = "Next Mastodon";
 // const description = "Mastodon client built with Next.js";
@@ -27,6 +31,9 @@ export default function Layout({
   left: React.ReactNode;
   right: React.ReactNode;
 }) {
+  const defaultLayout = [265, 440, 655];
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
     <SessionProvider>
       <html lang="en">
@@ -39,27 +46,47 @@ export default function Layout({
                   className="w-screen h-screen"
                   style={{ maxHeight: "calc(100vh - 5.5rem)" }}
                 >
-                  <Allotment>
-                    <Allotment.Pane maxSize={250} minSize={249} snap={true}>
+                  <ResizablePanelGroup
+                    direction="horizontal"
+                    onLayout={(sizes: number[]) => {
+                      document.cookie = `react-resizable-panels:layout=${JSON.stringify(
+                        sizes,
+                      )}`;
+                    }}
+                    className="h-full max-h-[800px] items-stretch"
+                  >
+                    <ResizablePanel
+                      defaultSize={12}
+                      collapsible={false}
+                      minSize={12}
+                      maxSize={12}
+                      onCollapse={() => {
+                        setIsCollapsed(true);
+                        document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
+                          isCollapsed,
+                        )}`;
+                      }}
+                      className={cn(
+                        isCollapsed &&
+                          "min-w-[50px] transition-all duration-300 ease-in-out",
+                      )}
+                    >
                       {navbar}
-                    </Allotment.Pane>
-                    <Allotment.Pane minSize={400}>
+                    </ResizablePanel>
+                    <ResizableHandle />
+                    <ResizablePanel defaultSize={32} minSize={25}>
                       <ScrollArea
                         className="h-screen"
                         style={{ maxHeight: "calc(100vh - 5.5rem)" }}
                       >
-                        <div className="p-8">{left}</div>
+                        <div className="py-4 px-2">{left}</div>
                       </ScrollArea>
-                    </Allotment.Pane>
-                    <Allotment.Pane minSize={400}>
-                      <ScrollArea
-                        className="h-screen"
-                        style={{ maxHeight: "calc(100vh - 5.5rem)" }}
-                      >
-                        {right}
-                      </ScrollArea>
-                    </Allotment.Pane>
-                  </Allotment>
+                    </ResizablePanel>
+                    <ResizableHandle withHandle />
+                    <ResizablePanel defaultSize={56} minSize={35}>
+                      <div className="p-8">{right}</div>
+                    </ResizablePanel>
+                  </ResizablePanelGroup>
                 </div>
               </div>
             </div>

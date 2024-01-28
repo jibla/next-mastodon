@@ -32,10 +32,10 @@ export default function PublishStatusSheet() {
         <SheetDescription>
           <PublishStatusBlock />
           <ScrollArea
-            className="h-screen mt-8"
+            className="h-screen mt-8 "
             style={{ maxHeight: "calc(100vh - 5.5rem)" }}
           >
-            <div className="pr-8">
+            <div className="pr-8 gap-2">
               {session?.user?.id !== undefined && (
                 <Timeline type={feedTypes.user} userId={session?.user?.id} />
               )}

@@ -4,7 +4,7 @@ export enum feedTypes {
   home = "home",
   public = "public",
   local = "local",
-  user = "user"
+  user = "user",
 }
 
 export interface getFeedParams {

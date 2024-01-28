@@ -19,12 +19,12 @@ This use case is responsible for fetching different feeds. After initially getti
 
 ## Input
 
-| Parameter     | Type   | Description                                    | Required |
-| --------------| ------ | -----------------------------------------------| -------- |
-| type          | enum   | Type of feed. *check below                     | Yes      |
-| limit         | number | The number of items.                           | No       |
-| startFrom     | string | Id of the status to start with.                | No       |
-| userId        | string | Id of the user to load feed of.                | No       |
+| Parameter              | Type   | Description                                         | Required |
+| -----------------------| ------ | ----------------------------------------------------| -------- |
+| type                   | enum   | Type of feed. *check below                          | Yes      |
+| limit                  | number | The number of items.                                | No       |
+| startFrom              | string | Id of the status to start with.                     | No       |
+| userId                 | string | Id of the user to load feed of.                     | No       |
 
 
 

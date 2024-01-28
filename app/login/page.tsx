@@ -10,7 +10,7 @@ export default function LoginPage() {
       <div className="container relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 overflow-hidden">
         <div className="relative h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex overflow-auto">
           <div className="absolute inset-0 bg-zinc-900" />
-          <Link href="https://github.com/Omedia/next-mastodon">
+          <Link href="https://github.com/jibla/next-mastodon">
             <Button className="relative z-20 flex items-center text-lg font-medium bg-transparent hover:bg-white hover:text-black transition-colors duration-200 ease-in-out px-4 py-2 rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

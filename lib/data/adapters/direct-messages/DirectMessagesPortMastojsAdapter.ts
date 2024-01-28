@@ -56,4 +56,13 @@ export class DirectMessagesPortMastojsAdapter implements DirectMessagesPort {
 
     return [];
   }
+
+  async replyToMessage(id: string, message: string): Promise<void> {
+    const client = await MastojsClientFactory.getClient();
+    await client.v1.statuses.create({
+      status: message,
+      inReplyToId: id,
+      visibility: "direct",
+    });
+  }
 }

@@ -22,10 +22,10 @@ This use case allows users to reply to a direct messages conversation.
 
 Table of inputs:
 
-| Parameter     | Type   | Description          | Required |
-| --------------| ------ | ---------------------| -------- |
-| id            | string | The conversation ID. | Yes      |
-| message       | string | The message text.    | Yes      |
+| Parameter     | Type   | Description                          | Required |
+| --------------| ------ | -------------------------------------| -------- |
+| id            | string | The message (status) ID to reply to. | Yes      |
+| message       | string | The message text.                    | Yes      |
 
 ## Output
 
@@ -40,13 +40,11 @@ Table of inputs:
 ## Flow
 
 1. The user requests to send a new message to the conversation.
-2. The system loads the conversation by its ID, with DirectMessagesPort, then get the last message of the conversatrion.
-3. Then, the system sends the new message to the conversation using the StatusPort (technically, it is a reply to the last message in the conversation).
+2. The system, sends the new message to the conversation, using the StatusPort (technically, it is a reply to the last message in the conversation).
 
 ## Dependencies
 
 - StatusesPort
-- DirectMessagesPort
 
 
 

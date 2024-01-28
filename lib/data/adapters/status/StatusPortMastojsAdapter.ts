@@ -31,4 +31,20 @@ export default class StatusPortMastojsAdapter implements StatusPort {
 
     return null;
   }
+
+  async replyToMessage(id: string, message: string): Promise<Status | null> {
+    const client = await MastojsClientFactory.getClient();
+
+    const returnedStatus = await client.v1.statuses.create({
+      status: message,
+      visibility: "direct",
+      inReplyToId: id,
+    });
+
+    if (returnedStatus) {
+      return transformMastojsStatus(returnedStatus);
+    }
+
+    return null;
+  }
 }

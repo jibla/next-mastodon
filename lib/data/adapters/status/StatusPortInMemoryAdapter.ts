@@ -36,4 +36,8 @@ export default class StatusPortInMemoryAdapter implements StatusPort {
       throw new Error("Status too long");
     }
   }
+
+  replyToMessage(id: string, message: string): Promise<Status | null> {
+    throw new Error("Method not implemented.");
+  }
 }

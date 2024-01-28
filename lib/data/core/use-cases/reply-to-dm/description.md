@@ -40,8 +40,8 @@ Table of inputs:
 ## Flow
 
 1. The user requests to send a new message to the conversation.
-2. The system loads the conversation by its ID, then get the last message ID.
-3. Then, the system sends the new message to the conversation (technically, it is a reply to the last message in the conversation)
+2. The system loads the conversation by its ID, with DirectMessagesPort, then get the last message of the conversatrion.
+3. Then, the system sends the new message to the conversation using the StatusPort (technically, it is a reply to the last message in the conversation).
 
 ## Dependencies
 

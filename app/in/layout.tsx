@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SessionProvider } from "next-auth/react";
-import "node_modules/allotment/dist/style.css";
 import { useState } from "react";
 
 // const title = "Next Mastodon";

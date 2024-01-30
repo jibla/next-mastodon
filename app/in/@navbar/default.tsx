@@ -1,6 +1,8 @@
 "use client";
 
+import Soon from "@/components/shared/soon";
 import PublishStatusSheet from "@/components/status/PublishStatusSheet";
+import { Badge, badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   BookmarkFilledIcon,
@@ -26,14 +28,17 @@ export default function Navbar() {
             <Button variant="ghost" className="w-full justify-start">
               <StarFilledIcon className="mr-1" />
               Favourites
+              <Soon />
             </Button>
             <Button variant="ghost" className="w-full justify-start">
               <BookmarkFilledIcon className="mr-1" />
               Bookmarks
+              <Soon />
             </Button>
             <Button variant="ghost" className="w-full justify-start">
               <ListBulletIcon className="mr-1" />
               Lists
+              <Soon />
             </Button>
             <Link href="/in/dm">
               <Button variant="ghost" className="w-full justify-start">

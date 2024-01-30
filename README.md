@@ -41,7 +41,7 @@ Below is the approximate roadmap for upcoming versions and features, that I am g
 - User View
 - Polls
 
-### v0.1.9: Basic User Interface and Interaction Features
+### v0.1.0: Basic User Interface and Interaction Features
 - Customizable Themes and Display Options
 - Preferences
 - Edit User Profile

@@ -8,6 +8,7 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { signOut, useSession } from "next-auth/react";
+import Soon from "../shared/soon";
 
 export function AuthenticatedMenuItem() {
   const { data: session, status } = useSession();
@@ -20,9 +21,15 @@ export function AuthenticatedMenuItem() {
             Signed in as @{session.user?.name}
           </MenubarTrigger>
           <MenubarContent>
-            <MenubarItem>Edit Profile</MenubarItem>
-            <MenubarItem>Notifications</MenubarItem>
-            <MenubarItem>Preferences</MenubarItem>
+            <MenubarItem>
+              Edit Profile <Soon />
+            </MenubarItem>
+            <MenubarItem>
+              Notifications <Soon />
+            </MenubarItem>
+            <MenubarItem>
+              Preferences <Soon />
+            </MenubarItem>
             <MenubarSeparator />
             <MenubarItem onClick={() => signOut()}>Logout</MenubarItem>
           </MenubarContent>

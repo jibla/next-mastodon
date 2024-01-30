@@ -18,6 +18,9 @@ A heartfelt thank you to the following open-source libraries, that, so far, have
 
 - **[masto.js](https://github.com/neet/masto.js)**: This is the backbone for interacting with the Mastodon API. Masto.js has made it significantly easier to integrate Mastodon's capabilities. Kudos to [@neet](https://github.com/neet) for developing and maintaining this powerful library.
 
+- **[NextAuth.js](https://next-auth.js.org/)**: An important library for handling authentication and specifically OAuth for fediverse. Thanks to [@balazsorban44](https://github.com/balazsorban44).
+
+
 
 ## Roadmap
 Below is the approximate roadmap for upcoming versions and features, that I am going to release.

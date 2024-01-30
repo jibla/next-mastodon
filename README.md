@@ -10,6 +10,15 @@ A Mastodon client built with the Next.js framework & Vercel platform.
 ## About This Project
 Next Mastodon is my personal project, developed as a means to learn and explore the Fediverse. I work on this project in my free time. The current version (`v0.0.8`) of app is live and available for you to check out at [NextMastodon.com](https://nextmastodon.com).
 
+## Libraries
+
+A heartfelt thank you to the following open-source libraries, that, so far, have been integral in the development:
+
+- **[shadcn/ui](https://github.com/shadcn/ui)**: A UI component library that has been instrumental in building the user interface of Next Mastodon. Special thanks to [@shadcn](https://github.com/shadcn) for maintaining this excellent library.
+
+- **[masto.js](https://github.com/neet/masto.js)**: This is the backbone for interacting with the Mastodon API. Masto.js has made it significantly easier to integrate Mastodon's capabilities. Kudos to [@neet](https://github.com/neet) for developing and maintaining this powerful library.
+
+
 ## Roadmap
 Below is the approximate roadmap for upcoming versions and features, that I am going to release.
 

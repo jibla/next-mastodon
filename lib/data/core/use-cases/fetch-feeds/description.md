@@ -33,6 +33,8 @@ This use case is responsible for fetching different feeds. After initially getti
 - `federated`- The federated feed of the user.
 - `local` - The local feed from the server.
 - `user` - The feed of the user.
+- `bookmarks` - The feed of the user.
+- `favourites` - The feed of the user.
 
 
 ## Output

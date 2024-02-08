@@ -1,54 +1,54 @@
 import { Input } from "@/components/ui/input";
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
 import { CircleIcon, GlobeIcon, HomeIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
+import { useRouter } from 'next/navigation';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import {
+  Menubar,
+} from "@/components/ui/menubar";
 
 export function Menu() {
   const [appVersion, setAppVersion] = useState<string | undefined>();
+  const router = useRouter();
+  const isActive = (href) => router.pathname === href;
 
   useEffect(() => {
     setAppVersion(process.env.APP_VERSION);
   }, []);
 
   return (
-    <Menubar className="flex justify-between rounded-none border-b border-none px-2 lg:px-4 my-2">
-      <div className="flex">
-        <Link href="/in">
-          <MenubarMenu>
-            <MenubarTrigger className="cursor-pointer">
-              <HomeIcon className="mr-1" />
+    <NavigationMenu className="flex justify-between items-center rounded-none border-b border-none px-2 lg:px-4 my-2">
+      <NavigationMenuList>
+        <NavigationMenuItem className="flex">
+          <Link href="/in" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} active={isActive("/in")}>
               Home
-            </MenubarTrigger>
-          </MenubarMenu>
-        </Link>
-
-        <Link href="/in/local">
-          <MenubarMenu>
-            <MenubarTrigger className="cursor-pointer">
-              <CircleIcon className="mr-1" />
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/in/local" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} active={isActive("/in/local")}>
               Local
-            </MenubarTrigger>
-          </MenubarMenu>
-        </Link>
-
-        <Link href="/in/federated">
-          <MenubarMenu>
-            <MenubarTrigger className="cursor-pointer">
-              <GlobeIcon className="mr-1" />
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/in/federated" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} active={isActive("/in/federated")}>
               Federated
-            </MenubarTrigger>
-          </MenubarMenu>
-        </Link>
-      </div>
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
 
       <div className="mx-4 my-2">
         <Input
@@ -58,24 +58,28 @@ export function Menu() {
         />
       </div>
 
-      <div className="flex">
-        <MenubarMenu>
-          <MenubarTrigger className="font-bold">
-            {process.env.NEXT_PUBLIC_APP_VERSION}
-          </MenubarTrigger>
-          <MenubarContent forceMount>
-            <MenubarItem inset>About</MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem inset>
-              <Link href="https://github.com/Omedia/next-mastodon">
-                View Code
-              </Link>
-            </MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
-
-        <AuthenticatedMenuItem />
-      </div>
-    </Menubar>
+      <NavigationMenuList className="flex">
+        <NavigationMenuItem className="font-bold">
+          {process.env.NEXT_PUBLIC_APP_VERSION}
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="#" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              About
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="https://github.com/Omedia/next-mastodon" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              View Code
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <Menubar>
+          <AuthenticatedMenuItem />
+        </Menubar>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
 }

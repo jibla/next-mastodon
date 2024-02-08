@@ -25,16 +25,18 @@ export default function Navbar() {
             Personal Space
           </h2>
           <div className="space-y-1">
-            <Button variant="ghost" className="w-full justify-start">
-              <StarFilledIcon className="mr-1" />
-              Favourites
-              <Soon />
-            </Button>
-            <Button variant="ghost" className="w-full justify-start">
-              <BookmarkFilledIcon className="mr-1" />
-              Bookmarks
-              <Soon />
-            </Button>
+            <Link href="/in/favourites">
+              <Button variant="ghost" className="w-full justify-start">
+                <StarFilledIcon className="mr-1" />
+                Favourites
+              </Button>
+            </Link>
+            <Link href="/in/bookmarks">
+              <Button variant="ghost" className="w-full justify-start">
+                <BookmarkFilledIcon className="mr-1" />
+                Bookmarks
+              </Button>
+            </Link>
             <Button variant="ghost" className="w-full justify-start">
               <ListBulletIcon className="mr-1" />
               Lists

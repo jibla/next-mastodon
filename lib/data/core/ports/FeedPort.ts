@@ -5,6 +5,8 @@ export enum feedTypes {
   public = "public",
   local = "local",
   user = "user",
+  bookmark = "bookmark",
+  favorites = "favorites",
 }
 
 export interface getFeedParams {

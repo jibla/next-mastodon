@@ -19,4 +19,5 @@ export interface Status {
   favourited: boolean;
   bookmarked: boolean;
   shared: boolean;
+  reblogged: Status | undefined;
 }

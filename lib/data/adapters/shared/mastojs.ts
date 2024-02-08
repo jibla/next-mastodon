@@ -33,7 +33,12 @@ export const transformMastojsStatus = (
     favourited: mastoStatus.favourited ?? false,
     bookmarked: mastoStatus.bookmarked ?? false,
     shared: mastoStatus.reblogged ?? false,
+    reblogged: undefined,
   };
+
+  if (mastoStatus.reblog) {
+    output.reblogged = transformMastojsStatus(mastoStatus.reblog);
+  }
 
   return output;
 };

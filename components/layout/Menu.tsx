@@ -3,7 +3,7 @@ import { CircleIcon, GlobeIcon, HomeIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,9 +11,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import {
-  Menubar,
-} from "@/components/ui/menubar";
+import { Menubar } from "@/components/ui/menubar";
 
 export function Menu() {
   const [appVersion, setAppVersion] = useState<string | undefined>();
@@ -29,21 +27,30 @@ export function Menu() {
       <NavigationMenuList>
         <NavigationMenuItem className="flex">
           <Link href="/in" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()} active={isActive("/in")}>
+            <NavigationMenuLink
+              className={navigationMenuTriggerStyle()}
+              active={isActive("/in")}
+            >
               Home
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/in/local" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()} active={isActive("/in/local")}>
+            <NavigationMenuLink
+              className={navigationMenuTriggerStyle()}
+              active={isActive("/in/local")}
+            >
               Local
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/in/federated" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()} active={isActive("/in/federated")}>
+            <NavigationMenuLink
+              className={navigationMenuTriggerStyle()}
+              active={isActive("/in/federated")}
+            >
               Federated
             </NavigationMenuLink>
           </Link>
@@ -70,7 +77,11 @@ export function Menu() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="https://github.com/Omedia/next-mastodon" legacyBehavior passHref>
+          <Link
+            href="https://github.com/Omedia/next-mastodon"
+            legacyBehavior
+            passHref
+          >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               View Code
             </NavigationMenuLink>

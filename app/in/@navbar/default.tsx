@@ -18,7 +18,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const router = useRouter();
@@ -39,7 +39,10 @@ export default function Navbar() {
             <NavigationMenuList className="flex-col items-start">
               <NavigationMenuItem className="flex">
                 <Link href="/in/favourites" legacyBehavior passHref>
-                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} w-full justify-start`} active={isActive("/in/favourites")}>
+                  <NavigationMenuLink
+                    className={`${navigationMenuTriggerStyle()} w-full justify-start`}
+                    active={isActive("/in/favourites")}
+                  >
                     <StarFilledIcon className="mr-1" />
                     Favourites
                   </NavigationMenuLink>
@@ -47,7 +50,10 @@ export default function Navbar() {
               </NavigationMenuItem>
               <NavigationMenuItem className="flex ml-0">
                 <Link href="/in/bookmarks" legacyBehavior passHref>
-                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} w-full justify-start`} active={isActive("/in/bookmarks")}>
+                  <NavigationMenuLink
+                    className={`${navigationMenuTriggerStyle()} w-full justify-start`}
+                    active={isActive("/in/bookmarks")}
+                  >
                     <BookmarkFilledIcon className="mr-1" />
                     Bookmarks
                   </NavigationMenuLink>
@@ -62,7 +68,10 @@ export default function Navbar() {
               </NavigationMenuItem>
               <NavigationMenuItem className="flex">
                 <Link href="/in/dm" legacyBehavior passHref>
-                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} w-full justify-start`} active={isActive("/in/dm")}>
+                  <NavigationMenuLink
+                    className={`${navigationMenuTriggerStyle()} w-full justify-start`}
+                    active={isActive("/in/dm")}
+                  >
                     <EnvelopeOpenIcon className="mr-1" />
                     Direct Messages
                   </NavigationMenuLink>

@@ -3,6 +3,7 @@ export interface StatusImage {
   fullUrl: string | undefined | null;
   fullWidth: number | undefined | null;
   fullHeight: number | undefined | null;
+  hash: string | undefined | null;
 }
 
 export interface Status {

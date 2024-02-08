@@ -15,6 +15,7 @@ export const transformMastojsStatus = (
         fullUrl: media.url,
         fullWidth: media.meta?.original?.width,
         fullHeight: media.meta?.original?.height,
+        hash: media.blurhash,
       };
     });
   }

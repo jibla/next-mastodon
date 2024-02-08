@@ -61,7 +61,12 @@ export default function StatusImagesGrid({
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={image.previewUrl || ""}
+            // src={image.previewUrl || ""}
+            src={
+              image.hash
+                ? "data:image/jpeg;base64," + image.hash
+                : image.previewUrl || ""
+            }
             alt={`Image ${index + 1}`}
             className="w-full h-auto object-cover"
           />

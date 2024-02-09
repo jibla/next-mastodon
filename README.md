@@ -28,7 +28,7 @@ A heartfelt thank you to the following open-source libraries, that, so far, have
 
 ## Current version
 
-#### v0.0.8 ✅
+#### v0.0.9 ✅
 - Authentication layer with federated Mastodon servers.
 - Shadcn/ui integration.
 - Mastojs library integration.
@@ -38,12 +38,13 @@ A heartfelt thank you to the following open-source libraries, that, so far, have
 - Pagination.
 - Actions for statuses (like, share, bookmark).
 - Direct Messages (initial version with lot's of known bugs).
+- Favourites feed.
+- Bookmarks feed.
+- Hide sensitive content.
+- Show reposts.
 
 ## Roadmap of upcoming releases
 
-#### v0.0.9
-- Show Reposts in Feed
-- Favourites Feed & Bookmarks Feed
 #### v0.1.0
 - Status Thread View and Replies
 - User View

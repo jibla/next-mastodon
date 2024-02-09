@@ -18,11 +18,10 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const router = useRouter();
-  const isActive = (href) => router.pathname === href;
+  const pathname = usePathname();
 
   return (
     <>
@@ -37,40 +36,40 @@ export default function Navbar() {
           </h2>
           <NavigationMenu>
             <NavigationMenuList className="flex-col items-start">
-              <NavigationMenuItem className="flex">
+              <NavigationMenuItem className="w-full mb-1">
                 <Link href="/in/favourites" legacyBehavior passHref>
                   <NavigationMenuLink
                     className={`${navigationMenuTriggerStyle()} w-full justify-start`}
-                    active={isActive("/in/favourites")}
+                    active={pathname === "/in/favourites"}
                   >
                     <StarFilledIcon className="mr-1" />
                     Favourites
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              <NavigationMenuItem className="flex ml-0">
+              <NavigationMenuItem className="w-full mb-1">
                 <Link href="/in/bookmarks" legacyBehavior passHref>
                   <NavigationMenuLink
                     className={`${navigationMenuTriggerStyle()} w-full justify-start`}
-                    active={isActive("/in/bookmarks")}
+                    active={pathname === "/in/bookmarks"}
                   >
                     <BookmarkFilledIcon className="mr-1" />
                     Bookmarks
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              <NavigationMenuItem className="flex w-full justify-start">
+              <NavigationMenuItem className="flex w-full justify-start mb-1">
                 <Button variant="ghost" className="w-full justify-start">
                   <ListBulletIcon className="mr-1" />
                   Lists
                   <Soon />
                 </Button>
               </NavigationMenuItem>
-              <NavigationMenuItem className="flex">
+              <NavigationMenuItem className="w-full">
                 <Link href="/in/dm" legacyBehavior passHref>
                   <NavigationMenuLink
                     className={`${navigationMenuTriggerStyle()} w-full justify-start`}
-                    active={isActive("/in/dm")}
+                    active={pathname === "/in/dm"}
                   >
                     <EnvelopeOpenIcon className="mr-1" />
                     Direct Messages

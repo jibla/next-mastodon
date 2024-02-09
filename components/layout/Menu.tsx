@@ -1,9 +1,11 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import { CircleIcon, GlobeIcon, HomeIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -15,8 +17,7 @@ import { Menubar } from "@/components/ui/menubar";
 
 export function Menu() {
   const [appVersion, setAppVersion] = useState<string | undefined>();
-  const router = useRouter();
-  const isActive = (href) => router.pathname === href;
+  const pathname = usePathname();
 
   useEffect(() => {
     setAppVersion(process.env.APP_VERSION);
@@ -25,22 +26,24 @@ export function Menu() {
   return (
     <NavigationMenu className="flex justify-between items-center rounded-none border-b border-none px-2 lg:px-4 my-2">
       <NavigationMenuList>
-        <NavigationMenuItem className="flex">
+        <NavigationMenuItem className="flex mr-1">
           <Link href="/in" legacyBehavior passHref>
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
-              active={isActive("/in")}
+              active={pathname === "/in"}
             >
+              <HomeIcon className="mr-1" />
               Home
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="mr-1">
           <Link href="/in/local" legacyBehavior passHref>
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
-              active={isActive("/in/local")}
+              active={pathname === "/in/local"}
             >
+              <CircleIcon className="mr-1" />
               Local
             </NavigationMenuLink>
           </Link>
@@ -49,8 +52,9 @@ export function Menu() {
           <Link href="/in/federated" legacyBehavior passHref>
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
-              active={isActive("/in/federated")}
+              active={pathname === "/in/federated"}
             >
+              <GlobeIcon className="mr-1" />
               Federated
             </NavigationMenuLink>
           </Link>
@@ -66,17 +70,17 @@ export function Menu() {
       </div>
 
       <NavigationMenuList className="flex">
-        <NavigationMenuItem className="font-bold">
+        <NavigationMenuItem className="font-bold mr-1">
           {process.env.NEXT_PUBLIC_APP_VERSION}
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="mr-1">
           <Link href="#" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               About
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="mr-1">
           <Link
             href="https://github.com/Omedia/next-mastodon"
             legacyBehavior

@@ -15,6 +15,7 @@ export const transformMastojsStatus = (
         fullUrl: media.url,
         fullWidth: media.meta?.original?.width,
         fullHeight: media.meta?.original?.height,
+        hash: media.blurhash,
       };
     });
   }
@@ -34,6 +35,7 @@ export const transformMastojsStatus = (
     bookmarked: mastoStatus.bookmarked ?? false,
     shared: mastoStatus.reblogged ?? false,
     reblogged: undefined,
+    sensitive: mastoStatus.sensitive ?? false,
   };
 
   if (mastoStatus.reblog) {

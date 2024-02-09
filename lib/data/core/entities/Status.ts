@@ -3,6 +3,7 @@ export interface StatusImage {
   fullUrl: string | undefined | null;
   fullWidth: number | undefined | null;
   fullHeight: number | undefined | null;
+  hash: string | undefined | null;
 }
 
 export interface Status {
@@ -20,4 +21,5 @@ export interface Status {
   bookmarked: boolean;
   shared: boolean;
   reblogged: Status | undefined;
+  sensitive: boolean;
 }

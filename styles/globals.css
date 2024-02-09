@@ -100,6 +100,12 @@
   @apply inline
 }
 
+
+.blurred-image {
+  filter: blur(40px);
+  transition: filter 0.3s ease;
+}
+
 .nav-link:hover, .nav-link[data-active] {
   background-color: black;
   color: white

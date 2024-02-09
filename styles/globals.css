@@ -99,3 +99,8 @@
   @apply underline hover:no-underline;
   @apply inline
 }
+
+.nav-link:hover, .nav-link[data-active] {
+  background-color: black;
+  color: white
+}

@@ -59,7 +59,10 @@ export default function Navbar() {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem className="flex w-full justify-start mb-1">
-                <Button variant="ghost" className="w-full justify-start">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start nav-link"
+                >
                   <ListBulletIcon className="mr-1" />
                   Lists
                   <Soon />

@@ -21,4 +21,5 @@ export interface Status {
   bookmarked: boolean;
   shared: boolean;
   reblogged: Status | undefined;
+  sensitive: boolean;
 }

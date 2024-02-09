@@ -68,12 +68,14 @@ export default function StatusComponent({ status }: { status: Status }) {
               <div dangerouslySetInnerHTML={{ __html: sanitizedHTMLText }} />
             </div>
 
-            {statusToRender.images && statusToRender.images.length > 0 && (
-              <StatusImagesGrid
-                statusId={statusToRender.id}
-                images={statusToRender.images}
-              />
-            )}
+            <div className={statusToRender.sensitive ? "blurred-image" : ""}>
+              {statusToRender.images && statusToRender.images.length > 0 && (
+                <StatusImagesGrid
+                  statusId={statusToRender.id}
+                  images={statusToRender.images}
+                />
+              )}
+            </div>
           </div>
           <div className="flex mt-6 justify-between items-center">
             <div className="flex space-x-4 text-gray-400 dark:text-gray-300 justify-center w-full">

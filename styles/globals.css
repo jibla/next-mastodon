@@ -99,3 +99,9 @@
   @apply underline hover:no-underline;
   @apply inline
 }
+
+
+.blurred-image {
+  filter: blur(40px);
+  transition: filter 0.3s ease;
+}

@@ -35,6 +35,7 @@ export const transformMastojsStatus = (
     bookmarked: mastoStatus.bookmarked ?? false,
     shared: mastoStatus.reblogged ?? false,
     reblogged: undefined,
+    sensitive: mastoStatus.sensitive ?? false,
   };
 
   if (mastoStatus.reblog) {

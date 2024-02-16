@@ -13,7 +13,7 @@ export default function SignInButton({
   return (
     <Button
       className={`mt-1 mb-1 ${showNextAuth ? "rounded-l-none" : ""}`}
-      disabled={loading && !showNextAuth}
+      disabled={loading}
       {...(showNextAuth ? { onClick: () => signIn("mastodon") } : {})}
     >
       {showNextAuth ? "Sign in" : "Continue"}

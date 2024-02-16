@@ -93,8 +93,8 @@ export default function SignInForm() {
                     value={serverAddress}
                     type="text"
                     onChange={(e) => setServerAddress(e.target.value)}
-                    readOnly={showNextAuth}
-                  />
+                    disabled={showNextAuth}
+                    />
                 </div>
                 <div>
                   <div className="flex items-center justify-center">

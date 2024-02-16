@@ -93,7 +93,10 @@ export default function SignInForm() {
                     value={serverAddress}
                     type="text"
                     onChange={(e) => setServerAddress(e.target.value)}
-                    disabled={showNextAuth}
+                    readOnly={showNextAuth}
+                    className={
+                      showNextAuth ? "bg-slate-200 border-slate-300" : ""
+                    }
                   />
                 </div>
                 <div>

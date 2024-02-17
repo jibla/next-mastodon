@@ -44,7 +44,7 @@ export default function Layout({
               <div className="bg-background">
                 <div
                   className="w-screen h-screen"
-                  style={{ maxHeight: "calc(100vh - 5.5rem)" }}
+                  style={{ maxHeight: "calc(100vh - 6.5rem)" }}
                 >
                   <ResizablePanelGroup
                     direction="horizontal"

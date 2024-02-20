@@ -44,7 +44,7 @@ export default function Layout({
               <div className="bg-background">
                 <div
                   className="w-screen h-screen"
-                  style={{ maxHeight: "calc(100vh - 5.5rem)" }}
+                  style={{ maxHeight: "calc(100vh - 6.5rem)" }}
                 >
                   <ResizablePanelGroup
                     direction="horizontal"
@@ -84,7 +84,12 @@ export default function Layout({
                     </ResizablePanel>
                     <ResizableHandle withHandle />
                     <ResizablePanel defaultSize={56} minSize={35}>
-                      <div className="p-8">{right}</div>
+                      <ScrollArea
+                        className="h-screen"
+                        style={{ maxHeight: "calc(100vh - 5.5rem)" }}
+                      >
+                        <div className="p-8">{right}</div>
+                      </ScrollArea>
                     </ResizablePanel>
                   </ResizablePanelGroup>
                 </div>

@@ -5,6 +5,7 @@ import {
   MastojsClientFactory,
   transformMastojsStatus,
 } from "../shared/mastojs";
+import { Feed } from "../../core/entities/Feed";
 
 @injectable()
 export default class StatusPortMastojsAdapter implements StatusPort {
@@ -46,5 +47,22 @@ export default class StatusPortMastojsAdapter implements StatusPort {
     }
 
     return null;
+  }
+
+  async getStatusThread(id: string): Promise<Feed> {
+    const client = await MastojsClientFactory.getClient();
+
+    const thread = await client.v1.statuses.$select(id).context.fetch();
+
+    if (thread) {
+      return {
+        statuses: thread.descendants
+          .reverse()
+          .map(transformMastojsStatus)
+          .reverse(),
+      };
+    }
+
+    throw new Error("Status not found");
   }
 }

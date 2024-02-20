@@ -43,7 +43,7 @@ Table of inputs:
 
 ## Dependencies
 
-- FeedPort
+- StatusPort
 
 
 

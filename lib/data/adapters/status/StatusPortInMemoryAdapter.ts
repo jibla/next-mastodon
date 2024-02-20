@@ -2,6 +2,7 @@ import { injectable } from "inversify";
 import { Status } from "../../core/entities/Status";
 import StatusPort from "../../core/ports/StatusPort";
 import { generateSingleStatus } from "../feed/in-memory/data-generator";
+import { Feed } from "../../core/entities/Feed";
 
 const serverParams = {
   max_toot_chars: 500,
@@ -30,6 +31,8 @@ export default class StatusPortInMemoryAdapter implements StatusPort {
         favourited: false,
         bookmarked: false,
         shared: false,
+        sensitive: false,
+        reblogged: undefined,
       };
       return Promise.resolve(status);
     } else {
@@ -39,5 +42,13 @@ export default class StatusPortInMemoryAdapter implements StatusPort {
 
   replyToMessage(id: string, message: string): Promise<Status | null> {
     throw new Error("Method not implemented.");
+  }
+
+  getStatusThread(id: string): Promise<Feed> {
+    const thread: Feed = {
+      statuses: [generateSingleStatus(), generateSingleStatus()],
+    };
+
+    return Promise.resolve(thread);
   }
 }

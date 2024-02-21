@@ -2,7 +2,7 @@
 
 ## Overview
 
-This use case allows users to reply to a direct messages conversation.
+This use case allows users to reply to a status. This applies to direct messages as well as public statuses.
 
 ## Actors
 

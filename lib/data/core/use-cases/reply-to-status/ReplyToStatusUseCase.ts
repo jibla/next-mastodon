@@ -3,21 +3,21 @@ import { inject, injectable } from "inversify";
 import { Status } from "../../entities/Status";
 import type StatusPort from "../../ports/StatusPort";
 
-export interface ReplyToDmOutput {
+export interface ReplyToStatusOutput {
   success: boolean;
   status?: Status;
   message?: string;
 }
 
 @injectable()
-export class ReplyToDmUseCase implements UseCase {
+export class ReplyToStatusUseCase implements UseCase {
   private statusPort: StatusPort;
 
   constructor(@inject("status-port") statusPort: StatusPort) {
     this.statusPort = statusPort;
   }
 
-  async execute(input: UseCaseInput): Promise<ReplyToDmOutput> {
+  async execute(input: UseCaseInput): Promise<ReplyToStatusOutput> {
     let returnedStatus = await this.statusPort.replyToMessage(
       input.id,
       input.message,

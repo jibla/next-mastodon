@@ -1,6 +1,7 @@
 "use client";
 
 import StatusComponent from "@/components/feed/StatusComponent";
+import ReplyToStatus from "@/components/status/ReplyToStatus";
 import { Feed } from "@/lib/data/core/entities/Feed";
 import useStatus from "@/lib/hooks/useStatus";
 import { useEffect, useState } from "react";
@@ -23,8 +24,9 @@ export default function StatusPage({ params }: { params: { id: string } }) {
   return (
     <div className="flex flex-col justify-center">
       {!loading && status != undefined && (
-        <div className="">
+        <div>
           <StatusComponent status={status} />
+          <ReplyToStatus id={status.id} />
         </div>
       )}
       {!loading && statusThread.statuses.length > 0 && (

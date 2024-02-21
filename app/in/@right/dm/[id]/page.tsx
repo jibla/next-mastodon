@@ -1,15 +1,12 @@
 "use client";
 
 import DmMessage from "@/components/direct-messages/DmMessage";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import ReplyToStatus from "@/components/status/ReplyToStatus";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Textarea } from "@/components/ui/textarea";
 import { Status } from "@/lib/data/core/entities/Status";
 import useConversatrion from "@/lib/hooks/useConversation";
-import useReplyToStatus from "@/lib/hooks/useReplyToStatus";
 import { Separator } from "@radix-ui/react-menubar";
-import { Key, useState } from "react";
+import { Key } from "react";
 
 export default function ConversationPage({
   params,
@@ -18,14 +15,6 @@ export default function ConversationPage({
 }) {
   const { loading, conversation } = useConversatrion(params.id);
 
-  const { replyCallback, loading: replyLoading, result } = useReplyToStatus();
-  const [replyMessageText, setReplyMessageText] = useState("");
-
-  const handleTextareaChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
-    setReplyMessageText(event.target.value);
-  };
   return (
     <ScrollArea
       className="h-screen"
@@ -45,35 +34,9 @@ export default function ConversationPage({
             )}
         </div>
         <Separator className="mt-auto" />
-        <div className="p-4 pb-8">
-          <div className="grid gap-4">
-            <Textarea
-              onChange={handleTextareaChange}
-              className="p-4"
-              placeholder={`Reply...`}
-            />
-            <div className="flex items-center">
-              <Label
-                htmlFor="mute"
-                className="flex items-center gap-2 text-xs font-normal"
-              ></Label>
-              <Button
-                disabled={replyLoading}
-                onClick={() => {
-                  replyCallback(
-                    conversation[conversation.length - 1].id,
-                    replyMessageText,
-                  );
-                }}
-                size="sm"
-                className="ml-auto"
-              >
-                {!replyLoading && "Send"}
-                {replyLoading && "..."}
-              </Button>
-            </div>
-          </div>
-        </div>
+        {!loading && (
+          <ReplyToStatus id={conversation[conversation.length - 1].id} />
+        )}
       </div>
     </ScrollArea>
   );

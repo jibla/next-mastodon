@@ -1,19 +1,19 @@
 import { useCallback, useState } from "react";
 import {
-  ReplyToDmOutput,
-  ReplyToDmUseCase,
-} from "../data/core/use-cases/reply-to-dm/ReplyToDmUseCase";
+  ReplyToStatusOutput,
+  ReplyToStatusUseCase,
+} from "../data/core/use-cases/reply-to-status/ReplyToStatusUseCase";
 import { container } from "../shared/ioc";
 
 const useReplyToStatus = () => {
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<ReplyToDmOutput | null>(null);
+  const [result, setResult] = useState<ReplyToStatusOutput | null>(null);
 
   const replyCallback = useCallback(async (id: string, message: string) => {
     setLoading(true);
     try {
       const res = await container
-        .get<ReplyToDmUseCase>("reply-to-dm")
+        .get<ReplyToStatusUseCase>("reply-to-status")
         .execute({ id, message });
 
       setResult(res);

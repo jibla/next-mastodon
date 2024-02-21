@@ -20,7 +20,7 @@ import DirectMessagesPortInMemoryAdapter from "../data/adapters/direct-messages/
 import { ListDirectMessagesUseCase } from "../data/core/use-cases/list-direct-messages/ListDirectMessagesUseCase";
 import { DirectMessagesPortMastojsAdapter } from "../data/adapters/direct-messages/DirectMessagesPortMastojsAdapter";
 import { ReadConversationUseCase } from "../data/core/use-cases/read-conversation/ReadConversationUseCase";
-import { ReplyToDmUseCase } from "../data/core/use-cases/reply-to-dm/ReplyToDmUseCase";
+import { ReplyToStatusUseCase } from "../data/core/use-cases/reply-to-status/ReplyToStatusUseCase";
 import { FetchStatusThreadUseCase } from "../data/core/use-cases/fetch-status-thread/FetchStatusThreadUseCase";
 
 const container = new Container();
@@ -33,7 +33,7 @@ container.bind<UseCase>("actions").to(ActionsUseCase);
 container.bind<UseCase>("publish-status").to(PublishStatusUseCase);
 container.bind<UseCase>("list-direct-messages").to(ListDirectMessagesUseCase);
 container.bind<UseCase>("read-conversation").to(ReadConversationUseCase);
-container.bind<UseCase>("reply-to-dm").to(ReplyToDmUseCase);
+container.bind<UseCase>("reply-to-status").to(ReplyToStatusUseCase);
 container.bind<UseCase>("fetch-status-thread").to(FetchStatusThreadUseCase);
 
 // adapters

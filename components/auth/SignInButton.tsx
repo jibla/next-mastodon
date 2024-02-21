@@ -1,12 +1,23 @@
 import { signIn } from "next-auth/react";
 import { Button } from "../ui/button";
+import { Icons } from "../ui/icons";
 
-export default function SignInButton() {
+interface SignInButtonProps {
+  loading: boolean;
+  showNextAuth: boolean;
+}
+export default function SignInButton({
+  loading,
+  showNextAuth,
+}: SignInButtonProps) {
   return (
-    <>
-      <Button className="mt-1 mb-1" onClick={() => signIn("mastodon")}>
-        Sign in
-      </Button>
-    </>
+    <Button
+      className={`mt-1 mb-1 ${showNextAuth ? "rounded-l-none" : ""}`}
+      disabled={loading}
+      {...(showNextAuth ? { onClick: () => signIn("mastodon") } : {})}
+    >
+      {showNextAuth ? "Sign in" : "Continue"}
+      {loading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
+    </Button>
   );
 }

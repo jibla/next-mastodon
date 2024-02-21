@@ -52,6 +52,12 @@ export default function SignInForm() {
 
     setLoading(false);
   };
+
+  const handleGoBack = () => {
+    setServerAddress("");
+    setShowNextAuth(false);
+  };
+
   return (
     <>
       {/* TODO: Move this to a separate component */}
@@ -87,22 +93,27 @@ export default function SignInForm() {
                     value={serverAddress}
                     type="text"
                     onChange={(e) => setServerAddress(e.target.value)}
+                    readOnly={showNextAuth}
+                    className={
+                      showNextAuth ? "bg-slate-200 border-slate-300" : ""
+                    }
                   />
                 </div>
                 <div>
-                  <Button disabled={loading && !showNextAuth}>
-                    Continue
-                    {loading && !showNextAuth && (
-                      // TODO: move this to separate component
-                      <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+                  <div className="flex items-center justify-center">
+                    {showNextAuth && (
+                      <Button
+                        onClick={handleGoBack}
+                        className="flex items-center focus:outline-none rounded-r-none border-r border-white p-2"
+                      >
+                        <Icons.goBack className="w-4 h-4 text-white-600" />
+                      </Button>
                     )}
-                  </Button>
-
-                  {showNextAuth && (
-                    <div>
-                      <SignInButton />
-                    </div>
-                  )}
+                    <SignInButton
+                      loading={loading}
+                      showNextAuth={showNextAuth}
+                    />
+                  </div>
                 </div>
               </div>
             </form>

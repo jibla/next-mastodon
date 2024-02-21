@@ -139,4 +139,18 @@ export const Icons = {
       <path d="M21 12a9 9 0 1 1-6.219-8.56" />
     </svg>
   ),
+  goBack: (props: IconProps) => (
+    <svg
+      className="w-4 h-4 text-gray-600"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      {...props}
+    >
+      <path d="M15 19l-7-7 7-7"></path>
+    </svg>
+  ),
 };

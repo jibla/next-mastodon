@@ -8,7 +8,7 @@ A Mastodon client built with the Next.js framework & Vercel platform.
 [![CI and Deploy](https://github.com/jibla/next-mastodon/actions/workflows/cicd.yaml/badge.svg)](https://github.com/jibla/next-mastodon/actions/workflows/cicd.yaml)
 
 ## About This Project
-Next Mastodon is my personal project, developed as a means to learn and explore the Fediverse. I work on this project in my free time. The current version (`v0.0.8`) of app is live and available for you to check out at [https://nextmastodon.com](https://nextmastodon.com).
+Next Mastodon is my personal project, developed as a means to learn and explore the Fediverse. I work on this project in my free time. The current version of app is live and available for you to check out at [https://nextmastodon.com](https://nextmastodon.com).
 
 ## License and Credits
 

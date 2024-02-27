@@ -44,7 +44,7 @@ Table of inputs:
 
 ## Dependencies
 
-- StatusesPort
+- StatusPort
 
 
 

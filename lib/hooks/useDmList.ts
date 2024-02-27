@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { DirectMessagesListItem } from "../data/core/entities/DirectMessagesListItem";
-import { ListDirectMessagesUseCase } from "../data/core/use-cases/list-direct-messages/ListDirectMessagesUseCase";
 import { container } from "../shared/ioc";
+import { ListConversationsUseCase } from "../data/core/use-cases/list-conversations/ListConversationsUseCase";
 
 export default function useDmList(): {
   dmList: DirectMessagesListItem[] | [];
@@ -14,7 +14,7 @@ export default function useDmList(): {
     async function getDmList() {
       try {
         const messagesList = await container
-          .get<ListDirectMessagesUseCase>("list-direct-messages")
+          .get<ListConversationsUseCase>("list-conversations")
           .execute();
 
         if (messagesList.success) {

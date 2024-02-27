@@ -1,9 +1,9 @@
 import { injectable } from "inversify";
-import ActionsPort from "../../core/ports/ActionsPort";
+import ActionPort from "../../core/ports/ActionPort";
 import { MastojsClientFactory } from "../shared/mastojs";
 
 @injectable()
-export class ActionsPortMastojsAdapter implements ActionsPort {
+export class ActionPortMastojsAdapter implements ActionPort {
   async performAction(actionType: string, objectId: string): Promise<boolean> {
     const client = await MastojsClientFactory.getClient();
 

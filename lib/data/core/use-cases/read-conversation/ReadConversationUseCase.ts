@@ -1,7 +1,7 @@
 import { UseCase, UseCaseInput } from "@/lib/shared/use-cases/UseCaseInterface";
 import { inject, injectable } from "inversify";
 import { Status } from "../../entities/Status";
-import type DirectMessagesPort from "../../ports/DirectMessagesPort";
+import type DmPort from "../../ports/DmPort";
 
 export interface ConversationOutput {
   success: boolean;
@@ -10,8 +10,8 @@ export interface ConversationOutput {
 
 @injectable()
 export class ReadConversationUseCase implements UseCase {
-  private port: DirectMessagesPort;
-  constructor(@inject("direct-messages-port") statusPort: DirectMessagesPort) {
+  private port: DmPort;
+  constructor(@inject("dm-port") statusPort: DmPort) {
     this.port = statusPort;
   }
 

@@ -44,4 +44,4 @@ Table of inputs:
 
 ## Dependencies
 
-- DirectMessagesPort
+- DmPort

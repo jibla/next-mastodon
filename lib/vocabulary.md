@@ -4,17 +4,17 @@
 
 Although Next Mastodon is a Mastodon client, we have our own vocabulary to describe the concepts of the application. This is to make the codebase more readable and to avoid confusion with the Mastodon API. Our terms not necessarily match the Mastodon API terms, but they are close enough to be understandable.
 
-`Status` - Status is the central thing that represents a post (toot) on Mastodon. In mastodon API it represents [status](https://docs.joinmastodon.org/entities/Status/) entity.
+- `Status` - Status is the central thing that represents a post (toot) on Mastodon. In mastodon API it represents [status](https://docs.joinmastodon.org/entities/Status/) entity.
 
-`Feed` - A feed is a collection of statuses based on various criteria. In the Mastodon API, it represents [timelines](https://docs.joinmastodon.org/entities/feed/) with different filter types. We have a single concept of a feed that describes the collection of statuses. Additionally, we have different methods of constructing the feed, such as `home`, `local`, `public`, or with tag/search keyword filters. User statuses and replies to a status are also considered feeds and there are other types of feeds as well. Overall, in our application, a feed is any collection of statuses.
+- `Feed` - A feed is a collection of statuses based on various criteria. In the Mastodon API, it represents [timelines](https://docs.joinmastodon.org/entities/feed/) with different filter types. We have a single concept of a feed that describes the collection of statuses. Additionally, we have different methods of constructing the feed, such as `home`, `local`, `public`, or with tag/search keyword filters. User statuses and replies to a status are also considered feeds and there are other types of feeds as well. Overall, in our application, a feed is any collection of statuses.
 
-`Action` - An action is a user interaction with the `Status`. It can be a `like`, a `share`, `bookmark` and other types of interactions that are defined by the Mastodon API.
+- `Action` - An action is a user interaction with the `Status`. It can be a `like`, a `share`, `bookmark` and other types of interactions that are defined by the Mastodon API.
 
-`DM` - Direct Message. A private message between two users. In the Mastodon API it actually is a `Status`. For more clarity, we use `DM` to represent a direct message.
+- `DM` - Direct Message. A private message between two users. In the Mastodon API it actually is a `Status`. For more clarity, we use `DM` to represent a direct message.
 
-`Conversation` - A conversation is a collection of statuses between two or more users with "direct message" visibility. In the Mastodon API, it is represented by the [conversation](https://docs.joinmastodon.org/entities/Conversation/) entity. We can fetch the list of conversations from Mastodon API and then fetch the `DMs` which technically are `Status` entities.
+- `Conversation` - A conversation is a collection of statuses between two or more users with "direct message" visibility. In the Mastodon API, it is represented by the [conversation](https://docs.joinmastodon.org/entities/Conversation/) entity. We can fetch the list of conversations from Mastodon API and then fetch the `DMs` which technically are `Status` entities.
 
-`Thread` - We call thread a collection of statuses that are connected by replies to a source status. In the Mastodon API, it is related to the [Contexts](https://docs.joinmastodon.org/entities/Context/) concept.
+- `Thread` - We call thread a collection of statuses that are connected by replies to a source status. In the Mastodon API, it is related to the [Contexts](https://docs.joinmastodon.org/entities/Context/) concept.
 
 ## Naming Conventions
 

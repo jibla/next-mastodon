@@ -1,12 +1,10 @@
 import { injectable } from "inversify";
 import { DirectMessagesListItem } from "../../core/entities/DirectMessagesListItem";
-import DirectMessagesPort from "../../core/ports/DirectMessagesPort";
 import { Status } from "../../core/entities/Status";
+import DmPort from "../../core/ports/DmPort";
 
 @injectable()
-export default class DirectMessagesPortInMemoryAdapter
-  implements DirectMessagesPort
-{
+export default class DmPortInMemoryAdapter implements DmPort {
   getConversations(): Promise<DirectMessagesListItem[]> {
     const avatars: string[] = [
       "https://mastodon-files-omedia.fra1.digitaloceanspaces.com/mastodon-files-omedia/cache/accounts/avatars/111/646/227/082/703/455/original/1ff7bd0b68f4d0e4.png",
@@ -142,6 +140,8 @@ export default class DirectMessagesPortInMemoryAdapter
         favourited: false,
         bookmarked: false,
         shared: false,
+        reblogged: undefined,
+        sensitive: false,
       };
 
       statuses.push(status);

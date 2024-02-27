@@ -1,4 +1,4 @@
-# List Direct Messages
+# List Conversations
 
 ## Overview
 
@@ -32,7 +32,7 @@ There are no inputs for this use case.
 
 ## Output
 
-/lib/data/core/entities/DirectMessagesListItem[]
+/lib/data/core/entities/DmListItem[]
 
 ## Error States
 
@@ -48,7 +48,7 @@ There are no inputs for this use case.
 
 ## Dependencies
 
-- DirectMessagesPort
+- DmPort
 
 
 

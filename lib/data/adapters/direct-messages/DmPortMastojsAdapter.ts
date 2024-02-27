@@ -1,14 +1,14 @@
 import { injectable } from "inversify";
 import { DirectMessagesListItem } from "../../core/entities/DirectMessagesListItem";
-import DirectMessagesPort from "../../core/ports/DirectMessagesPort";
+import { Status } from "../../core/entities/Status";
+import DmPort from "../../core/ports/DmPort";
 import {
   MastojsClientFactory,
   transformMastojsStatus,
 } from "../shared/mastojs";
-import { Status } from "../../core/entities/Status";
 
 @injectable()
-export class DirectMessagesPortMastojsAdapter implements DirectMessagesPort {
+export class DmPortMastojsAdapter implements DmPort {
   async getConversations(): Promise<DirectMessagesListItem[]> {
     const client = await MastojsClientFactory.getClient();
     const conversations = await client.v1.conversations.list();

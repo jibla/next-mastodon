@@ -5,7 +5,7 @@ import {
 } from "@/lib/shared/use-cases/UseCaseInterface";
 import { inject, injectable } from "inversify";
 import { actionTypesEnum } from "../../entities/Actions";
-import type ActionsPort from "../../ports/ActionsPort";
+import type ActionPort from "../../ports/ActionPort";
 
 export interface ActionsUseCaseInput extends UseCaseInput {
   actionType: actionTypesEnum;
@@ -21,8 +21,8 @@ export interface ActionsUseCaseOutput extends UseCaseOutput {
 
 @injectable()
 export class ActionsUseCase implements UseCase {
-  private actionsPort: ActionsPort;
-  constructor(@inject("actions-port") actionsPort: ActionsPort) {
+  private actionsPort: ActionPort;
+  constructor(@inject("action-port") actionsPort: ActionPort) {
     this.actionsPort = actionsPort;
   }
   async execute(input: ActionsUseCaseInput): Promise<ActionsUseCaseOutput> {

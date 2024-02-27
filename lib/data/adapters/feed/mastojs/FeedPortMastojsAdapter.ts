@@ -8,7 +8,7 @@ import { MastojsClientFactory, fetchFeedPage } from "../../shared/mastojs";
 import { mastodon } from "masto";
 
 @injectable()
-export default class FeedsPortMastojsAdapter implements FeedPort {
+export default class FeedPortMastojsAdapter implements FeedPort {
   async getFeed(input: getFeedParams): Promise<getFeedOutput> {
     const client = await MastojsClientFactory.getClient();
 

@@ -1,27 +1,26 @@
-import { Container, interfaces } from "inversify";
+import { Container } from "inversify";
 import "reflect-metadata";
-import { FeedsPortInMemoryAdapter } from "../data/adapters/feed/in-memory/FeedsPortInMemoryAdapter";
-import FeedsPortMastojsAdapter from "../data/adapters/feed/mastojs/FeedsPortMastojsAdapter";
-import FeedPort from "../data/core/ports/FeedPort";
-import { FetchFeedsUseCase } from "../data/core/use-cases/fetch-feeds/FetchFeedsUseCase";
 import { UseCase } from "./use-cases/UseCaseInterface";
+import { FetchFeedsUseCase } from "../data/core/use-cases/fetch-feeds/FetchFeedsUseCase";
 import { FetchStatusUseCase } from "../data/core/use-cases/fetch-status/FetchStatusUseCase";
-import StatusPort from "../data/core/ports/StatusPort";
-import StatusPortMastojsAdapter from "../data/adapters/status/StatusPortMastojsAdapter";
-import StatusPortInMemoryAdapter from "../data/adapters/status/StatusPortInMemoryAdapter";
-import { getSession } from "next-auth/react";
 import { ActionsUseCase } from "../data/core/use-cases/actions/ActionsUseCase";
-import { ActionsPortInMemoryAdapter } from "../data/adapters/actions/ActionsPortInMemoryAdapter";
-import ActionsPort from "../data/core/ports/ActionsPort";
-import { ActionsPortMastojsAdapter } from "../data/adapters/actions/ActionsPortMastojsAdapter";
 import { PublishStatusUseCase } from "../data/core/use-cases/publish-status/PublishStatusUseCase";
-import DirectMessagesPort from "../data/core/ports/DirectMessagesPort";
-import DirectMessagesPortInMemoryAdapter from "../data/adapters/direct-messages/DirectMessagesPortInMemoryAdapter";
-import { ListDirectMessagesUseCase } from "../data/core/use-cases/list-direct-messages/ListDirectMessagesUseCase";
-import { DirectMessagesPortMastojsAdapter } from "../data/adapters/direct-messages/DirectMessagesPortMastojsAdapter";
 import { ReadConversationUseCase } from "../data/core/use-cases/read-conversation/ReadConversationUseCase";
 import { ReplyToStatusUseCase } from "../data/core/use-cases/reply-to-status/ReplyToStatusUseCase";
 import { FetchStatusThreadUseCase } from "../data/core/use-cases/fetch-status-thread/FetchStatusThreadUseCase";
+import FeedPort from "../data/core/ports/FeedPort";
+import StatusPort from "../data/core/ports/StatusPort";
+import ActionPort from "../data/core/ports/ActionPort";
+import { FeedPortInMemoryAdapter } from "../data/adapters/feed/in-memory/FeedPortInMemoryAdapter";
+import StatusPortInMemoryAdapter from "../data/adapters/status/StatusPortInMemoryAdapter";
+import { ActionPortInMemoryAdapter } from "../data/adapters/actions/ActionPortInMemoryAdapter";
+import DmPort from "../data/core/ports/DmPort";
+import DmPortInMemoryAdapter from "../data/adapters/direct-messages/DmPortInMemoryAdapter";
+import FeedPortMastojsAdapter from "../data/adapters/feed/mastojs/FeedPortMastojsAdapter";
+import StatusPortMastojsAdapter from "../data/adapters/status/StatusPortMastojsAdapter";
+import { ActionPortMastojsAdapter } from "../data/adapters/actions/ActionPortMastojsAdapter";
+import { ListConversationsUseCase } from "../data/core/use-cases/list-conversations/ListConversationsUseCase";
+import { DmPortMastojsAdapter } from "../data/adapters/direct-messages/DmPortMastojsAdapter";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
@@ -31,26 +30,22 @@ container.bind<UseCase>("fetch-feed").to(FetchFeedsUseCase);
 container.bind<UseCase>("fetch-status").to(FetchStatusUseCase);
 container.bind<UseCase>("actions").to(ActionsUseCase);
 container.bind<UseCase>("publish-status").to(PublishStatusUseCase);
-container.bind<UseCase>("list-direct-messages").to(ListDirectMessagesUseCase);
+container.bind<UseCase>("list-conversations").to(ListConversationsUseCase);
 container.bind<UseCase>("read-conversation").to(ReadConversationUseCase);
 container.bind<UseCase>("reply-to-status").to(ReplyToStatusUseCase);
 container.bind<UseCase>("fetch-status-thread").to(FetchStatusThreadUseCase);
 
 // adapters
 if (env === "test") {
-  container.bind<FeedPort>("feed-port").to(FeedsPortInMemoryAdapter);
+  container.bind<FeedPort>("feed-port").to(FeedPortInMemoryAdapter);
   container.bind<StatusPort>("status-port").to(StatusPortInMemoryAdapter);
-  container.bind<ActionsPort>("actions-port").to(ActionsPortInMemoryAdapter);
-  container
-    .bind<DirectMessagesPort>("direct-messages-port")
-    .to(DirectMessagesPortInMemoryAdapter);
+  container.bind<ActionPort>("action-port").to(ActionPortInMemoryAdapter);
+  container.bind<DmPort>("dm-port").to(DmPortInMemoryAdapter);
 } else {
-  container.bind<FeedPort>("feed-port").to(FeedsPortMastojsAdapter);
+  container.bind<FeedPort>("feed-port").to(FeedPortMastojsAdapter);
   container.bind<StatusPort>("status-port").to(StatusPortMastojsAdapter);
-  container.bind<ActionsPort>("actions-port").to(ActionsPortMastojsAdapter);
-  container
-    .bind<DirectMessagesPort>("direct-messages-port")
-    .to(DirectMessagesPortMastojsAdapter);
+  container.bind<ActionPort>("action-port").to(ActionPortMastojsAdapter);
+  container.bind<DmPort>("dm-port").to(DmPortMastojsAdapter);
 }
 
 export { container };

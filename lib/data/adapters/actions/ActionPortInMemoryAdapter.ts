@@ -1,8 +1,8 @@
 import { injectable } from "inversify";
-import ActionsPort from "../../core/ports/ActionsPort";
+import ActionPort from "../../core/ports/ActionPort";
 
 @injectable()
-export class ActionsPortInMemoryAdapter implements ActionsPort {
+export class ActionPortInMemoryAdapter implements ActionPort {
   private static inMemoryDb: {
     [key: string]: { acted: boolean; actionType: string };
   } = {};
@@ -11,17 +11,17 @@ export class ActionsPortInMemoryAdapter implements ActionsPort {
     return new Promise((resolve) => {
       const key = `${objectId}-${actionType}`;
 
-      if (ActionsPortInMemoryAdapter.inMemoryDb[key]) {
-        ActionsPortInMemoryAdapter.inMemoryDb[key].acted =
-          !ActionsPortInMemoryAdapter.inMemoryDb[key].acted;
+      if (ActionPortInMemoryAdapter.inMemoryDb[key]) {
+        ActionPortInMemoryAdapter.inMemoryDb[key].acted =
+          !ActionPortInMemoryAdapter.inMemoryDb[key].acted;
       } else {
-        ActionsPortInMemoryAdapter.inMemoryDb[key] = {
+        ActionPortInMemoryAdapter.inMemoryDb[key] = {
           acted: true,
           actionType: actionType,
         };
       }
 
-      resolve(ActionsPortInMemoryAdapter.inMemoryDb[key].acted);
+      resolve(ActionPortInMemoryAdapter.inMemoryDb[key].acted);
     });
   }
 }

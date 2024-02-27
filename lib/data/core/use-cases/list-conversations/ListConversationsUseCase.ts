@@ -1,10 +1,7 @@
-import {
-  UseCase,
-  UseCaseOutput,
-} from "@/lib/shared/use-cases/UseCaseInterface";
+import { UseCase } from "@/lib/shared/use-cases/UseCaseInterface";
 import { inject, injectable } from "inversify";
 import { DirectMessagesListItem } from "../../entities/DirectMessagesListItem";
-import type DirectMessagesPort from "../../ports/DirectMessagesPort";
+import type DmPort from "../../ports/DmPort";
 
 export interface ListDirectMessagesOutput {
   success: boolean;
@@ -13,9 +10,9 @@ export interface ListDirectMessagesOutput {
 }
 
 @injectable()
-export class ListDirectMessagesUseCase implements UseCase {
-  private port: DirectMessagesPort;
-  constructor(@inject("direct-messages-port") statusPort: DirectMessagesPort) {
+export class ListConversationsUseCase implements UseCase {
+  private port: DmPort;
+  constructor(@inject("dm-port") statusPort: DmPort) {
     this.port = statusPort;
   }
 

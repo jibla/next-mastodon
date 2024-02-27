@@ -20,6 +20,7 @@ import FeedPortMastojsAdapter from "../data/adapters/feed/mastojs/FeedPortMastoj
 import StatusPortMastojsAdapter from "../data/adapters/status/StatusPortMastojsAdapter";
 import { ActionPortMastojsAdapter } from "../data/adapters/actions/ActionPortMastojsAdapter";
 import { ListConversationsUseCase } from "../data/core/use-cases/list-conversations/ListConversationsUseCase";
+import { DmPortMastojsAdapter } from "../data/adapters/direct-messages/DmPortMastojsAdapter";
 
 const container = new Container();
 const env = process.env.NODE_ENV || "development";
@@ -44,7 +45,7 @@ if (env === "test") {
   container.bind<FeedPort>("feed-port").to(FeedPortMastojsAdapter);
   container.bind<StatusPort>("status-port").to(StatusPortMastojsAdapter);
   container.bind<ActionPort>("action-port").to(ActionPortMastojsAdapter);
-  container.bind<DmPort>("dm-port").to(DmPortInMemoryAdapter);
+  container.bind<DmPort>("dm-port").to(DmPortMastojsAdapter);
 }
 
 export { container };

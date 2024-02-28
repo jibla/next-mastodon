@@ -28,13 +28,18 @@ jobs:
         run: pnpm lint
       - name: Test
         run: pnpm tests
+      - name: Install jq
+        run: sudo apt-get install jq -y
       - name: Check for unused dependencies
         run: |
           OUTPUT=$(pnpm exec depcheck --ignores="@types/*,typescript" --json)
-          if [ "$(echo $OUTPUT | jq '.dependencies + .devDependencies | length')" -gt 0 ]; then
+          COUNT=$(echo "$OUTPUT" | jq '.dependencies + .devDependencies | length')
+          if [ "$COUNT" -gt 0 ]; then
             echo "Unused dependencies found:"
-            echo $OUTPUT | jq
+            echo "$OUTPUT" | jq
             exit 1
+          else
+            echo "No unused dependencies found."
           fi
 
   Deploy-Preview:

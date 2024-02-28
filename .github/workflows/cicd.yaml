@@ -21,6 +21,8 @@ jobs:
           node-version: '19.x'
       - name: Install pnpm
         run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm install
       - name: Install jq
         run: sudo apt-get install jq -y
       - name: Check for unused dependencies

@@ -28,6 +28,14 @@ jobs:
         run: pnpm lint
       - name: Test
         run: pnpm tests
+      - name: Check for unused dependencies
+        run: |
+        OUTPUT=$(pnpm exec depcheck --ignores="@types/*,typescript" --json)
+        if [ "$(echo $OUTPUT | jq '.dependencies + .devDependencies | length')" -gt 0 ]; then
+          echo "Unused dependencies found:"
+          echo $OUTPUT | jq
+          exit 1
+        fi
 
   Deploy-Preview:
     runs-on: ubuntu-latest

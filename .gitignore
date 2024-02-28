@@ -37,3 +37,4 @@ yarn-error.log*
 oauth-providers.json
 todo.tasks
 inmemory.json
+bin/act

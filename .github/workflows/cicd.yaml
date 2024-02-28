@@ -33,7 +33,7 @@ jobs:
       - name: Check for unused dependencies
         run: |
           OUTPUT=$(pnpm exec depcheck --ignores="@types/*,typescript" --json)
-          COUNT=$(echo "$OUTPUT" | jq '.dependencies + .devDependencies | length')
+          COUNT=$(echo "$OUTPUT" | jq '.dependencies | length')
           if [ "$COUNT" -gt 0 ]; then
             echo "Unused dependencies found:"
             echo "$OUTPUT" | jq

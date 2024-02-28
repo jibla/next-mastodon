@@ -11,6 +11,30 @@ on:
     types: [published]
 
 jobs:
+  Unused-Dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '19.x'
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install jq
+        run: sudo apt-get install jq -y
+      - name: Check for unused dependencies
+        run: |
+          OUTPUT=$(pnpm exec depcheck --ignores="@types/*,typescript" --json)
+          COUNT=$(echo "$OUTPUT" | jq '.dependencies + .devDependencies | length')
+          if [ "$COUNT" -gt 0 ]; then
+            echo "Unused dependencies found:"
+            echo "$OUTPUT" | jq
+            exit 1
+          else
+            echo "No unused dependencies found."
+          fi
+
   Lint-and-Tests:
     runs-on: ubuntu-latest
 
@@ -28,19 +52,6 @@ jobs:
         run: pnpm lint
       - name: Test
         run: pnpm tests
-      - name: Install jq
-        run: sudo apt-get install jq -y
-      - name: Check for unused dependencies
-        run: |
-          OUTPUT=$(pnpm exec depcheck --ignores="@types/*,typescript" --json)
-          COUNT=$(echo "$OUTPUT" | jq '.dependencies | length')
-          if [ "$COUNT" -gt 0 ]; then
-            echo "Unused dependencies found:"
-            echo "$OUTPUT" | jq
-            exit 1
-          else
-            echo "No unused dependencies found."
-          fi
 
   Deploy-Preview:
     runs-on: ubuntu-latest

@@ -1,8 +1,14 @@
+import { feedTypes } from "@/lib/data/core/ports/FeedPort";
 import useFeed from "@/lib/hooks/useFeed";
-import { TimelineProps } from "@/lib/types/TimelineProps";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import StatusComponent from "./StatusComponent";
+
+export interface TimelineProps {
+  type: feedTypes;
+  startFrom?: string;
+  userId?: string;
+}
 
 export default function Timeline({ type, startFrom, userId }: TimelineProps) {
   const { feed, loading, error, fetchNextPage } = useFeed(

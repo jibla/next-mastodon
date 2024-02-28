@@ -27,7 +27,9 @@ jobs:
         run: sudo apt-get install jq -y
       - name: Check for unused dependencies
         run: |
-          OUTPUT=$(pnpm exec depcheck --ignores="@types/*,typescript" --json)
+          set +e
+          OUTPUT=$(pnpm depcheck --ignores="@types/*,typescript" --json)
+          set -e
           COUNT=$(echo "$OUTPUT" | jq '.dependencies | length')
           if [ "$COUNT" -gt 0 ]; then
             echo "Unused dependencies found:"

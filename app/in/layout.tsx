@@ -6,7 +6,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { cn } from "@/lib/utils";
+import { cn } from "@/components/utils";
 import "@/styles/globals.css";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SessionProvider } from "next-auth/react";

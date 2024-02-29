@@ -1,11 +1,11 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { Label } from "@radix-ui/react-label";
 import { Terminal } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { Icons } from "../ui/icons";
+import { cn } from "../utils";
 import SignInButton from "./SignInButton";
 
 export default function SignInForm() {

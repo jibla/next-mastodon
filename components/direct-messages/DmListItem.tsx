@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "../utils";
 import RelativeDate from "../shared/relativeDate";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import DOMPurify from "dompurify";

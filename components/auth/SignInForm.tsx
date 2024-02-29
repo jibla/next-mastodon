@@ -41,7 +41,7 @@ export default function SignInForm() {
 
         case "InvalidURLFormat":
           setErrorMessage(
-            "cnThe URL entered is invalid. Please check the format and try again.",
+            "The URL entered is invalid. Please check the format and try again.",
           );
           break;
 

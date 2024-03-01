@@ -5,10 +5,10 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/components/ui/resizable";
+} from "@/components/shadcnui/resizable";
 import { cn } from "@/components/utils";
 import "@/styles/globals.css";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/shadcnui/scroll-area";
 import { SessionProvider } from "next-auth/react";
 import { useState } from "react";
 

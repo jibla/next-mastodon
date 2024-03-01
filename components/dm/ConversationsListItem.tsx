@@ -1,10 +1,10 @@
 import { cn } from "../utils";
 import RelativeDate from "../shared/relativeDate";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../shadcnui/avatar";
 import DOMPurify from "dompurify";
 import { useRouter } from "next/navigation";
 
-interface DMListItemProps {
+interface ConversationsListItemProps {
   id: string;
   name: string;
   lastMessage: string;
@@ -14,7 +14,7 @@ interface DMListItemProps {
   avatarUrl?: string;
 }
 
-export default function DMListItem({
+export default function ConversationsListItem({
   id,
   name,
   lastMessage,
@@ -22,7 +22,7 @@ export default function DMListItem({
   lastMessageDate,
   isRead,
   avatarUrl,
-}: DMListItemProps) {
+}: ConversationsListItemProps) {
   const sanitizedLastMessage = DOMPurify.sanitize(lastMessage);
   const router = useRouter();
 

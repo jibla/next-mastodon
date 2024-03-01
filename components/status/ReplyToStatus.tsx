@@ -1,7 +1,7 @@
 import useReplyToStatus from "@/lib/hooks/useReplyToStatus";
-import { Button } from "../ui/button";
-import { Label } from "../ui/label";
-import { Textarea } from "../ui/textarea";
+import { Button } from "../shadcnui/button";
+import { Label } from "../shadcnui/label";
+import { Textarea } from "../shadcnui/textarea";
 import { useState } from "react";
 
 interface ReplyToStatusProps {

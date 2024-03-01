@@ -1,10 +1,10 @@
 import { useSession } from "next-auth/react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../shadcnui/avatar";
 import usePublishStatus from "@/lib/hooks/usePublishStatus";
 import { useState } from "react";
-import { Textarea } from "../ui/textarea";
-import { Button } from "../ui/button";
-import StatusComponent from "../feed/StatusComponent";
+import { Textarea } from "../shadcnui/textarea";
+import { Button } from "../shadcnui/button";
+import StatusComponent from "./Status";
 
 export default function PublishStatusBlock() {
   const { data: session, status } = useSession();

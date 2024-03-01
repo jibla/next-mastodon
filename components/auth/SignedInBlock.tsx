@@ -6,11 +6,11 @@ import {
   MenubarMenu,
   MenubarSeparator,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "@/components/shadcnui/menubar";
 import { signOut, useSession } from "next-auth/react";
 import Soon from "../shared/soon";
 
-export function AuthenticatedMenuItem() {
+export function SignedInBlock() {
   const { data: session, status } = useSession();
 
   return (

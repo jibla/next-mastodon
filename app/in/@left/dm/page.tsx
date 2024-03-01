@@ -1,6 +1,6 @@
 "use client";
 
-import DMListItem from "@/components/direct-messages/DmListItem";
+import ConversationsListItem from "@/components/dm/ConversationsListItem";
 import useDmList from "@/lib/hooks/useDmList";
 
 export default function DirectMessagesLeft() {
@@ -27,7 +27,7 @@ export default function DirectMessagesLeft() {
               },
               index,
             ) => (
-              <DMListItem
+              <ConversationsListItem
                 id={id}
                 name={name}
                 lastMessage={lastMessage}

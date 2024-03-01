@@ -3,7 +3,7 @@ import { Status } from "@/lib/data/core/entities/Status";
 import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import DOMPurify from "dompurify";
 import StatusImagesGrid from "../shared/StatusImagesGrid";
-import { Avatar } from "../ui/avatar";
+import { Avatar } from "../shadcnui/avatar";
 import Bookmark from "./actions/Bookmark";
 import Comment from "./actions/Comment";
 import CopyLink from "./actions/CopyLink";
@@ -11,7 +11,7 @@ import Like from "./actions/Like";
 import Share from "./actions/Share";
 import ShareIcon from "../shared/shareIcon";
 
-export default function StatusComponent({ status }: { status: Status }) {
+export default function Status({ status }: { status: Status }) {
   let statusToRender = status;
   if (status.reblogged) {
     statusToRender = status.reblogged;

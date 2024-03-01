@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcnui/button";
 import {
   Sheet,
   SheetContent,
@@ -6,12 +6,12 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/components/shadcnui/sheet";
 import { Pencil } from "lucide-react";
 import PublishStatusBlock from "./PublishStatusBlock";
 import Timeline from "../feed/Timeline";
 import { feedTypes } from "@/lib/data/core/ports/FeedPort";
-import { ScrollArea } from "../ui/scroll-area";
+import { ScrollArea } from "../shadcnui/scroll-area";
 import { useSession } from "next-auth/react";
 
 export default function PublishStatusSheet() {

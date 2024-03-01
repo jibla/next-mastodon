@@ -1,10 +1,10 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/shadcnui/input";
 import { CircleIcon, GlobeIcon, HomeIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AuthenticatedMenuItem } from "../auth/AuthenticatedMenuItem";
+import { SignedInBlock } from "../auth/SignedInBlock";
 import { usePathname } from "next/navigation";
 import {
   NavigationMenu,
@@ -12,8 +12,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Menubar } from "@/components/ui/menubar";
+} from "@/components/shadcnui/navigation-menu";
+import { Menubar } from "@/components/shadcnui/menubar";
 
 export function Menu() {
   const [appVersion, setAppVersion] = useState<string | undefined>();
@@ -92,7 +92,7 @@ export function Menu() {
           </Link>
         </NavigationMenuItem>
         <Menubar>
-          <AuthenticatedMenuItem />
+          <SignedInBlock />
         </Menubar>
       </NavigationMenuList>
     </NavigationMenu>

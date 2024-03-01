@@ -2,8 +2,8 @@
 
 import Soon from "@/components/shared/soon";
 import PublishStatusSheet from "@/components/status/PublishStatusSheet";
-import { Badge, badgeVariants } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge, badgeVariants } from "@/components/shadcnui/badge";
+import { Button } from "@/components/shadcnui/button";
 import {
   BookmarkFilledIcon,
   EnvelopeOpenIcon,
@@ -16,7 +16,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/components/shadcnui/navigation-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

@@ -1,10 +1,14 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/shadcnui/alert";
+import { Button } from "@/components/shadcnui/button";
+import { Input } from "@/components/shadcnui/input";
 import { Label } from "@radix-ui/react-label";
 import { Terminal } from "lucide-react";
 import { FormEvent, useState } from "react";
-import { Icons } from "../ui/icons";
+import { Icons } from "../shadcnui/icons";
 import { cn } from "../utils";
 import SignInButton from "./SignInButton";
 

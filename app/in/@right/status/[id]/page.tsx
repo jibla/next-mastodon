@@ -1,6 +1,6 @@
 "use client";
 
-import StatusComponent from "@/components/feed/StatusComponent";
+import Status from "@/components/status/Status";
 import ReplyToStatus from "@/components/status/ReplyToStatus";
 import { Feed } from "@/lib/data/core/entities/Feed";
 import useStatus from "@/lib/hooks/useStatus";
@@ -25,7 +25,7 @@ export default function StatusPage({ params }: { params: { id: string } }) {
     <div className="flex flex-col justify-center">
       {!loading && status != undefined && (
         <div>
-          <StatusComponent status={status} />
+          <Status status={status} />
           <ReplyToStatus id={status.id} />
         </div>
       )}
@@ -37,7 +37,7 @@ export default function StatusPage({ params }: { params: { id: string } }) {
             </h2>
             <div>
               {statusThread.statuses.map((threadStatus, index) => (
-                <StatusComponent key={index} status={threadStatus} />
+                <Status key={index} status={threadStatus} />
               ))}
             </div>
           </div>

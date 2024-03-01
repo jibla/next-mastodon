@@ -1,6 +1,6 @@
 import { signIn } from "next-auth/react";
-import { Button } from "../ui/button";
-import { Icons } from "../ui/icons";
+import { Button } from "../shadcnui/button";
+import { Icons } from "../shadcnui/icons";
 
 interface SignInButtonProps {
   loading: boolean;

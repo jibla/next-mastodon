@@ -1,12 +1,12 @@
 "use client";
 
-import DmMessage from "@/components/direct-messages/DmMessage";
 import ReplyToStatus from "@/components/status/ReplyToStatus";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/shadcnui/scroll-area";
 import { Status } from "@/lib/data/core/entities/Status";
 import useConversatrion from "@/lib/hooks/useConversation";
 import { Separator } from "@radix-ui/react-menubar";
 import { Key } from "react";
+import DmMessage from "@/components/dm/DmMessage";
 
 export default function ConversationPage({
   params,

@@ -60,7 +60,7 @@ export default function useFeed(
     }
 
     fetchInitial();
-  }, [type, fetchFeed, startFrom]);
+  }, [type, fetchFeed, startFrom, userId]);
 
   const fetchNextPage = useCallback(async () => {
     if (nextPage) {

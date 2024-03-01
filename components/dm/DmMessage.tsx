@@ -3,7 +3,7 @@ import { Status } from "@/lib/data/core/entities/Status";
 import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import DOMPurify from "dompurify";
 import StatusImagesGrid from "../shared/StatusImagesGrid";
-import { Avatar } from "../ui/avatar";
+import { Avatar } from "../shadcnui/avatar";
 
 interface DmMessageProps {
   status: Status;

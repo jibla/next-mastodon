@@ -1,8 +1,8 @@
 import { feedTypes } from "@/lib/data/core/ports/FeedPort";
 import useFeed from "@/lib/hooks/useFeed";
 import { useRouter } from "next/navigation";
-import { Button } from "../ui/button";
-import StatusComponent from "./StatusComponent";
+import { Button } from "../shadcnui/button";
+import Status from "../status/Status";
 
 export interface TimelineProps {
   type: feedTypes;
@@ -30,7 +30,7 @@ export default function Timeline({ type, startFrom, userId }: TimelineProps) {
               className="cursor-pointer"
               onClick={() => router.push(`/in/status/${status.id}`)}
             >
-              <StatusComponent status={status} />
+              <Status status={status} />
             </div>
           ))}
 

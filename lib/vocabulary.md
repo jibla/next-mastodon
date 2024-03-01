@@ -49,4 +49,4 @@ Custom react hooks, should be placed in `/lib/hooks` directory. They should be n
 
 ### React Components
 
-All react components should be placed in the `/components` directory. The components can be grouped in subdirectories based on their functionality. The component name should be descriptive and should be suffixed with `Component`. For example, `StatusComponent`, `FeedComponent` etc.
+All react components should be placed in the `/components` directory. The components can be grouped in subdirectories based on their functionality. The component name should be descriptive.

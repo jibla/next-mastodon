@@ -1,7 +1,7 @@
 "use client";
 
 import SignInForm from "@/components/auth/SignInForm";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcnui/button";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -37,7 +37,7 @@ export default function StatusPage({ params }: { params: { id: string } }) {
             </h2>
             <div>
               {statusThread.statuses.map((threadStatus, index) => (
-                <StatusComponent key={index} status={threadStatus} />
+                <Status key={index} status={threadStatus} />
               ))}
             </div>
           </div>

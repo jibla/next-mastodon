@@ -2,12 +2,23 @@
 
 import SignInForm from "@/components/auth/SignInForm";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import { Toaster, toast } from "sonner";
 
 export default function LoginPage() {
+  useEffect(() => {
+    toast.error("Event has been created", {
+      description: "Sunday, December 03, 2023 at 9:00 AM",
+      action: {
+        label: "Close",
+        onClick: () => console.log("Undo"),
+      },
+    });
+  });
   return (
     <>
+      <Toaster />
       <div className="container relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 overflow-hidden">
         <div className="relative h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex overflow-auto">
           <div className="absolute inset-0 bg-zinc-900" />

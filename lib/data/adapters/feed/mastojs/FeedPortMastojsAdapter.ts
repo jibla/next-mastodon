@@ -51,9 +51,12 @@ export default class FeedPortMastojsAdapter implements FeedPort {
       case feedTypes.local:
         return client.v1.timelines.public;
       case feedTypes.user:
-        if (userId) {
-          return client.v1.accounts.$select(userId).statuses;
+        if (!userId) {
+          throw new Error(
+            `Unsupported feed type or parameters are missed for: ${type} type.`,
+          );
         }
+        return client.v1.accounts.$select(userId).statuses;
       case feedTypes.bookmark:
         return client.v1.bookmarks;
       case feedTypes.favorites:
